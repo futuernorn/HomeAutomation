@@ -1,5 +1,5 @@
 
-public class HASystem {
+public class BaseStation {
 
 	String GetStatus() {
 		
