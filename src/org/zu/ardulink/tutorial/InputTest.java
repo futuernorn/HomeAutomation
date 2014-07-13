@@ -43,7 +43,7 @@ public class InputTest {
 				System.out.println("Board connected");
 			}
 		});
-		
+
 		boolean connected = Link.getDefaultInstance().connect(connectionPort, baudRate);
 		try {
 			System.out.println("wait for a while");
