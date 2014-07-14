@@ -1,5 +1,8 @@
 package org.txstate.cs4398_sum14.group4;
 
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JTabbedPane;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -9,6 +12,7 @@ import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
@@ -20,15 +24,28 @@ import java.awt.event.KeyEvent;
  */
 public class UserInterface extends JPanel {
 
-    public UserInterface() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public UserInterface() {
         super(new GridLayout(1, 1));
         
         JTabbedPane tabbedPane = new JTabbedPane();
         ImageIcon icon = createImageIcon("images/middle.gif");
         
-        JComponent panel1 = makeTextPanel("Panel #1");
-        tabbedPane.addTab("Tab 1", icon, panel1,
-                "Does nothing");
+        JPanel panel1 =  new JPanel();
+        panel1.setLayout(new BoxLayout(panel1, BoxLayout.PAGE_AXIS));
+        JButton addBtn = new JButton("Add");
+        JButton removeBtn = new JButton("Remove");
+        //addBtn.addActionListener(this);
+        JPanel buttonPanel1 = new JPanel();
+        buttonPanel1.setLayout(new BoxLayout(buttonPanel1, BoxLayout.PAGE_AXIS));
+        buttonPanel1.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel1.add(buttonPanel1, BorderLayout.NORTH);
+        tabbedPane.addTab("Component Management", icon, panel1,
+                "Component Management");
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
         
         JComponent panel2 = makeTextPanel("Panel #2");
