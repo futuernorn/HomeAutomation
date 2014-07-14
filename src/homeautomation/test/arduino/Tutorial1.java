@@ -1,4 +1,4 @@
-package org.zu.ardulink.tutorial;
+package homeautomation.test.arduino;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -16,7 +16,7 @@ import org.zu.ardulink.Link;
 import org.zu.ardulink.gui.ConnectionPanel;
 import org.zu.ardulink.gui.PWMController;
 
-import com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel;
+
 
 public class Tutorial1 extends JFrame {
 
@@ -34,7 +34,7 @@ public class Tutorial1 extends JFrame {
        public void run() {
          try {
            // 1. Change Look and Feel
-           UIManager.setLookAndFeel(NimbusLookAndFeel.class.getCanonicalName());
+
 
            Tutorial1 frame = new Tutorial1();
            frame.setVisible(true);
