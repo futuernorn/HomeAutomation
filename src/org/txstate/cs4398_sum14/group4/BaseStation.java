@@ -9,8 +9,7 @@ import com.pi4j.io.gpio.GpioFactory;
  *
  */
 public class BaseStation {
-	// create gpio controller instance
-	final GpioController gpio = GpioFactory.getInstance();
+
 	
 	
 	String GetStatus() {
@@ -25,6 +24,11 @@ public class BaseStation {
 	 */
 	public void AddSensor(Sensor newSensor) {
 		
+		
+	}
+
+	public void AddActuator(Actuator newComp) {
+		// TODO Auto-generated method stub
 		
 	}
 }
