@@ -52,11 +52,11 @@ public class Driver {
 						outputPinNumbers1.put("LED TestLight", RaspiPin.GPIO_01);
 						Actuator newLedActuator = new Actuator(inputPinNumbers1, outputPinNumbers1);
 						controller.AddComponent(newLedActuator);
-						newLedActuator.outputPins.get(0).low();
-//						newLedActuator.outputPins.get(0).pulse(1000);
 						window.btnToggleLed.addActionListener(newLedActuator);
 						
 						window.ShowInterface();
+						
+						
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

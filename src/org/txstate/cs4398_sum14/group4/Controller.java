@@ -20,6 +20,13 @@ public class Controller {
 		
 	}
 	
+	public void Shutdown() {
+		for (Actuator a : baseStation.actuators) {
+			a.TurnOff();
+		}
+		
+	}
+	
 	public boolean AddComponent(Component newComp) {
 		
 		for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {
@@ -40,6 +47,7 @@ public class Controller {
 		if (newComp.getClass().equals(Sensor.class)) {
 			baseStation.AddSensor((Sensor) newComp);
 		} else if (newComp.getClass().equals(Actuator.class)) {
+			((Actuator) newComp).Initalize();
 			baseStation.AddActuator((Actuator) newComp);
 		}
 

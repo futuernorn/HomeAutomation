@@ -25,7 +25,7 @@ import java.awt.event.ActionEvent;
 
 public class LocalInterface {
 
-	private JFrame frmHomeAutomationSystem;
+	JFrame frmHomeAutomationSystem;
 	private JTextField nameTxt;
 	private JTextField roomTxt;
 	public JTextField motionTxt;

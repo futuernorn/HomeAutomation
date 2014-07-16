@@ -1,5 +1,7 @@
 package org.txstate.cs4398_sum14.group4;
 
+import java.util.ArrayList;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
  
@@ -9,8 +11,11 @@ import com.pi4j.io.gpio.GpioFactory;
  *
  */
 public class BaseStation {
-
+	ArrayList<Actuator> actuators;
 	
+	public BaseStation() {
+		actuators = new ArrayList<Actuator>();
+	}
 	
 	String GetStatus() {
 		
@@ -29,6 +34,7 @@ public class BaseStation {
 
 	public void AddActuator(Actuator newComp) {
 		// TODO Auto-generated method stub
+		actuators.add(newComp);
 		
 	}
 }
