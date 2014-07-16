@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.PinState;
 
 public class Actuator extends Component implements ActionListener   {
 	int pinNum;
@@ -33,12 +34,14 @@ public class Actuator extends Component implements ActionListener   {
 	
 	public void actionPerformed(ActionEvent e) {
         numClicks++;
-        System.out.println("Button Clicked " + numClicks + " times");
+        
         if (isOn) {
-        	outputPins.get(0).low();
+        	outputPins.get(0).setState(PinState.LOW);
+        	System.out.println("Setting " + outputPins.get(0).getName() + " to " + PinState.LOW);
         	isOn = false;
         } else {
-        	outputPins.get(0).high();
+        	outputPins.get(0).setState(PinState.HIGH);
+        	System.out.println("Setting " + outputPins.get(0).getName() + " to " + PinState.HIGH);
         	isOn = true;
         }
         
