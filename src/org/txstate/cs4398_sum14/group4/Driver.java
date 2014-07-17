@@ -40,19 +40,19 @@ public class Driver {
 					try {
 						LocalInterface window = new LocalInterface();
 						// for instance, this assumes someone has added a compomnent and supplied the needed information
-						HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
-						inputPinNumbers.put("Motion Detector (PIR)", RaspiPin.GPIO_00);
-						HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
-						Sensor newMotionSensor = new Sensor(inputPinNumbers, outputPinNumbers, window.motionTxt);
-						controller.AddComponent(newMotionSensor);
-						
-						HashMap<String, Pin> inputPinNumbers1 = new HashMap<String, Pin>();
-						
-						HashMap<String, Pin> outputPinNumbers1 = new HashMap<String, Pin>();
-						outputPinNumbers1.put("LED TestLight", RaspiPin.GPIO_01);
-						Actuator newLedActuator = new Actuator(inputPinNumbers1, outputPinNumbers1);
-						controller.AddComponent(newLedActuator);
-						window.btnToggleLed.addActionListener(newLedActuator);
+//						HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
+//						inputPinNumbers.put("Motion Detector (PIR)", RaspiPin.GPIO_00);
+//						HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
+//						Sensor newMotionSensor = new Sensor(inputPinNumbers, outputPinNumbers, window.motionTxt);
+//						controller.AddComponent(newMotionSensor);
+//						
+//						HashMap<String, Pin> inputPinNumbers1 = new HashMap<String, Pin>();
+//						
+//						HashMap<String, Pin> outputPinNumbers1 = new HashMap<String, Pin>();
+//						outputPinNumbers1.put("LED TestLight", RaspiPin.GPIO_01);
+//						Actuator newLedActuator = new Actuator(inputPinNumbers1, outputPinNumbers1);
+//						controller.AddComponent(newLedActuator);
+//						window.btnToggleLed.addActionListener(newLedActuator);
 						
 						window.ShowInterface();
 						

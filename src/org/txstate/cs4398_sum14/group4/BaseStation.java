@@ -11,10 +11,13 @@ import com.pi4j.io.gpio.GpioFactory;
  *
  */
 public class BaseStation {
-	ArrayList<Actuator> actuators;
+	ArrayList<Room> house;
+	ArrayList<User> users;
+	private Security securitySystem;
 	
 	public BaseStation() {
-		actuators = new ArrayList<Actuator>();
+		house = new ArrayList<Room>();
+		users = new ArrayList<User>();
 	}
 	
 	String GetStatus() {
@@ -22,19 +25,20 @@ public class BaseStation {
 		return "Home lookin' p good bro!";
 	}
 	
-	/**
-	 * Each component will need to hold a reference to this BaseStation class in order to access / setup their gipo status
-	 * @param addition
-	 * @return 
-	 */
-	public void AddSensor(Sensor newSensor) {
-		
+
+
+	public void AddRoom(Room newRoom) {
+		// TODO Auto-generated method stub
+		house.add(newRoom);
 		
 	}
 
-	public void AddActuator(Actuator newComp) {
-		// TODO Auto-generated method stub
-		actuators.add(newComp);
-		
+	public ArrayList<Actuator> GetActuators() {
+		ArrayList<Actuator> actuators = new ArrayList<Actuator>();
+		for (Room room : house) {
+			actuators.addAll(room.GetActuators());
+			
+		}
+		return null;
 	}
 }

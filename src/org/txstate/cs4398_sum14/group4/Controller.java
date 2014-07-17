@@ -22,13 +22,13 @@ public class Controller {
 	}
 	
 	public void Shutdown() {
-		for (Actuator a : baseStation.actuators) {
+		for (Actuator a : baseStation.GetActuators()) {
 			a.TurnOff();
 		}
 		
 	}
 	
-	public boolean AddComponent(Component newComp) {
+	public boolean AddComponent(Component newComp, Room newRoom) {
 		
 		for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {
 		    String key = entry.getKey();
@@ -47,10 +47,10 @@ public class Controller {
 		}
 		
 		if (newComp.getClass().equals(Sensor.class)) {
-			baseStation.AddSensor((Sensor) newComp);
+			newRoom.AddComponent((Sensor) newComp);
 		} else if (newComp.getClass().equals(Actuator.class)) {
 			((Actuator) newComp).Initalize();
-			baseStation.AddActuator((Actuator) newComp);
+			newRoom.AddComponent((Actuator) newComp);
 		}
 
 		

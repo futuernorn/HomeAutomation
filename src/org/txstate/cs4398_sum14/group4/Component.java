@@ -25,4 +25,9 @@ public abstract class Component {
 		
 	}
 	
+	public boolean GetStatus() {
+		return false;
+		
+	}
+	
 }

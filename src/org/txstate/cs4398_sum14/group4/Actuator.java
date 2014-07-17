@@ -53,5 +53,11 @@ public class Actuator extends Component implements ActionListener   {
 			outputPin.low();
 		}
 	}
+	
+	public void TurnOn() {
+		for (GpioPinDigitalOutput outputPin : outputPins) {
+			outputPin.high();
+		}
+	}
 
 }
