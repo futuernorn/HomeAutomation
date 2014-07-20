@@ -14,7 +14,7 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 public class Controller {
 	BaseStation baseStation;
 	// create gpio controller instance
-	final GpioController gpio = GpioFactory.getInstance();
+	final HardwareAbstractionLayer hal = new HardwareAbstractionLayer();
 	
 	public Controller(BaseStation baseStation) {
 		this.baseStation = baseStation;
