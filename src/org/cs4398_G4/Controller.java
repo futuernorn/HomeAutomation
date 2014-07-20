@@ -1,4 +1,4 @@
-package org.txstate.cs4398_sum14.group4;
+package org.cs4398_G4;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -14,7 +14,8 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 public class Controller {
 	BaseStation baseStation;
 	// create gpio controller instance
-	final HardwareAbstractionLayer hal = new HardwareAbstractionLayer();
+//	final HardwareAbstractionLayer hal = new HardwareAbstractionLayer();
+	final GpioController gpio = GpioFactory.getInstance();
 	
 	public Controller(BaseStation baseStation) {
 		this.baseStation = baseStation;

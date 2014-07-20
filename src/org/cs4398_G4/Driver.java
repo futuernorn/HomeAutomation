@@ -1,5 +1,5 @@
 
- package org.txstate.cs4398_sum14.group4;
+ package org.cs4398_G4;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -46,13 +46,14 @@ public class Driver {
 //						Sensor newMotionSensor = new Sensor(inputPinNumbers, outputPinNumbers, window.motionTxt);
 //						controller.AddComponent(newMotionSensor);
 //						
-//						HashMap<String, Pin> inputPinNumbers1 = new HashMap<String, Pin>();
-//						
-//						HashMap<String, Pin> outputPinNumbers1 = new HashMap<String, Pin>();
-//						outputPinNumbers1.put("LED TestLight", RaspiPin.GPIO_01);
-//						Actuator newLedActuator = new Actuator(inputPinNumbers1, outputPinNumbers1);
-//						controller.AddComponent(newLedActuator);
-//						window.btnToggleLed.addActionListener(newLedActuator);
+						HashMap<String, Pin> inputPinNumbers1 = new HashMap<String, Pin>();
+						
+						HashMap<String, Pin> outputPinNumbers1 = new HashMap<String, Pin>();
+						outputPinNumbers1.put("LED TestLight", RaspiPin.GPIO_01);
+						Actuator newLedActuator = new Actuator(inputPinNumbers1, outputPinNumbers1);
+						Room defaultRoom = new Room("Default");
+						controller.AddComponent(newLedActuator, defaultRoom);
+						window.btnToggleLed.addActionListener(newLedActuator);
 						
 						window.ShowInterface();
 						
