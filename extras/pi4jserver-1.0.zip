@@ -1,0 +1,24 @@
+--2014-07-16 10:54:23--  http://sourceforge.net/projects/testpi4j/files/1.0/pi4jserver-1.0.zip/download
+Resolving sourceforge.net (sourceforge.net)... 216.34.181.60
+Connecting to sourceforge.net (sourceforge.net)|216.34.181.60|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://downloads.sourceforge.net/project/testpi4j/1.0/pi4jserver-1.0.zip?r=&ts=1405526063&use_mirror=softlayer-dal [following]
+--2014-07-16 10:54:23--  http://downloads.sourceforge.net/project/testpi4j/1.0/pi4jserver-1.0.zip?r=&ts=1405526063&use_mirror=softlayer-dal
+Resolving downloads.sourceforge.net (downloads.sourceforge.net)... 216.34.181.59
+Connecting to downloads.sourceforge.net (downloads.sourceforge.net)|216.34.181.59|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://softlayer-dal.dl.sourceforge.net/project/testpi4j/1.0/pi4jserver-1.0.zip [following]
+--2014-07-16 10:54:23--  http://softlayer-dal.dl.sourceforge.net/project/testpi4j/1.0/pi4jserver-1.0.zip
+Resolving softlayer-dal.dl.sourceforge.net (softlayer-dal.dl.sourceforge.net)... 67.228.157.232
+Connecting to softlayer-dal.dl.sourceforge.net (softlayer-dal.dl.sourceforge.net)|67.228.157.232|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 163632 (160K) [application/octet-stream]
+Saving to: `download'
+
+     0K .......... .......... .......... .......... .......... 31%  377K 0s
+    50K .......... .......... .......... .......... .......... 62% 1.01M 0s
+   100K .......... .......... .......... .......... .......... 93% 1.67M 0s
+   150K .........                                             100% 1.63M=0.2s
+
+2014-07-16 10:54:24 (739 KB/s) - `download' saved [163632/163632]
+

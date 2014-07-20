@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
-import javax.swing.JTextField;
-
+import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.PinState;
+
+import javax.swing.JTextField;
 
 public class Actuator extends Component implements ActionListener   {
 	int pinNum;
