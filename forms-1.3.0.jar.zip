@@ -1,0 +1,13 @@
+--2014-07-20 12:16:48--  http://www.java2s.com/Code/JarDownload/forms/forms-1.3.0.jar.zip
+Resolving www.java2s.com (www.java2s.com)... 208.109.186.6
+Connecting to www.java2s.com (www.java2s.com)|208.109.186.6|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 112871 (110K) [application/zip]
+Saving to: `forms-1.3.0.jar.zip.1'
+
+     0K .......... .......... .......... .......... .......... 45%  153K 0s
+    50K .......... .......... .......... .......... .......... 90%  256K 0s
+   100K ..........                                            100% 1.41M=0.5s
+
+2014-07-20 12:16:49 (208 KB/s) - `forms-1.3.0.jar.zip.1' saved [112871/112871]
+
