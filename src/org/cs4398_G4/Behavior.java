@@ -1,28 +1,24 @@
 package org.cs4398_G4;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.time.LocalDate;
+import java.time.LocalDate; 
 import java.util.HashMap;
 
-public class Behavior implements ActionListener{
-	private LocalDate startTime;
-	private LocalDate endTime;
-	private HashMap<Sensor, Integer> sensorConditions;
-	
-	private String action;
+import com.github.rfqu.df4j.core.DataflowNode;
+public class Behavior extends DataflowNode {
+	StreamInput input=new StreamInput();
+    StringBuilder sb=new StringBuilder();
 	
 	
-	public boolean CheckConditions() {
-		return false;
-		
-	}
-	
-	public void PerformActions() {
+
+
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 
-	public void actionPerformed(ActionEvent arg0) {
+	@Override
+	protected void act() throws Exception {
 		// TODO Auto-generated method stub
 		
 	}

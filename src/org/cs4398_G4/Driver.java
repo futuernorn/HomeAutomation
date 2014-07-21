@@ -49,7 +49,7 @@ public class Driver {
 						HashMap<String, Pin> inputPinNumbers1 = new HashMap<String, Pin>();
 						
 						HashMap<String, Pin> outputPinNumbers1 = new HashMap<String, Pin>();
-						outputPinNumbers1.put("LED TestLight", RaspiPin.GPIO_01);
+						outputPinNumbers1.put("LED TestLight", RaspiPin.GPIO_04);
 						Actuator newLedActuator = new Actuator(inputPinNumbers1, outputPinNumbers1);
 						Room defaultRoom = new Room("Default");
 						controller.AddComponent(newLedActuator, defaultRoom);
