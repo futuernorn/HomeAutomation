@@ -1,10 +1,32 @@
 package org.txstate.cs4398_sum14.group4;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class LogEntry {
-	private LocalDate time;
-	private ArrayList<Component> components;
+	private Date date;
 	private User user;
+	private String action;
+	
+	LogEntry(Date tempDate, User tempUser, String tempAction)
+	{
+		date = tempDate;
+		user = tempUser;
+		action = tempAction;
+	}
+	
+	Date viewDate()
+	{
+		return date;
+	}
+	
+	User viewUser()
+	{
+		return user;
+	}
+	
+	String viewAction()
+	{
+		return action;
+	}
 }
