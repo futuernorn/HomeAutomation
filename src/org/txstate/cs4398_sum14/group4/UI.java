@@ -1,25 +1,24 @@
 package org.txstate.cs4398_sum14.group4;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTabbedPane;
-import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
 
 public class UI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField password;
 	private JTextField textField_1;
 
 	/**
@@ -52,7 +51,7 @@ public class UI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		final JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(5, 5, 424, 252);
 		contentPane.add(tabbedPane);
 		
@@ -69,19 +68,45 @@ public class UI extends JFrame {
 		lblPassword.setBounds(91, 113, 64, 14);
 		panel.add(lblPassword);
 		
-		textField = new JTextField();
-		textField.setBounds(176, 110, 138, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		//password text field
+		password = new JPasswordField();
+		password.setBounds(176, 110, 138, 20);
+		panel.add(password);
+		password.setColumns(10);
 		
+		//user ID text field
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(176, 82, 138, 20);
 		panel.add(textField_1);
 		
+		final User user = new User();
+		user.User();
+		
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (user.logOn(password.getText()))
+				{
+					JPanel panel_1 = new JPanel();
+					panel_1.setBackground(new Color(128, 128, 128));
+					tabbedPane.addTab("Lights", null, panel_1, null);
+					panel_1.setLayout(null);
+					
+					JPanel panel_2 = new JPanel();
+					panel_2.setBackground(new Color(128, 128, 128));
+					tabbedPane.addTab("Locks", null, panel_2, null);
+					panel_2.setLayout(null);
+					
+					JPanel panel_3 = new JPanel();
+					panel_3.setBackground(new Color(128, 128, 128));
+					tabbedPane.addTab("HVAC", null, panel_3, null);
+					panel_3.setLayout(null);
+				}
+				else
+				{
+					textField_1.setText(password.getText());
+				}
 			}
 		});
 		btnOk.setBounds(250, 141, 64, 20);
@@ -89,21 +114,6 @@ public class UI extends JFrame {
 		
 		JButton btnClear = new JButton("Clear");
 		btnClear.setBounds(176, 141, 64, 20);
-		panel.add(btnClear);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(128, 128, 128));
-		tabbedPane.addTab("Lights", null, panel_1, null);
-		panel_1.setLayout(null);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(128, 128, 128));
-		tabbedPane.addTab("Locks", null, panel_2, null);
-		panel_2.setLayout(null);
-		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(128, 128, 128));
-		tabbedPane.addTab("HVAC", null, panel_3, null);
-		panel_3.setLayout(null);
+		panel.add(btnClear);		
 	}
 }

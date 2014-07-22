@@ -2,12 +2,12 @@ package org.txstate.cs4398_sum14.group4;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Behavior implements ActionListener{
-	private LocalDate startTime;
-	private LocalDate endTime;
+	//private LocalDate startTime;
+	//private LocalDate endTime;
 	private HashMap<Sensor, Integer> sensorConditions;
 	
 	private String action;
