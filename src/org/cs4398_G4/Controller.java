@@ -63,4 +63,11 @@ public class Controller {
 	public List<Sensor> GetSensors() {
 		return baseStation.GetSensors();
 	}
+	
+	static public String PinState(Integer state) {
+		String stateName = "High";
+		if (state == 0)
+			stateName = "Low";
+		return stateName;
+	}
 }

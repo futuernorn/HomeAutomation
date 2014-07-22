@@ -13,6 +13,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.RowSpec;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -32,8 +33,12 @@ import java.util.List;
 
 
 public class BehaviorPanel extends JPanel {
-	private JTextField textField;
+	private JTextField sensorDuration;
 	private LocalInterface view;
+	private JComboBox sensorComboBox;
+	private JComboBox stateComboBox;
+	private JList conditionList;
+	private DefaultListModel conditionListModel;
 
 	/**
 	 * Create the panel.
@@ -48,7 +53,7 @@ public class BehaviorPanel extends JPanel {
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.LABEL_COMPONENT_GAP_COLSPEC,
-				ColumnSpec.decode("29px:grow"),},
+				ColumnSpec.decode("89px:grow"),},
 			new RowSpec[] {
 				FormFactory.LINE_GAP_ROWSPEC,
 				RowSpec.decode("22px"),
@@ -64,22 +69,24 @@ public class BehaviorPanel extends JPanel {
 		
 		List<Sensor> sensorOptions = view.GetController().GetSensors();
 		System.out.println("Sensor Options: "+sensorOptions);
-		JComboBox sensorComboBox = new JComboBox(sensorOptions.toArray());
+		sensorComboBox = new JComboBox(sensorOptions.toArray());
 		behaviorSensorPanel.add(sensorComboBox, "4, 2, left, top");
 		
 		JLabel lblState = new JLabel("State");
 		behaviorSensorPanel.add(lblState, "2, 4, right, default");
 		
-		String[] stateOptions = {"High", "Low"};
-		JComboBox stateComboBox = new JComboBox(stateOptions);
-		behaviorSensorPanel.add(stateComboBox, "4, 4, fill, default");
+//		String[] stateOptions = {"High", "Low"};
+		ComponentState[] stateOptions = {new ComponentState("High", 1), new ComponentState("Low", 0)};
+		stateComboBox = new JComboBox(stateOptions);
+		behaviorSensorPanel.add(stateComboBox, "4, 4");
 		
 		JLabel lblDuration = new JLabel("Duration (seconds)");
 		behaviorSensorPanel.add(lblDuration, "2, 6, right, default");
 		
-		textField = new JTextField();
-		behaviorSensorPanel.add(textField, "4, 6, fill, default");
-		textField.setColumns(10);
+		sensorDuration = new JTextField();
+		sensorDuration.setText("1");
+		behaviorSensorPanel.add(sensorDuration, "4, 6");
+		sensorDuration.setColumns(10);
 		
 		JButton btnClear = new JButton("Clear");
 		behaviorSensorPanel.add(btnClear, "4, 8");
@@ -98,8 +105,11 @@ public class BehaviorPanel extends JPanel {
 		JButton btnClear_1 = new JButton("Clear");
 		panel.add(btnClear_1);
 		
-		JList list = new JList();
-		behaviorStatusPanel.add(list, BorderLayout.CENTER);
+		conditionListModel = new DefaultListModel();
+		conditionList = new JList(conditionListModel);
+		
+		
+		behaviorStatusPanel.add(conditionList, BorderLayout.CENTER);
 		
 		JPanel panel_1 = new JPanel();
 		behaviorStatusPanel.add(panel_1, BorderLayout.WEST);
@@ -111,6 +121,15 @@ public class BehaviorPanel extends JPanel {
 		panel_1.setLayout(gbl_panel_1);
 		
 		JButton button_1 = new JButton(">>");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+//				sensorComboBox
+//				stateComboBox
+//				sensorDuration
+				Condition condition = new Condition((Sensor) sensorComboBox.getSelectedItem(), (ComponentState) stateComboBox.getSelectedItem(), Integer.valueOf(sensorDuration.getText()));
+				conditionListModel.addElement(condition);
+			}
+		});
 		GridBagConstraints gbc_button_1 = new GridBagConstraints();
 		gbc_button_1.insets = new Insets(0, 0, 5, 0);
 		gbc_button_1.anchor = GridBagConstraints.WEST;
