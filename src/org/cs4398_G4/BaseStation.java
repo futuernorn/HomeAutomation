@@ -33,22 +33,42 @@ public class BaseStation {
 		house.add(newRoom);
 		
 	}
-
-	public ArrayList<Actuator> GetActuators() {
-		ArrayList<Actuator> actuators = new ArrayList<Actuator>();
-		for (Room room : house) {
-			actuators.addAll(room.GetActuators());
-			
-		}
-		return null;
-	}
-
+	
 	public List<Sensor> GetSensors() {
 		List<Sensor> sensors = new ArrayList<Sensor>();
 		for (Room room : house) {
 			sensors.addAll(room.GetSensors());
-			
 		}
 		return sensors;
 	}
+	
+	public List<Actuator> GetActuators() {
+	List<Actuator> actuator = new ArrayList<Actuator>();
+		for (Room room : house) {
+			actuator.addAll(room.GetActuators());
+		}
+		return actuator;
+	}
+
+//	public List<? extends Component> GetComponents(Class<?> cls) {
+//		List<? extends Component> components = new ArrayList<Component>();
+//		for (Room room : house) {
+//			components.addAll(room.GetComponents(cls));
+//		}
+//		return components;
+//	}
+
+
+//	public List<? extends Component> GetSensors() {
+//		return GetComponentsByType(Sensor.class);
+//	}
+//
+//	public List<Component> GetComponentsByType(Class<?> type) {
+//		List<Component> components = new ArrayList<Component>();
+//		for (Room room : house) {
+//			components.addAll(room.GetComponentsByType(type));
+//			
+//		}
+//		return components;
+//	}
 }

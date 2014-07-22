@@ -60,6 +60,9 @@ public class Controller {
 		
 	}
 	
+//	public List<Component> GetComponentsByType(Class<?> type) {
+//		return baseStation.GetComponentsByType(type);
+//	}
 	public List<Sensor> GetSensors() {
 		return baseStation.GetSensors();
 	}
@@ -70,4 +73,10 @@ public class Controller {
 			stateName = "Low";
 		return stateName;
 	}
+
+	public List<Actuator> GetActuators() {
+		return baseStation.GetActuators();
+	}
+
+
 }
