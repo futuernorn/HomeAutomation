@@ -3,8 +3,7 @@ package org.txstate.cs4398_sum14.group4;
 import java.util.ArrayList;
 
 public class User {
-	public
-		void User()
+		public User()
 		{
 			name = "Admin";
 			password = "default";
@@ -26,7 +25,7 @@ public class User {
 		
 		boolean logOn(String pw)
 		{
-			if (pw == password)
+			if (password.equals(pw))
 			{
 				loggedIn = true;
 				return true;
