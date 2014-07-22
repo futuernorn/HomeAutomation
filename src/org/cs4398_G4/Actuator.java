@@ -19,8 +19,8 @@ public class Actuator extends Component implements ActionListener   {
 	boolean isOn;
 	private int numClicks;
 	
-	public Actuator(HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
-		super(inputPinNumbers, outputPinNumbers);
+	public Actuator(String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
+		super(name, inputPinNumbers, outputPinNumbers);
 
 		
 	}

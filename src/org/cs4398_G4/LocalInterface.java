@@ -30,27 +30,14 @@ public class LocalInterface {
 	private JTextField roomTxt;
 	public JTextField motionTxt;
 	public JButton btnToggleLed;
+	private Controller controller;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LocalInterface window = new LocalInterface();
-					window.frmHomeAutomationSystem.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public LocalInterface() {
+	public LocalInterface(Controller controller) {
+		this.controller = controller;
 		initialize();
 	}
 	
@@ -71,8 +58,12 @@ public class LocalInterface {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frmHomeAutomationSystem.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
+		BehaviorPanel behaviorPanel = new BehaviorPanel(this);
+		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		
 		JPanel statusPanel = new JPanel();
 		tabbedPane.addTab("Status", null, statusPanel, null);
+		
 		statusPanel.setLayout(new BorderLayout(0, 0));
 		
 		JPanel statusForm = new JPanel();
@@ -183,5 +174,9 @@ public class LocalInterface {
 		
 		JLabel lblAddComponent = new JLabel("Add Component");
 		addRemovePanel.add(lblAddComponent, BorderLayout.NORTH);
+	}
+	
+	public Controller GetController() {
+		return controller;
 	}
 }

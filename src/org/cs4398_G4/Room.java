@@ -1,6 +1,7 @@
 package org.cs4398_G4;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Room {
 	ArrayList<Component> components;
@@ -21,8 +22,13 @@ public class Room {
 		
 	}
 	
-	public ArrayList<Sensor> GetSensors() {
-		return new ArrayList<Sensor>();
+	public List<Sensor> GetSensors() {
+		List<Sensor> sensors = new ArrayList<Sensor>();
+		for (Component component : components) {
+			if (component instanceof Sensor) 
+				sensors.add((Sensor) component);
+		}
+		return sensors;
 		
 	}
 	

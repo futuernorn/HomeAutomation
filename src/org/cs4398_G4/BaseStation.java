@@ -1,6 +1,7 @@
 package org.cs4398_G4;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
@@ -40,5 +41,14 @@ public class BaseStation {
 			
 		}
 		return null;
+	}
+
+	public List<Sensor> GetSensors() {
+		List<Sensor> sensors = new ArrayList<Sensor>();
+		for (Room room : house) {
+			sensors.addAll(room.GetSensors());
+			
+		}
+		return sensors;
 	}
 }

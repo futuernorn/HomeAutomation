@@ -1,5 +1,6 @@
 package org.cs4398_G4;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -57,5 +58,9 @@ public class Controller {
 		
 		return false;
 		
+	}
+	
+	public List<Sensor> GetSensors() {
+		return baseStation.GetSensors();
 	}
 }
