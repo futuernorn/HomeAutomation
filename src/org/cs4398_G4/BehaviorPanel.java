@@ -12,6 +12,7 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.RowSpec;
+import com.pi4j.io.gpio.PinState;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -381,7 +382,7 @@ public class BehaviorPanel extends JPanel {
 	
 	private void Initialize() {
 		
-		ComponentState[] stateOptions = {new ComponentState("High", 1), new ComponentState("Low", 0)}; // sensorStateComboBox
+		PinState[] stateOptions = PinState.allStates(); // sensorStateComboBox
 		stateListModel =  new DefaultComboBoxModel(stateOptions); 
 		btnClearBehavior.setEnabled(false);
 		SetupBehaviorUI();
@@ -402,7 +403,7 @@ public class BehaviorPanel extends JPanel {
 //				sensorComboBox
 //				stateComboBox
 //				sensorDuration
-				Condition condition = new Condition((Sensor) sensorComboBox.getSelectedItem(), (ComponentState) sensorStateComboBox.getSelectedItem(), Integer.valueOf(sensorDuration.getText()));
+				Condition condition = new Condition((Sensor) sensorComboBox.getSelectedItem(), (PinState) sensorStateComboBox.getSelectedItem(), Integer.valueOf(sensorDuration.getText()));
 				sensorComboBox.removeItem(sensorComboBox.getSelectedItem());
 				if (sensorComboBox.getItemCount() == 0)
 					addConditionBtn.setEnabled(false);
@@ -431,7 +432,7 @@ public class BehaviorPanel extends JPanel {
 //				sensorComboBox
 //				stateComboBox
 //				sensorDuration
-				Action action = new Action((Actuator) actuatorComboBox.getSelectedItem(), (ComponentState) actuatorStateComboBox.getSelectedItem(), Integer.valueOf(actuatorDurationTxt.getText()));
+				Action action = new Action((Actuator) actuatorComboBox.getSelectedItem(), (PinState) actuatorStateComboBox.getSelectedItem(), Integer.valueOf(actuatorDurationTxt.getText()));
 				actuatorComboBox.removeItem(actuatorComboBox.getSelectedItem());
 				if (actuatorComboBox.getItemCount() == 0)
 					addActionBtn.setEnabled(false);

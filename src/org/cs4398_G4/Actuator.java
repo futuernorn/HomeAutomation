@@ -27,22 +27,23 @@ public class Actuator extends Component implements ActionListener   {
 	
 	public void Initalize() {
 		isOn = false;
-		for (GpioPinDigitalOutput outputPin : outputPins) {
-			outputPin.low();
-		}
+//		for (GpioPinDigitalOutput outputPin : getOutputPins()) {
+//			outputPin.low();
+//		}
+		getOutputPins().low();
 	}
 	
 	public void actionPerformed(ActionEvent e) {
         numClicks++;
         
         if (isOn) {
-        	outputPins.get(0).setState(PinState.LOW);
-        	outputPins.get(0).low();
-        	System.out.println("Setting " + outputPins.get(0).getName() + " to " + PinState.LOW);
+        	getOutputPins().setState(PinState.LOW);
+        	getOutputPins().low();
+        	System.out.println("Setting " + getOutputPins().getName() + " to " + PinState.LOW);
         	isOn = false;
         } else {
-        	outputPins.get(0).setState(PinState.HIGH);
-        	System.out.println("Setting " + outputPins.get(0).getName() + " to " + PinState.HIGH);
+        	getOutputPins().setState(PinState.HIGH);
+        	System.out.println("Setting " + getOutputPins().getName() + " to " + PinState.HIGH);
         	isOn = true;
         }
         
@@ -54,15 +55,18 @@ public class Actuator extends Component implements ActionListener   {
 	}
 	public void TurnOff() {
 		// TODO Auto-generated method stub
-		for (GpioPinDigitalOutput outputPin : outputPins) {
-			outputPin.low();
-		}
+//		for (GpioPinDigitalOutput outputPin : getOutputPins()) {
+//			outputPin.low();
+//		}
+		getOutputPins().low();
 	}
 	
 	public void TurnOn() {
-		for (GpioPinDigitalOutput outputPin : outputPins) {
-			outputPin.high();
-		}
+//		for (GpioPinDigitalOutput outputPin : getOutputPins()) {
+//			outputPin.high();
+//		}
+		getOutputPins().high();
+		
 	}
 
 }

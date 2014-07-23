@@ -37,14 +37,14 @@ public class Controller {
 		    Pin pinNumber = entry.getValue();
 		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key);
 		    inputPin.addListener((GpioPinListenerDigital) newComp);
-		    newComp.inputPins.add(inputPin);
+		    newComp.setInputPins(inputPin);
 		    
 		}
 		for (Entry<String, Pin> entry : newComp.outputPinNumbers.entrySet()) {
 		    String key = entry.getKey();
 		    Pin pinNumber = entry.getValue();
 		    GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinNumber, key);
-		    newComp.outputPins.add(outputPin);
+		    newComp.setOutputPins(outputPin);
 		    
 		}
 		

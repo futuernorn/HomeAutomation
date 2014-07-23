@@ -1,11 +1,31 @@
 package org.cs4398_G4;
 
+import com.pi4j.io.gpio.PinState;
+
 public class Action {
 	Actuator actuator;
-	ComponentState pinState;
+	PinState pinState;
 	Integer duration;
 	
-	public Action (Actuator actuator, ComponentState pinState, Integer duration) {
+	public Integer getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+	}
+
+	public PinState getPinState() {
+		return pinState;
+	}
+
+	public void setPinState(PinState pinState) {
+		this.pinState = pinState;
+	}
+
+	
+	
+	public Action (Actuator actuator, PinState pinState, Integer duration) {
 		this.actuator = actuator;
 		this.pinState = pinState;
 		this.duration = duration;

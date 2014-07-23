@@ -10,9 +10,17 @@ import com.pi4j.io.gpio.Pin;
 
 public abstract class Component {
 	HashMap<String, Pin> inputPinNumbers;
+	public HashMap<String, Pin> getInputPinNumbers() {
+		return inputPinNumbers;
+	}
+
+	public void setInputPinNumbers(HashMap<String, Pin> inputPinNumbers) {
+		this.inputPinNumbers = inputPinNumbers;
+	}
+
 	HashMap<String, Pin> outputPinNumbers;
-	ArrayList<GpioPinDigitalInput> inputPins;
-	ArrayList<GpioPinDigitalOutput> outputPins;
+	private GpioPinDigitalInput inputPins;
+	private GpioPinDigitalOutput outputPins;
 	String name;
 	Boolean enabled;
 	Room room;
@@ -21,8 +29,8 @@ public abstract class Component {
 		this.name = name;
 		this.inputPinNumbers = inputPinNumbers;
 		this.outputPinNumbers = outputPinNumbers;
-		inputPins = new ArrayList<GpioPinDigitalInput>();
-		outputPins = new ArrayList<GpioPinDigitalOutput>();
+//		inputPins = new ArrayList<GpioPinDigitalInput>();
+//		outputPins = new ArrayList<GpioPinDigitalOutput>();
 		
 	}
 	
@@ -34,5 +42,23 @@ public abstract class Component {
 	public String toString() {
 		return name;
 	}
+
+	public GpioPinDigitalInput getInputPins() {
+		return inputPins;
+	}
+
+	public void setInputPins(GpioPinDigitalInput inputPins) {
+		this.inputPins = inputPins;
+	}
+
+	public GpioPinDigitalOutput getOutputPins() {
+		return outputPins;
+	}
+
+	public void setOutputPins(GpioPinDigitalOutput outputPins) {
+		this.outputPins = outputPins;
+	}
+	
+//	public ArrayList
 	
 }

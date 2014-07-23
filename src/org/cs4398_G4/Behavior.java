@@ -22,28 +22,55 @@ public class Behavior implements GpioPinListenerDigital{
 		this.name = name;
 		this.actions = actions;
 		this.conditions = conditions;
+		for (Condition condition: conditions) {
+			condition.getSensor().getInputPins().addListener(this);
+		}
 	}
 	
 	private void Run() {
-//		for (final Entry<Actuator, Integer> entry : actions.entrySet()) {
-//			entry.getKey().run();
-//			new Timer().schedule(new TimerTask() {
-//				  @Override
-//				  public void run() {
-//				   entry.getKey().run();
-//				  }
-//				}, (long) entry.getValue());
-//		}
+		for (final Action action : actions) {
+			action.getActuator().getOutputPins().setState(action.getPinState());
+			new Timer().schedule(new TimerTask() {
+				  @Override
+				  public void run() {
+					  action.getActuator().getOutputPins().toggle();
+				  }
+				}, (long) action.getDuration() * 1000);
+		}
 	}
 
-	public void handleGpioPinDigitalStateChangeEvent(
-			GpioPinDigitalStateChangeEvent arg0) {
-		// TODO Auto-generated method stub
+	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
+		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
+		for (Condition condition: conditions) {
+			if(condition.getSensor().getInputPinNumbers().containsValue(event.getPin())) {
+				if (condition.getPinState() == event.getState())
+					if (condition.getElapsedTime() == null)
+						condition.startTimer(this);
+				} else {
+					if (condition.getElapsedTime() != null)
+						condition.stopTimer();
+						condition.setConditionMet(false);
+				}
+			}
+		}
 		
-	}
+		
+	
 	
 	public String toString() {
 		return name;
+	}
+
+	public void conditionMet() {
+		boolean runActions = true;
+		for (Condition condition: conditions) {
+			if (!condition.isConditionMet())
+				runActions = false;
+		}
+		System.out.println(" --> conditionMet / runActions => " + runActions);
+		if (runActions)
+			Run();
+		
 	}
 
 
