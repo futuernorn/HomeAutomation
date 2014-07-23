@@ -1,4 +1,4 @@
-package org.txstate.cs4398_sum14.group4;
+package org.cs4398_G4;
 
 import java.util.ArrayList;
 import java.util.Date;
