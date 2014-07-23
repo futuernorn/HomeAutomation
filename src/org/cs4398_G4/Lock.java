@@ -1,4 +1,4 @@
-package org.txstate.cs4398_sum14.group4;
+package org.cs4398_G4;
 
 import java.util.HashMap;
 
@@ -10,7 +10,7 @@ public class Lock extends DualComponent{
 	
 	public Lock(HashMap<String, Pin> inputPinNumbers,
 			HashMap<String, Pin> outputPinNumbers) {
-		super(inputPinNumbers, outputPinNumbers);
+		super("LOCK", inputPinNumbers, outputPinNumbers);
 		// TODO Auto-generated constructor stub
 	}
 

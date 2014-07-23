@@ -1,25 +1,33 @@
-package org.txstate.cs4398_sum14.group4;
+package org.cs4398_G4;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.SpringLayout;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
+
 import java.awt.FlowLayout;
+
 import javax.swing.JProgressBar;
 import javax.swing.JSeparator;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -30,27 +38,19 @@ public class LocalInterface {
 	private JTextField roomTxt;
 	public JTextField motionTxt;
 	public JButton btnToggleLed;
+	private Controller controller;
+	private JTabbedPane tabbedPane;
+	private BehaviorPanel behaviorPanel;
+	private JPanel addRemoveTab;
+	private JPanel statusPanel;
+	private LoginPanel loginPanel;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LocalInterface window = new LocalInterface();
-					window.frmHomeAutomationSystem.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public LocalInterface() {
+	public LocalInterface(Controller controller) {
+		this.controller = controller;
 		initialize();
 	}
 	
@@ -68,11 +68,18 @@ public class LocalInterface {
 		frmHomeAutomationSystem.setBounds(100, 100, 711, 481);
 		frmHomeAutomationSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frmHomeAutomationSystem.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
-		JPanel statusPanel = new JPanel();
-		tabbedPane.addTab("Status", null, statusPanel, null);
+		loginPanel = new LoginPanel(this);
+		
+		behaviorPanel = new BehaviorPanel(this);
+
+		statusPanel = new JPanel();
+		
+		tabbedPane.addTab("Login", null, loginPanel, null);
+		
+		
 		statusPanel.setLayout(new BorderLayout(0, 0));
 		
 		JPanel statusForm = new JPanel();
@@ -108,8 +115,8 @@ public class LocalInterface {
 		statusForm.add(motionTxt, "4, 6, fill, center");
 		motionTxt.setColumns(10);
 		
-		JPanel addRemoveTab = new JPanel();
-		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
+		addRemoveTab = new JPanel();
+
 		addRemoveTab.setLayout(new BorderLayout(0, 0));
 		
 		JPanel addRemoveBtnPanel = new JPanel();
@@ -183,5 +190,25 @@ public class LocalInterface {
 		
 		JLabel lblAddComponent = new JLabel("Add Component");
 		addRemovePanel.add(lblAddComponent, BorderLayout.NORTH);
+	}
+	
+	public Controller getController() {
+		return controller;
+	}
+	
+	public void displayErrorMessage(String title, String message) {
+		//custom title, error icon
+		JOptionPane.showMessageDialog(frmHomeAutomationSystem,
+		   message,
+		   title,
+		    JOptionPane.ERROR_MESSAGE);
+	}
+
+	public void doLogin() {
+		tabbedPane.remove(loginPanel);
+		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		tabbedPane.addTab("Status", null, statusPanel, null);
+		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
+		
 	}
 }
