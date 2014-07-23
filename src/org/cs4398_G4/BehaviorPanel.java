@@ -57,7 +57,8 @@ public class BehaviorPanel extends JPanel {
 	private JButton addActionBtn;
 	private JButton removeActionBtn;
 	private DefaultComboBoxModel sensorListModel;
-	private DefaultComboBoxModel stateListModel;
+	private DefaultComboBoxModel sensorStateListModel;
+	private DefaultComboBoxModel actionStateListModel;
 	private DefaultComboBoxModel actuatorListModel;
 	private DefaultListModel actionListModel;
 	private JList actionList;
@@ -383,7 +384,9 @@ public class BehaviorPanel extends JPanel {
 	private void Initialize() {
 		
 		PinState[] stateOptions = PinState.allStates(); // sensorStateComboBox
-		stateListModel =  new DefaultComboBoxModel(stateOptions); 
+		
+		sensorStateListModel =  new DefaultComboBoxModel(stateOptions);
+		actionStateListModel = new DefaultComboBoxModel(stateOptions);
 		btnClearBehavior.setEnabled(false);
 		SetupBehaviorUI();
 		SetupConditionUI();
@@ -395,7 +398,7 @@ public class BehaviorPanel extends JPanel {
 		List<Sensor> sensorOptions = view.getController().GetSensors();
 		sensorListModel = new DefaultComboBoxModel(sensorOptions.toArray()); 
 		sensorComboBox.setModel(sensorListModel);
-		sensorStateComboBox.setModel(stateListModel);
+		sensorStateComboBox.setModel(sensorStateListModel);
 		conditionListModel = new DefaultListModel();
 		conditionList.setModel(conditionListModel);
 		addConditionBtn.addActionListener(new ActionListener() {
@@ -424,7 +427,7 @@ public class BehaviorPanel extends JPanel {
 		List<Actuator> actuatorOptions = view.getController().GetActuators();
 		actuatorListModel = new DefaultComboBoxModel(actuatorOptions.toArray()); 
 		actuatorComboBox.setModel(actuatorListModel);
-		actuatorStateComboBox.setModel(stateListModel);
+		actuatorStateComboBox.setModel(actionStateListModel);
 		actionListModel = new DefaultListModel();
 		actionList.setModel(actionListModel);
 		addActionBtn.addActionListener(new ActionListener() {

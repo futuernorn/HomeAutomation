@@ -36,7 +36,7 @@ public class Controller {
 		    String key = entry.getKey();
 		    Pin pinNumber = entry.getValue();
 		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key);
-		    inputPin.addListener((GpioPinListenerDigital) newComp);
+//		    inputPin.addListener((GpioPinListenerDigital) newComp);
 		    newComp.setInputPins(inputPin);
 		    
 		}

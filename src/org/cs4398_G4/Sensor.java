@@ -10,7 +10,7 @@ import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
-public class Sensor extends Component implements GpioPinListenerDigital  {
+public class Sensor extends Component  {
 	int pinNum;
 	Method action;
 //	String display;
@@ -21,10 +21,10 @@ public class Sensor extends Component implements GpioPinListenerDigital  {
 		
 	}
 	
-	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
-//		display.setText(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
-	}
+//	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
+//		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
+////		display.setText(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
+//	}
 	
 	
 
