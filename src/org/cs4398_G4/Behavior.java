@@ -42,7 +42,7 @@ public class Behavior implements GpioPinListenerDigital{
 	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
 		for (Condition condition: conditions) {
-			if(condition.getSensor().getInputPinNumbers().containsValue(event.getPin())) {
+			if(condition.getSensor().getInputPinNumbers().containsValue(event.getPin().getPin().getAddress())) {
 				if (condition.getPinState() == event.getState())
 					if (condition.getElapsedTime() == null)
 						condition.startTimer(this);
