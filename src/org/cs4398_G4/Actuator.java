@@ -19,8 +19,8 @@ public class Actuator extends Component implements ActionListener   {
 	boolean isOn;
 	private int numClicks;
 	
-	public Actuator(HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
-		super(inputPinNumbers, outputPinNumbers);
+	public Actuator(String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
+		super(name, inputPinNumbers, outputPinNumbers);
 
 		
 	}
@@ -37,6 +37,7 @@ public class Actuator extends Component implements ActionListener   {
         
         if (isOn) {
         	outputPins.get(0).setState(PinState.LOW);
+        	outputPins.get(0).low();
         	System.out.println("Setting " + outputPins.get(0).getName() + " to " + PinState.LOW);
         	isOn = false;
         } else {

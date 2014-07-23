@@ -17,7 +17,8 @@ public abstract class Component {
 	Boolean enabled;
 	Room room;
 	
-	public Component (HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
+	public Component (String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
+		this.name = name;
 		this.inputPinNumbers = inputPinNumbers;
 		this.outputPinNumbers = outputPinNumbers;
 		inputPins = new ArrayList<GpioPinDigitalInput>();
@@ -28,6 +29,10 @@ public abstract class Component {
 	public boolean GetStatus() {
 		return false;
 		
+	}
+	
+	public String toString() {
+		return name;
 	}
 	
 }

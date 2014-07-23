@@ -7,11 +7,11 @@ import com.pi4j.io.gpio.Pin;
 public class DualComponent extends Actuator {
 
 	Sensor sensor;
-	public DualComponent(HashMap<String, Pin> inputPinNumbers,
+	public DualComponent(String name, HashMap<String, Pin> inputPinNumbers,
 			HashMap<String, Pin> outputPinNumbers) {
-		super(new HashMap<String,Pin>(), outputPinNumbers);
+		super(name, new HashMap<String,Pin>(), outputPinNumbers);
 		// TODO Auto-generated constructor stub
-		sensor = new Sensor(inputPinNumbers, new HashMap<String,Pin>(), "Temp Sensor Text Field");
+		sensor = new Sensor(name, inputPinNumbers, new HashMap<String,Pin>());
 	}
 
 

@@ -4,22 +4,30 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.SpringLayout;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
+
 import java.awt.FlowLayout;
+
 import javax.swing.JProgressBar;
 import javax.swing.JSeparator;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -30,27 +38,14 @@ public class LocalInterface {
 	private JTextField roomTxt;
 	public JTextField motionTxt;
 	public JButton btnToggleLed;
+	private Controller controller;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LocalInterface window = new LocalInterface();
-					window.frmHomeAutomationSystem.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public LocalInterface() {
+	public LocalInterface(Controller controller) {
+		this.controller = controller;
 		initialize();
 	}
 	
@@ -71,8 +66,12 @@ public class LocalInterface {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frmHomeAutomationSystem.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
+		BehaviorPanel behaviorPanel = new BehaviorPanel(this);
+		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		
 		JPanel statusPanel = new JPanel();
 		tabbedPane.addTab("Status", null, statusPanel, null);
+		
 		statusPanel.setLayout(new BorderLayout(0, 0));
 		
 		JPanel statusForm = new JPanel();
@@ -183,5 +182,17 @@ public class LocalInterface {
 		
 		JLabel lblAddComponent = new JLabel("Add Component");
 		addRemovePanel.add(lblAddComponent, BorderLayout.NORTH);
+	}
+	
+	public Controller getController() {
+		return controller;
+	}
+	
+	public void displayErrorMessage(String title, String message) {
+		//custom title, error icon
+		JOptionPane.showMessageDialog(frmHomeAutomationSystem,
+		   message,
+		   title,
+		    JOptionPane.ERROR_MESSAGE);
 	}
 }

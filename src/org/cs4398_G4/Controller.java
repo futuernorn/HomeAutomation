@@ -1,5 +1,6 @@
 package org.cs4398_G4;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -58,4 +59,32 @@ public class Controller {
 		return false;
 		
 	}
+	
+//	public List<Component> GetComponentsByType(Class<?> type) {
+//		return baseStation.GetComponentsByType(type);
+//	}
+	public List<Sensor> GetSensors() {
+		return baseStation.GetSensors();
+	}
+	
+	static public String PinState(Integer state) {
+		String stateName = "High";
+		if (state == 0)
+			stateName = "Low";
+		return stateName;
+	}
+
+	public List<Actuator> GetActuators() {
+		return baseStation.GetActuators();
+	}
+
+	public void addBehavior(Behavior behavior) {
+//		for (Sensor sensor : behavior.getSensors()) {
+//			actuator.addAll(room.GetActuators());
+//		} 
+		baseStation.addBehavior(behavior);
+		
+	}
+
+
 }
