@@ -39,6 +39,11 @@ public class LocalInterface {
 	public JTextField motionTxt;
 	public JButton btnToggleLed;
 	private Controller controller;
+	private JTabbedPane tabbedPane;
+	private BehaviorPanel behaviorPanel;
+	private JPanel addRemoveTab;
+	private JPanel statusPanel;
+	private LoginPanel loginPanel;
 
 
 	/**
@@ -63,14 +68,17 @@ public class LocalInterface {
 		frmHomeAutomationSystem.setBounds(100, 100, 711, 481);
 		frmHomeAutomationSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frmHomeAutomationSystem.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
-		BehaviorPanel behaviorPanel = new BehaviorPanel(this);
-		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		loginPanel = new LoginPanel(this);
 		
-		JPanel statusPanel = new JPanel();
-		tabbedPane.addTab("Status", null, statusPanel, null);
+		behaviorPanel = new BehaviorPanel(this);
+
+		statusPanel = new JPanel();
+		
+		tabbedPane.addTab("Login", null, loginPanel, null);
+		
 		
 		statusPanel.setLayout(new BorderLayout(0, 0));
 		
@@ -107,8 +115,8 @@ public class LocalInterface {
 		statusForm.add(motionTxt, "4, 6, fill, center");
 		motionTxt.setColumns(10);
 		
-		JPanel addRemoveTab = new JPanel();
-		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
+		addRemoveTab = new JPanel();
+
 		addRemoveTab.setLayout(new BorderLayout(0, 0));
 		
 		JPanel addRemoveBtnPanel = new JPanel();
@@ -194,5 +202,13 @@ public class LocalInterface {
 		   message,
 		   title,
 		    JOptionPane.ERROR_MESSAGE);
+	}
+
+	public void doLogin() {
+		tabbedPane.remove(loginPanel);
+		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		tabbedPane.addTab("Status", null, statusPanel, null);
+		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
+		
 	}
 }
