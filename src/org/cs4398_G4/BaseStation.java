@@ -58,6 +58,13 @@ public class BaseStation {
 		
 	}
 
+	public void removeBehavior(Behavior removedBehavior) {
+		// TODO Auto-generated method stub
+		removedBehavior.disconnect();
+		behaviors.remove(removedBehavior);
+		
+	}
+
 //	public List<? extends Component> GetComponents(Class<?> cls) {
 //		List<? extends Component> components = new ArrayList<Component>();
 //		for (Room room : house) {

@@ -86,5 +86,11 @@ public class Controller {
 		
 	}
 
+	public void removeBehavior(Behavior removedBehavior) {
+		// TODO Auto-generated method stub
+		baseStation.removeBehavior(removedBehavior);
+		
+	}
+
 
 }

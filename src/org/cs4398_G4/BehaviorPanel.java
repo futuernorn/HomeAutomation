@@ -487,7 +487,7 @@ public class BehaviorPanel extends JPanel {
 
 			    Behavior removedBehavior = ((Behavior) behaviorListModel.getElementAt(index));
 			    behaviorListModel.remove(index);
-			    
+			    view.getController().removeBehavior(removedBehavior);
 			    int size = behaviorListModel.getSize();
 			    if (size == 0) { 
 			    	btnBehaviorRemove.setEnabled(false);
