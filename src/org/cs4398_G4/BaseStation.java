@@ -20,6 +20,7 @@ public class BaseStation {
 	public BaseStation() {
 		house = new ArrayList<Room>();
 		users = new ArrayList<User>();
+		behaviors = new ArrayList<Behavior>();
 	}
 	
 	String GetStatus() {

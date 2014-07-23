@@ -93,15 +93,15 @@ public class BehaviorPanel extends JPanel {
 						JPanel behaviorListStatusPanel = new JPanel();
 						behaviorStatusPanel.add(behaviorListStatusPanel, BorderLayout.WEST);
 						GridBagLayout gbl_behaviorListStatusPanel = new GridBagLayout();
-						gbl_behaviorListStatusPanel.columnWidths = new int[]{0, 0, 250, 0};
+						gbl_behaviorListStatusPanel.columnWidths = new int[]{0, 0, 250, 0, 0};
 						gbl_behaviorListStatusPanel.rowHeights = new int[]{0, 74, 0, 62, 0, 0, 0, 0};
-						gbl_behaviorListStatusPanel.columnWeights = new double[]{1.0, 0.0, 1.0, Double.MIN_VALUE};
+						gbl_behaviorListStatusPanel.columnWeights = new double[]{1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 						gbl_behaviorListStatusPanel.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 						behaviorListStatusPanel.setLayout(gbl_behaviorListStatusPanel);
 						
 						JLabel lblConditions_1 = new JLabel("Conditions");
 						GridBagConstraints gbc_lblConditions_1 = new GridBagConstraints();
-						gbc_lblConditions_1.insets = new Insets(0, 0, 5, 0);
+						gbc_lblConditions_1.insets = new Insets(0, 0, 5, 5);
 						gbc_lblConditions_1.gridx = 2;
 						gbc_lblConditions_1.gridy = 0;
 						behaviorListStatusPanel.add(lblConditions_1, gbc_lblConditions_1);
@@ -197,7 +197,7 @@ public class BehaviorPanel extends JPanel {
 						
 						conditionList = new JList();
 						GridBagConstraints gbc_behaviorList = new GridBagConstraints();
-						gbc_behaviorList.insets = new Insets(0, 0, 5, 0);
+						gbc_behaviorList.insets = new Insets(0, 0, 5, 5);
 						gbc_behaviorList.fill = GridBagConstraints.BOTH;
 						gbc_behaviorList.gridx = 2;
 						gbc_behaviorList.gridy = 1;
@@ -205,7 +205,7 @@ public class BehaviorPanel extends JPanel {
 						
 						JLabel lblActions = new JLabel("Actions");
 						GridBagConstraints gbc_lblActions = new GridBagConstraints();
-						gbc_lblActions.insets = new Insets(0, 0, 5, 0);
+						gbc_lblActions.insets = new Insets(0, 0, 5, 5);
 						gbc_lblActions.gridx = 2;
 						gbc_lblActions.gridy = 2;
 						behaviorListStatusPanel.add(lblActions, gbc_lblActions);
@@ -273,11 +273,11 @@ public class BehaviorPanel extends JPanel {
 						gbl_actionBtnPanel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
 						actionBtnPanel.setLayout(gbl_actionBtnPanel);
 						
-						addActionBtn = new JButton("<<");
+						addActionBtn = new JButton(">>");
 						
 								actionBtnPanel.add(addActionBtn);
 								
-								removeActionBtn = new JButton(">>");
+								removeActionBtn = new JButton("<<");
 								
 														GridBagConstraints gbc_removeActionBtn = new GridBagConstraints();
 														gbc_removeActionBtn.gridx = 0;
@@ -288,22 +288,17 @@ public class BehaviorPanel extends JPanel {
 						
 						actionList = new JList();
 						GridBagConstraints gbc_actionList = new GridBagConstraints();
-						gbc_actionList.insets = new Insets(0, 0, 5, 0);
+						gbc_actionList.insets = new Insets(0, 0, 5, 5);
 						gbc_actionList.fill = GridBagConstraints.BOTH;
 						gbc_actionList.gridx = 2;
 						gbc_actionList.gridy = 3;
 						behaviorListStatusPanel.add(actionList, gbc_actionList);
 						
-						JSeparator separator = new JSeparator();
-						GridBagConstraints gbc_separator = new GridBagConstraints();
-						gbc_separator.insets = new Insets(0, 0, 5, 0);
-						gbc_separator.gridx = 2;
-						gbc_separator.gridy = 4;
-						behaviorListStatusPanel.add(separator, gbc_separator);
+			
 						
 						JPanel behaviorNameEntryPanel = new JPanel();
 						GridBagConstraints gbc_behaviorNameEntryPanel = new GridBagConstraints();
-						gbc_behaviorNameEntryPanel.insets = new Insets(0, 0, 5, 0);
+						gbc_behaviorNameEntryPanel.insets = new Insets(0, 0, 5, 5);
 						gbc_behaviorNameEntryPanel.fill = GridBagConstraints.BOTH;
 						gbc_behaviorNameEntryPanel.gridx = 2;
 						gbc_behaviorNameEntryPanel.gridy = 5;
@@ -327,6 +322,7 @@ public class BehaviorPanel extends JPanel {
 						
 						JPanel behaviorStatusSaveBtnPanel = new JPanel();
 						GridBagConstraints gbc_behaviorStatusSaveBtnPanel = new GridBagConstraints();
+						gbc_behaviorStatusSaveBtnPanel.insets = new Insets(0, 0, 0, 5);
 						gbc_behaviorStatusSaveBtnPanel.gridx = 2;
 						gbc_behaviorStatusSaveBtnPanel.gridy = 6;
 						behaviorListStatusPanel.add(behaviorStatusSaveBtnPanel, gbc_behaviorStatusSaveBtnPanel);
@@ -341,7 +337,7 @@ public class BehaviorPanel extends JPanel {
 						behaviorStatusSaveBtnPanel.add(btnClearBehavior);
 						
 						JPanel behaviorListPanel = new JPanel();
-						behaviorStatusPanel.add(behaviorListPanel, BorderLayout.EAST);
+						behaviorStatusPanel.add(behaviorListPanel, BorderLayout.CENTER);
 						GridBagLayout gbl_behaviorListPanel = new GridBagLayout();
 						gbl_behaviorListPanel.columnWidths = new int[]{243, 0};
 						gbl_behaviorListPanel.rowHeights = new int[]{0, 0, 0, 0};
@@ -372,6 +368,7 @@ public class BehaviorPanel extends JPanel {
 						behaviorListPanel.add(behaviorButtonsPanel, gbc_behaviorButtonsPanel);
 						
 						btnBehaviorRemove = new JButton("Remove");
+
 						behaviorButtonsPanel.add(btnBehaviorRemove);
 						
 						JLabel lblActuatorState = new JLabel("State");
@@ -387,9 +384,10 @@ public class BehaviorPanel extends JPanel {
 		ComponentState[] stateOptions = {new ComponentState("High", 1), new ComponentState("Low", 0)}; // sensorStateComboBox
 		stateListModel =  new DefaultComboBoxModel(stateOptions); 
 		btnClearBehavior.setEnabled(false);
+		SetupBehaviorUI();
 		SetupConditionUI();
 		SetupActionUI();
-		SetupBehaviorUI();
+		
 	}
 	
 	private void SetupConditionUI(){
@@ -416,30 +414,7 @@ public class BehaviorPanel extends JPanel {
 		removeConditionBtn.setEnabled(false);
 		removeConditionBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			    int index = conditionList.getSelectedIndex();
-			    if (index == -1)
-			    	return;
-//			    sensorComboBox.addItem(conditionListModel.getElementAt(index));
-			    Sensor removedSensor = ((Condition) conditionListModel.getElementAt(index)).getSensor();
-			    sensorListModel.addElement(removedSensor);
-			    addConditionBtn.setEnabled(true);
-			    conditionListModel.remove(index);
-
-			    int size = conditionListModel.getSize();
-
-			    if (size == 0) { //Nobody's left, disable firing.
-			    	removeConditionBtn.setEnabled(false);
-			    	if (actionListModel.getSize() == 0)
-			    		btnClearBehavior.setEnabled(false);
-			    } else { //Select an index.
-			        if (index == conditionListModel.getSize()) {
-			            //removed item in last position
-			            index--;
-			        }
-
-			        conditionList.setSelectedIndex(index);
-			        conditionList.ensureIndexIsVisible(index);
-			    }
+				removeCondition();
 			}
 		});
 	}
@@ -467,30 +442,10 @@ public class BehaviorPanel extends JPanel {
 		});
 		removeActionBtn.setEnabled(false);
 		removeActionBtn.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
-		    int index = actionList.getSelectedIndex();
-		    if (index == -1)
-		    	return;
-		    Actuator removedActuator = ((Action) actionListModel.getElementAt(index)).getActuator();
-		    actuatorListModel.addElement(removedActuator);
-		    addActionBtn.setEnabled(true);
-		    actionListModel.remove(index);
+				removeAction();
 
-		    int size = actionListModel.getSize();
-
-		    if (size == 0) { //Nobody's left, disable firing.
-		    	removeActionBtn.setEnabled(false);
-		    	if (conditionListModel.getSize() == 0)
-		    		btnClearBehavior.setEnabled(false);
-		    } else { //Select an index.
-		        if (index == actionListModel.getSize()) {
-		            //removed item in last position
-		            index--;
-		        }
-
-		        actionList.setSelectedIndex(index);
-		        actionList.ensureIndexIsVisible(index);
-		    }
 			}
 		
 		});
@@ -504,7 +459,7 @@ public class BehaviorPanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				List<Action> actions = new ArrayList<Action>();
-				if ((actuatorListModel.getSize() == 0) || (conditionListModel.getSize() == 0)) {
+				if ((actionListModel.getSize() == 0) || (conditionListModel.getSize() == 0)) {
 					view.displayErrorMessage("Missing Behavior Components", "All new behaviors require at least one condition and at least one action to be created");
 					return;
 				}
@@ -519,19 +474,106 @@ public class BehaviorPanel extends JPanel {
 				view.getController().addBehavior(behavior);
 				behaviorListModel.addElement(behavior);
 				btnBehaviorRemove.setEnabled(true);
+				clearBehaviorSettings();	
+			}
+		});
+		
+		btnBehaviorRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			    int index = behaviorList.getSelectedIndex();
+			    if (index == -1)
+			    	return;
+
+			    Behavior removedBehavior = ((Behavior) behaviorListModel.getElementAt(index));
+			    behaviorListModel.remove(index);
+			    
+			    int size = behaviorListModel.getSize();
+			    if (size == 0) { 
+			    	btnBehaviorRemove.setEnabled(false);
+			    } else { 
+			        if (index == behaviorListModel.getSize()) {
+			            index--;
+			        }
+
+			        behaviorList.setSelectedIndex(index);
+			        behaviorList.ensureIndexIsVisible(index);
+			    }
+				
+				
 			}
 		});
 		
 		btnClearBehavior.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				while(conditionListModel.size() > 0)
-					removeConditionBtn.doClick();
-				while(actionListModel.size() > 0)
-					removeActionBtn.doClick();
-				
+				clearBehaviorSettings();				
 			}
 		});
 	}
 	
+	private void clearBehaviorSettings() {
+		for (int i = 0; i < actionListModel.getSize(); i++) {
+			removeAction();
+		}
+		for (int i = 0; i < conditionListModel.getSize(); i++) {
+			removeCondition();
+		}
+		
+	}
+	private void removeCondition() {
+	    int index = conditionList.getSelectedIndex();
+	    if (index == -1)
+	    	index = 0;
+//	    sensorComboBox.addItem(conditionListModel.getElementAt(index));
+	    Sensor removedSensor = ((Condition) conditionListModel.getElementAt(index)).getSensor();
+	    sensorListModel.addElement(removedSensor);
+	    addConditionBtn.setEnabled(true);
+	    conditionListModel.remove(index);
+	    
+	    int size = conditionListModel.getSize();
+//	    System.out.println("Removing condition, conditionListModel.getSize()=>" + conditionListModel.getSize());
+	    if (size == 0) { //Nobody's left, disable firing.
+	    	removeConditionBtn.setEnabled(false);
+	    	if (actionListModel.getSize() == 0)
+	    		btnClearBehavior.setEnabled(false);
+	    } 
+	    else { //Select an index.
+	        if (index == conditionListModel.getSize()) {
+	            //removed item in last position
+	            index--;
+	        }
+
+	        conditionList.setSelectedIndex(index);
+	        conditionList.ensureIndexIsVisible(index);
+	    }
+		
+	}
+	
+	private void removeAction() {
+	    int index = actionList.getSelectedIndex();
+	    if (index == -1)
+	    	index = 0;
+	    Actuator removedActuator = ((Action) actionListModel.getElementAt(index)).getActuator();
+	    actuatorListModel.addElement(removedActuator);
+	    addActionBtn.setEnabled(true);
+	    actionListModel.remove(index);
+
+	    int size = actionListModel.getSize();
+//	    System.out.println("Removing action, actionListModel.getSize()=>" + size);
+
+	    if (size == 0) { //Nobody's left, disable firing.
+	    	removeActionBtn.setEnabled(false);
+	    	if (conditionListModel.getSize() == 0)
+	    		btnClearBehavior.setEnabled(false);
+	    } else { //Select an index.
+	        if (index == actionListModel.getSize()) {
+	            //removed item in last position
+	            index--;
+	        }
+
+	        actionList.setSelectedIndex(index);
+	        actionList.ensureIndexIsVisible(index);
+	    }
+		
+	}
 	
 }
