@@ -73,5 +73,12 @@ public class Behavior implements GpioPinListenerDigital{
 		
 	}
 
+	public void disconnect() {
+		for (Condition condition: conditions) {
+			condition.getSensor().getInputPins().removeListener(this);
+		}
+		
+	}
+
 
 }
