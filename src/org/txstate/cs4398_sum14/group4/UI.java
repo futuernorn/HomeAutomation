@@ -1,5 +1,8 @@
 package org.txstate.cs4398_sum14.group4;
 
+import org.cs4398_G4.User;
+import org.cs4398_G4.examples.*;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -89,7 +92,6 @@ public class UI extends JFrame {
 		panel.add(textField_1);
 		
 		final User user = new User();
-		user.User();
 		
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {

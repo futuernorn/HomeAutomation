@@ -54,8 +54,7 @@ public class LoginPanel extends JPanel {
 		textField_1.setBounds(176, 82, 138, 20);
 		this.add(textField_1);
 		
-		final User user = new User();
-		user.User();
+		User user = new User();
 		
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
