@@ -15,10 +15,12 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
 public class Behavior implements GpioPinListenerDigital{
 	List<Condition> conditions;
+	List<Action> actions;
+	String name;
 	
-	HashMap<Actuator, Integer> actions;
-	public Behavior(List<Condition> conditions) {
-//		this.actions = actions;
+	public Behavior(String name, List<Condition> conditions, List<Action> actions) {
+		this.name = name;
+		this.actions = actions;
 		this.conditions = conditions;
 	}
 	
@@ -38,6 +40,10 @@ public class Behavior implements GpioPinListenerDigital{
 			GpioPinDigitalStateChangeEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String toString() {
+		return name;
 	}
 
 

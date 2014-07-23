@@ -15,6 +15,7 @@ public class BaseStation {
 	ArrayList<Room> house;
 	ArrayList<User> users;
 	private Security securitySystem;
+	private ArrayList<Behavior> behaviors;
 	
 	public BaseStation() {
 		house = new ArrayList<Room>();
@@ -48,6 +49,12 @@ public class BaseStation {
 			actuator.addAll(room.GetActuators());
 		}
 		return actuator;
+	}
+
+	public void addBehavior(Behavior behavior) {
+		// TODO Auto-generated method stub
+		behaviors.add(behavior);
+		
 	}
 
 //	public List<? extends Component> GetComponents(Class<?> cls) {

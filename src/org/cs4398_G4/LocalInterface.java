@@ -4,22 +4,30 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.SpringLayout;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
+
 import java.awt.FlowLayout;
+
 import javax.swing.JProgressBar;
 import javax.swing.JSeparator;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -176,7 +184,15 @@ public class LocalInterface {
 		addRemovePanel.add(lblAddComponent, BorderLayout.NORTH);
 	}
 	
-	public Controller GetController() {
+	public Controller getController() {
 		return controller;
+	}
+	
+	public void displayErrorMessage(String title, String message) {
+		//custom title, error icon
+		JOptionPane.showMessageDialog(frmHomeAutomationSystem,
+		   message,
+		   title,
+		    JOptionPane.ERROR_MESSAGE);
 	}
 }

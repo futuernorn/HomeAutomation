@@ -78,5 +78,13 @@ public class Controller {
 		return baseStation.GetActuators();
 	}
 
+	public void addBehavior(Behavior behavior) {
+//		for (Sensor sensor : behavior.getSensors()) {
+//			actuator.addAll(room.GetActuators());
+//		} 
+		baseStation.addBehavior(behavior);
+		
+	}
+
 
 }

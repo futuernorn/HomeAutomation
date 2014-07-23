@@ -14,4 +14,9 @@ public class Condition {
 	public String toString() {
 		return sensor.toString() + " to " + pinState + " for " + duration + "s";
 	}
+
+	public Sensor getSensor() {
+		// TODO Auto-generated method stub
+		return sensor;
+	}
 }
