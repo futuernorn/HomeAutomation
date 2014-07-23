@@ -8,6 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
+import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.trigger.GpioSetStateTrigger;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
@@ -42,8 +43,10 @@ public class Behavior implements GpioPinListenerDigital{
 	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
 		for (Condition condition: conditions) {
-			System.out.println("comaparing condition's pin number (" + condition.getSensor().getInputPinNumbers() +") to event's pin number (" + event.getPin().getPin().getAddress() + ") => " + condition.getSensor().getInputPinNumbers().containsValue(event.getPin().getPin().getAddress()));
-			if(condition.getSensor().getInputPinNumbers().containsValue(event.getPin().getPin().getAddress())) {
+			for (Entry<String, Pin> entry : condition.getSensor().getInputPinNumbers().entrySet()) {
+				System.out.println("comaparing condition's pin number (" + entry.getValue() +") to event's pin number (" + event.getPin().getPin() + ") => " + (entry.getValue() == event.getPin().getPin()));
+			if(entry.getValue() == event.getPin().getPin()) {
+				
 				if (condition.getPinState() == event.getState())
 					if (condition.getElapsedTime() == null)
 						condition.startTimer(this);
@@ -53,6 +56,7 @@ public class Behavior implements GpioPinListenerDigital{
 						condition.setConditionMet(false);
 				}
 			}
+		}
 		}
 		
 		
