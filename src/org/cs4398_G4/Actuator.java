@@ -48,6 +48,10 @@ public class Actuator extends Component implements ActionListener   {
         
 	}
 
+	public void run() {
+		
+		
+	}
 	public void TurnOff() {
 		// TODO Auto-generated method stub
 		for (GpioPinDigitalOutput outputPin : outputPins) {
