@@ -1,4 +1,4 @@
-package homeautomation.test.arduino;
+package org.cs4398_G4.examples;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPin;
