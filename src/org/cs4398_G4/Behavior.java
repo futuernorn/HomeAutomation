@@ -31,10 +31,12 @@ public class Behavior implements GpioPinListenerDigital{
 	private void Run() {
 		for (final Action action : actions) {
 			action.getActuator().getOutputPins().setState(action.getPinState());
+			System.out.println("running action:" + action);
 			new Timer().schedule(new TimerTask() {
 				  @Override
 				  public void run() {
 					  action.getActuator().getOutputPins().toggle();
+					  System.out.println("stopping action:" + action);
 				  }
 				}, (long) action.getDuration() * 1000);
 		}
