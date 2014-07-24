@@ -30,12 +30,15 @@ import javax.swing.JSeparator;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class LocalInterface {
 
 	JFrame frmHomeAutomationSystem;
 	private JTextField nameTxt;
-	private JTextField roomTxt;
 	public JTextField motionTxt;
 	public JButton btnToggleLed;
 	private Controller controller;
@@ -115,81 +118,9 @@ public class LocalInterface {
 		statusForm.add(motionTxt, "4, 6, fill, center");
 		motionTxt.setColumns(10);
 		
-		addRemoveTab = new JPanel();
+		addRemoveTab = new ComponentManagePanel(this);
 
-		addRemoveTab.setLayout(new BorderLayout(0, 0));
 		
-		JPanel addRemoveBtnPanel = new JPanel();
-		addRemoveTab.add(addRemoveBtnPanel, BorderLayout.NORTH);
-		addRemoveBtnPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		JButton btnAddComponent = new JButton("Add Component");
-		addRemoveBtnPanel.add(btnAddComponent);
-		
-		JButton btnRemoveCompontent = new JButton("Remove Compontent");
-		addRemoveBtnPanel.add(btnRemoveCompontent);
-		
-		JPanel addRemovePanel = new JPanel();
-		addRemoveTab.add(addRemovePanel, BorderLayout.SOUTH);
-		addRemovePanel.setLayout(new BorderLayout(0, 0));
-		
-		JPanel addRemoveForm = new JPanel();
-		addRemovePanel.add(addRemoveForm, BorderLayout.CENTER);
-		addRemoveForm.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
-		JLabel lblName = new JLabel("Name");
-		addRemoveForm.add(lblName, "2, 2, right, default");
-		
-		nameTxt = new JTextField();
-		addRemoveForm.add(nameTxt, "4, 2, fill, top");
-		nameTxt.setColumns(10);
-		
-		JLabel lblInputPin = new JLabel("Input Pin");
-		addRemoveForm.add(lblInputPin, "2, 4, right, default");
-		
-		JComboBox inputCombo = new JComboBox();
-		addRemoveForm.add(inputCombo, "4, 4, fill, default");
-		
-		JLabel lblOutputPin = new JLabel("Output Pin");
-		addRemoveForm.add(lblOutputPin, "2, 6, right, default");
-		
-		JComboBox outputCombo = new JComboBox();
-		addRemoveForm.add(outputCombo, "4, 6, fill, default");
-		
-		JLabel lblRoom = new JLabel("Room");
-		addRemoveForm.add(lblRoom, "2, 8, right, default");
-		
-		roomTxt = new JTextField();
-		addRemoveForm.add(roomTxt, "4, 8, fill, default");
-		roomTxt.setColumns(10);
-		
-		JPanel addRemoveFormBtnPanel = new JPanel();
-		addRemovePanel.add(addRemoveFormBtnPanel, BorderLayout.SOUTH);
-		addRemoveFormBtnPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		JButton btnSubmit = new JButton("Submit");
-		addRemoveFormBtnPanel.add(btnSubmit);
-		
-		JButton btnCancel = new JButton("Cancel");
-		addRemoveFormBtnPanel.add(btnCancel);
-		
-		JLabel lblAddComponent = new JLabel("Add Component");
-		addRemovePanel.add(lblAddComponent, BorderLayout.NORTH);
 	}
 	
 	public Controller getController() {

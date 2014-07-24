@@ -23,6 +23,14 @@ public class BaseStation {
 		behaviors = new ArrayList<Behavior>();
 	}
 	
+	public ArrayList<Room> getRooms() {
+		return house;
+	}
+
+	public void setHouse(ArrayList<Room> house) {
+		this.house = house;
+	}
+
 	String GetStatus() {
 		
 		return "Home lookin' p good bro!";
@@ -35,6 +43,8 @@ public class BaseStation {
 		house.add(newRoom);
 		
 	}
+	
+
 	
 	public List<Sensor> GetSensors() {
 		List<Sensor> sensors = new ArrayList<Sensor>();
