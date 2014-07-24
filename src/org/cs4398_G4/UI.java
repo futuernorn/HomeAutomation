@@ -1,6 +1,5 @@
-package org.txstate.cs4398_sum14.group4;
+package org.cs4398_G4;
 
-import org.cs4398_G4.User;
 import org.cs4398_G4.examples.*;
 
 import java.awt.Color;
