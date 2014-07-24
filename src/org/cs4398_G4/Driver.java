@@ -31,7 +31,6 @@ public class Driver {
 		// TODO: replace with actual interfaces
 		
 
-//		System.out.println(baseStation.GetStatus());
 
 		//UserInterface ui = new UserInterface();
 
@@ -40,8 +39,14 @@ public class Driver {
 					try {
 						
 						// for instance, this assumes someone has added a compomnent and supplied the needed information
-						Room defaultRoom = new Room("Default");
+						Room defaultRoom = new Room("Living Room");
+						Room bedroom = new Room("Bedroom");
+						Room bathroom = new Room("Bathroom");
+						Room diningRoom = new Room("DiningRoom");
 						baseStation.AddRoom(defaultRoom);
+						baseStation.AddRoom(bedroom);
+						baseStation.AddRoom(bathroom);
+						baseStation.AddRoom(diningRoom);
 						
 						HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
 						inputPinNumbers.put("Motion Detector (PIR)", RaspiPin.GPIO_02);
@@ -62,6 +67,8 @@ public class Driver {
 						
 						window.ShowInterface();
 						
+						System.out.println(controller.getAllPossiblePins());
+						System.out.println(controller.getAvailablePins());
 						
 					} catch (Exception e) {
 						e.printStackTrace();

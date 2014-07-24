@@ -47,15 +47,16 @@ public class Behavior implements GpioPinListenerDigital{
 		for (Condition condition: conditions) {
 			for (Entry<String, Pin> entry : condition.getSensor().getInputPinNumbers().entrySet()) {
 				System.out.println("comaparing condition's pin number (" + entry.getValue() +") to event's pin number (" + event.getPin().getPin() + ") => " + (entry.getValue() == event.getPin().getPin()));
-			if(entry.getValue() == event.getPin().getPin()) {
-				System.out.println("comaparing condition's pin state (" + condition.getPinState() +") to event's pin number (" + event.getState() + ") => " + (condition.getPinState() == event.getState()));
-				if (condition.getPinState() == event.getState())
-					if (condition.getElapsedTime() == null)
-						condition.startTimer(this);
-				} else {
-					if (condition.getElapsedTime() != null)
-						condition.stopTimer();
-						condition.setConditionMet(false);
+				
+				if(entry.getValue() == event.getPin().getPin()) {
+					System.out.println("comaparing condition's pin state (" + condition.getPinState() +") to event's pin number (" + event.getState() + ") => " + (condition.getPinState() == event.getState()));
+					if (condition.getPinState() == event.getState())
+						if (condition.getElapsedTime() == null)
+							condition.startTimer(this);
+					} else {
+						if (condition.getElapsedTime() != null)
+							condition.stopTimer();
+							condition.setConditionMet(false);
 				}
 			}
 		}
