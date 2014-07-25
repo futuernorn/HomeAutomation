@@ -23,6 +23,10 @@ public class BaseStation {
 		behaviors = new ArrayList<Behavior>();
 	}
 	
+	public ArrayList<Behavior> getBehvaiors() {
+		return behaviors;
+	}
+	
 	public ArrayList<Room> getRooms() {
 		return house;
 	}

@@ -26,7 +26,7 @@ import com.pi4j.io.gpio.RaspiPin;
 
 public class BaseStationTest {
 
-	@Ignore
+	@Test
 	public void test() {
 		
 		//----create objects for tests----
@@ -74,13 +74,13 @@ public class BaseStationTest {
 		assertEquals("Number of rooms should be one", 1, BaseTester.getRooms().size());
 		
 		//test behavior list is zero
-		assertEquals("Number of behaviors should be zero", 0, BaseTester.GetBehvaiors().size());
+		assertEquals("Number of behaviors should be zero", 0, BaseTester.getBehvaiors().size());
 		
 		//add behavior
 		BaseTester.addBehavior(testBehavior);
 		
 		//test behavior has been added
-		assertEquals("Number of Behaviors should be one", 1, BaseTester.GetBehvaiors().size());
+		assertEquals("Number of Behaviors should be one", 1, BaseTester.getBehvaiors().size());
 		
 	}
 
