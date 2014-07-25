@@ -60,7 +60,7 @@ public class Behavior implements GpioPinListenerDigital{
 				}
 			}
 		}
-		}
+	}
 		
 		
 	

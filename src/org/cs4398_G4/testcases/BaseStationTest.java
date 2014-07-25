@@ -53,7 +53,7 @@ public class BaseStationTest {
 		
 		//create test actions and conditions for basestation behavior test
 		Action testAction = new Action(testLight, PinState.HIGH, 5);
-		Condition testCondition = new Condition(testSensor, PinState.HIGH, 5);
+		Condition testCondition = new Condition(testSensor, PinState.HIGH, 10);
 		
 		testConditions.add(testCondition);
 		testActions.add(testAction);
@@ -64,6 +64,7 @@ public class BaseStationTest {
 		//----end object creation----
 		
 		
+		//-------Tests-------
 		//test to make sure base initially has zero rooms
 		assertEquals("Number of rooms should be zero", 0 ,BaseTester.getRooms().size());
 		
