@@ -18,30 +18,8 @@ import com.pi4j.io.gpio.RaspiPin;
 
 public class RoomTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		System.out.println("@BeforeClass - oneTimeSetUp");
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-		System.out.println("@AfterClass - oneTimeTearDown");
-	}
-	
-	//Test Case 1 - AddComponent()
-	//size() components array should be one more
-	//after component is added. Component should be off when added.
-	
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
-	public void AddComponentTest() {
+	public void AddComponentsTest() {
 		
 		//Room tester object
 		Room RoomTester = new Room("testRoom");
