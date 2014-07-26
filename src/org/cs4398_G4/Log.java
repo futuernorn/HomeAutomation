@@ -9,7 +9,12 @@ public class Log {
 	private ArrayList<LogEntry> logEntries;
 	private int numLogs;
 	
-	void addLog(User user, String action)
+	public Log() {
+		numLogs = 0;
+		logEntries = new ArrayList<LogEntry>();
+	}
+	
+	public void addLog(User user, String action)
 	{
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
@@ -17,7 +22,7 @@ public class Log {
 		++ numLogs;
 	}
 	
-	ArrayList<LogEntry> searchLog(User user)
+	public ArrayList<LogEntry> searchLog(User user)
 	{
 		ArrayList<LogEntry> tempEntries = null;
 		for (int i = 0; i < logEntries.size(); i++)
@@ -31,7 +36,7 @@ public class Log {
 		return tempEntries;
 	}
 	
-	ArrayList<LogEntry> searchLog(Date date)
+	public ArrayList<LogEntry> searchLog(Date date)
 	{
 		ArrayList<LogEntry> tempEntries = null;
 		for (int i = 0; i < logEntries.size(); i++)
@@ -45,7 +50,7 @@ public class Log {
 		return tempEntries;
 	}
 	
-	ArrayList<LogEntry> searchLog(String action)
+	public ArrayList<LogEntry> searchLog(String action)
 	{
 		ArrayList<LogEntry> tempEntries = null;
 		for (int i = 0; i < logEntries.size(); i++)
@@ -57,5 +62,13 @@ public class Log {
 			}
 		}
 		return tempEntries;
+	}
+	
+	public int getNumLogs() {
+		return numLogs;
+	}
+	
+	public ArrayList<LogEntry> getLogEntries() {
+		return logEntries;
 	}
 }

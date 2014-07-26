@@ -21,6 +21,7 @@ public class BaseStation {
 		house = new ArrayList<Room>();
 		users = new ArrayList<User>();
 		behaviors = new ArrayList<Behavior>();
+		securitySystem = new Security();
 	}
 	
 	public ArrayList<Behavior> getBehvaiors() {
