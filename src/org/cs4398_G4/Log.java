@@ -20,10 +20,11 @@ public class Log {
 	ArrayList<LogEntry> searchLog(User user)
 	{
 		ArrayList<LogEntry> tempEntries = null;
+		
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
-			if (temp.viewUser() == user)
+			if (temp.viewUserString().equals(user.toString()))
 			{
 				tempEntries.add(logEntries.get(i));
 			}
@@ -34,10 +35,12 @@ public class Log {
 	ArrayList<LogEntry> searchLog(Date date)
 	{
 		ArrayList<LogEntry> tempEntries = null;
+		
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
-			if (temp.viewDate() == date)
+			
+			if (temp.viewDateString().equals(date.toString()))
 			{
 				tempEntries.add(logEntries.get(i));
 			}
@@ -51,7 +54,8 @@ public class Log {
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
-			if (temp.viewAction() == action)
+			
+			if (temp.viewAction().equals(action.toString()))
 			{
 				tempEntries.add(logEntries.get(i));
 			}
