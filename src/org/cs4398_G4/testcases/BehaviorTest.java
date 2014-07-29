@@ -21,7 +21,24 @@ import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 
 public class BehaviorTest {
-
+	
+//	------------Read this------------
+//	I think part of the issue with the behavior
+//	test right now has to do with behavior containing
+//	multiple actions and conditions. For simplicity,
+//	I think a behavior should work like this:
+//		
+//		One behavior has one condition and one action.
+//		The action should contain a TimerTask.
+//		The behavior, once given a condition and action,
+//		starts the timer that is contained in the condition object
+//		and schedules the TimerTask using the Task contained in the action object.
+//		I dont think there be an array or list of conditions
+//		and actions because it will get really complicated...
+//		Which condition is assigned to which action? Multiple conditions for
+//		an action possible? Dont think theres time for figuring that out unless
+//		you have a good idea of how to do it (I dont :( )
+	
 	@Test
 	public void EmptyBehaviorTest() {
 		
