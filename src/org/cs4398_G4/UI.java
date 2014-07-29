@@ -18,6 +18,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class UI extends JFrame {
 
