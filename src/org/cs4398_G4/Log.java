@@ -24,7 +24,7 @@ public class Log {
 	
 	public ArrayList<LogEntry> searchLog(User user)
 	{
-		ArrayList<LogEntry> tempEntries = null;
+		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
@@ -38,13 +38,19 @@ public class Log {
 	
 	public ArrayList<LogEntry> searchLog(Date date)
 	{
-		ArrayList<LogEntry> tempEntries = null;
+		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
-			if (temp.viewDate() == date)
+			if (temp.viewDate().getYear() == date.getYear())
 			{
-				tempEntries.add(logEntries.get(i));
+				if(temp.viewDate().getMonth() == date.getMonth())
+				{
+					if(temp.viewDate().getDay() == date.getDay())
+					{
+						tempEntries.add(logEntries.get(i));
+					}
+				}
 			}
 		}
 		return tempEntries;
