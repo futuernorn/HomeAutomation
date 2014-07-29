@@ -14,7 +14,7 @@ import org.junit.Test;
 public class LogTest {
 
 	@Test
-	public void test() {
+	public void SearchTests() {
 		
 		//-----set up testing variables-----
 		Log testLog = new Log();

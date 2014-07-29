@@ -19,7 +19,7 @@ import com.pi4j.io.gpio.RaspiPin;
 public class ActionTest {
 
 	@Test
-	public void test() {
+	public void ActionTest() {
 		
 		//Create Hashmap for pins
 		HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();

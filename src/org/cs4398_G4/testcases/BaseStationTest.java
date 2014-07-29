@@ -11,6 +11,7 @@ import org.cs4398_G4.Actuator;
 import org.cs4398_G4.BaseStation;
 import org.cs4398_G4.Behavior;
 import org.cs4398_G4.Condition;
+import org.cs4398_G4.Controller;
 import org.cs4398_G4.Room;
 import org.cs4398_G4.Sensor;
 import org.junit.After;
@@ -26,11 +27,12 @@ import com.pi4j.io.gpio.RaspiPin;
 
 public class BaseStationTest {
 
-	@Test
+	@Ignore
 	public void test() {
 		
 		//----create objects for tests----
 		BaseStation BaseTester = new BaseStation();
+		Controller testControler = new Controller(BaseTester);
 		Room testRoom = new Room("testRoom");
 		
 		List<Condition> testConditions = new ArrayList<Condition>();

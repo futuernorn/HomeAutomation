@@ -28,6 +28,14 @@ public class Behavior implements GpioPinListenerDigital{
 		}
 	}
 	
+	public List<Condition> getConditions() {
+		return conditions;
+	}
+	
+	public List<Action> getActions() {
+		return actions;
+	}
+	
 	private void Run() {
 		for (final Action action : actions) {
 			action.getActuator().getOutputPins().setState(action.getPinState());
