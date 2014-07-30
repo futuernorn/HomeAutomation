@@ -69,11 +69,11 @@ public class LoginPanel extends JPanel {
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (user.logOn(password.getText()))
-				{
+//				if (user.logOn(password.getText()))
+//				{
 					//create tabs after login here
 					view.doLogin();
-				}
+//				}
 			}
 		});
 		btnOk.setBounds(250, 141, 64, 20);

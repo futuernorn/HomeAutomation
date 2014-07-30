@@ -75,6 +75,13 @@ public class BaseStation {
 		
 	}
 
+	public List<Component> getComponents() {
+		List<Component> components = new ArrayList<Component>();
+		components.addAll(GetSensors());
+		components.addAll(GetActuators());
+		return components;
+	}
+
 //	public List<? extends Component> GetComponents(Class<?> cls) {
 //		List<? extends Component> components = new ArrayList<Component>();
 //		for (Room room : house) {

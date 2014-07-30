@@ -130,5 +130,10 @@ public class Controller {
 		return baseStation.getRooms();
 	}
 
+	public List<Component> getComponents() {
+		// TODO Auto-generated method stub
+		return baseStation.getComponents();
+	}
+
 
 }
