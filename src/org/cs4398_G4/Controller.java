@@ -93,6 +93,25 @@ public class Controller {
 		
 	}
 	
+	public void RemoveComponent(Component removedComponent) {
+//		for (GpioPinDigitalInput inputPin : ) {
+//		    
+//			inputPin.
+//		    
+//		}
+		if (removedComponent.getInputPins() != null)
+			gpio.unprovisionPin(removedComponent.getInputPins());
+		
+		if (removedComponent.getOutputPins() != null)
+			gpio.unprovisionPin(removedComponent.getOutputPins());
+		baseStation.removeComponent(removedComponent);
+//		removedComponent.getInputPins().unexport();
+		
+		
+//		for (Entry<String, Pin> entry : newComp.outputPinNumbers.entrySet()) {
+		
+	}
+	
 //	public List<Component> GetComponentsByType(Class<?> type) {
 //		return baseStation.GetComponentsByType(type);
 //	}

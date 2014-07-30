@@ -67,8 +67,7 @@ public class Driver {
 						
 						window.ShowInterface();
 						
-						System.out.println(controller.getAllPossiblePins());
-						System.out.println(controller.getAvailablePins());
+						
 						
 					} catch (Exception e) {
 						e.printStackTrace();

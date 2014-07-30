@@ -27,7 +27,7 @@ public class Log {
 
 		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
 
-		ArrayList<LogEntry> tempEntries = null;
+//		ArrayList<LogEntry> tempEntries = null;
 
 		for (int i = 0; i < logEntries.size(); i++)
 		{

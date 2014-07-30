@@ -165,58 +165,11 @@ public class ComponentManagePanel extends JPanel {
 		gbc_componentList.gridy = 0;
 		addComponentListPanel.add(componentList, gbc_componentList);
 		
-		FillFields();
+		
+		SetupComponentList();
 	}
 	
-	public void FillFields() {
-		Object[] avaiablePins = view.getController().getAvailablePins().toArray();
-//		String[] rooms = view.getController().getRooms().toArray();
-		
-		
-		inputPinComboModel = new DefaultComboBoxModel(avaiablePins);
-		inputCombo.setModel(inputPinComboModel);
-//		inputCombo.addActionListener (new ActionListener () {
-//		    public void actionPerformed(ActionEvent e) {
-//			    int index = inputCombo.getSelectedIndex();
-//
-//			    Object removedPin =  inputPinComboModel.getElementAt(index);
-//			    outputPinComboModel.removeAllElements();
-//			    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
-//			    for (Object availablePin : avaiablePins) {
-//			    	outputPinComboModel.addElement(avaiablePins);
-//			    }
-//			    outputPinComboModel.removeElement(removedPin);
-//
-//	
-//		    }
-//		});
-		
-		
-		outputPinComboModel = new DefaultComboBoxModel(avaiablePins);
-		outputCombo.setModel(outputPinComboModel);
-//		outputCombo.addActionListener (new ActionListener () {
-//		    public void actionPerformed(ActionEvent e) {
-//			    int index = outputCombo.getSelectedIndex();
-//
-//			    Object removedPin =  outputPinComboModel.getElementAt(index);
-//			    inputPinComboModel.removeAllElements();
-//			    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
-//			    for (Object availablePin : avaiablePins) {
-//			    	inputPinComboModel.addElement(avaiablePins);
-//			    }
-//			    inputPinComboModel.removeElement(removedPin);
-//
-//	
-//		    }
-//		});
-		
-		roomComboModel = new DefaultComboBoxModel(view.getController().getRooms().toArray());
-		roomComboBox.setModel(roomComboModel);
-
-		String[] possibleTypes = {"Motion Sensor", "Sound Alarm", "LED Light"};
-		typeComboModel = new DefaultComboBoxModel(possibleTypes);
-		typeComboBox.setModel(typeComboModel);
-		
+	private void SetupComponentList() {
 		btnSubmit.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
@@ -244,32 +197,146 @@ public class ComponentManagePanel extends JPanel {
 		
 		inputPinCheckBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (inputPinCheckBox.isEnabled())
-					inputCombo.setEnabled(true);
-				else
+				if (inputCombo.isEnabled()) {
 					inputCombo.setEnabled(false);
+				} else {
+					inputCombo.setEnabled(true);
+				}
+				SyncInputPinSelectionToOutput();
 			}
 		});
 		
 		outputPinCheckBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (outputPinCheckBox.isEnabled())
-					outputCombo.setEnabled(true);
-				else
+				if (outputCombo.isEnabled()) {
 					outputCombo.setEnabled(false);
+				} else {
+					outputCombo.setEnabled(true);
+				}
+				SyncOutputPinSelectionToInput();
 			}
 		});
 		
 		componentListModel = new DefaultListModel();
 		componentList.setModel(componentListModel);
+		
+		
+		FillFields();
 		updateComponentList();
 		
 		btnRemoveCompontent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				view.getController().removeComponent();
+			    int index = componentList.getSelectedIndex();
+			    if (index == -1)
+			    	index = 0;
+//			    sensorComboBox.addItem(conditionListModel.getElementAt(index));
+			    Component removedComponent = ((Component) componentListModel.getElementAt(index));
+			    view.getController().RemoveComponent(removedComponent);
+			    
+			    componentListModel.remove(index);
+			    
+			    FillFields();
 				updateComponentList();
 			}
 		});
+		
+		inputCombo.addActionListener (new ActionListener () {
+	    public void actionPerformed(ActionEvent e) {
+	    	SyncInputPinSelectionToOutput();
+	    }
+	});
+		
+		outputCombo.addActionListener (new ActionListener () {
+	    public void actionPerformed(ActionEvent e) {
+	    	SyncOutputPinSelectionToInput();
+
+
+
+	    }
+	});
+		
+	}
+	
+	public void SyncInputPinSelectionToOutput() {
+		int outputIndex = outputCombo.getSelectedIndex();
+	    int inputIndex = outputCombo.getSelectedIndex();
+	    Object currentOutputSelection =  inputPinComboModel.getElementAt(outputIndex);
+	    Object removedPin =  inputPinComboModel.getElementAt(inputIndex);
+	    
+		if (!inputCombo.isEnabled())
+			outputPinComboModel.addElement(removedPin);
+		
+		if (!outputCombo.isEnabled())
+	    	return;
+	    
+
+	    
+
+//	    outputPinComboModel.removeAllElements();
+//	    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
+//	    for (Object avaiablePin : avaiablePins) {
+//	    	outputPinComboModel.addElement(avaiablePin);
+//	    }
+	    outputPinComboModel.removeElement(removedPin);
+//	    outputCombo.setSelectedIndex(outputIndex);
+//	    outputCombo.setSelectedItem(currentOutputSelection);
+
+
+    }
+	
+	public void SyncOutputPinSelectionToInput() {
+	    int outputIndex = outputCombo.getSelectedIndex();
+	    int inputIndex = outputCombo.getSelectedIndex();
+	    Object currentOutputSelection =  inputPinComboModel.getElementAt(outputIndex);
+	    Object removedPin =  inputPinComboModel.getElementAt(inputIndex);
+	    
+		if (!outputCombo.isEnabled())
+			inputPinComboModel.addElement(removedPin);
+	    if (!inputCombo.isEnabled())
+	    	return;
+
+	    
+
+//	    inputPinComboModel.removeAllElements();
+	    inputPinComboModel.removeElement(removedPin);
+//	    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
+//	    for (Object avaiablePin : avaiablePins) {
+//	    	inputPinComboModel.addElement(avaiablePin);
+//	    }
+//	    inputPinComboModel.removeElement(removedPin);
+//	    inputCombo.setSelectedItem(currentInputSelection);
+
+    }
+	
+
+	public void FillFields() {
+		Object[] avaiablePins = view.getController().getAvailablePins().toArray();
+		
+		System.out.println(view.getController().getAllPossiblePins());
+		System.out.println(view.getController().getAvailablePins());
+//		String[] rooms = view.getController().getRooms().toArray();
+		
+		
+		inputPinComboModel = new DefaultComboBoxModel(avaiablePins);
+		inputCombo.setModel(inputPinComboModel);
+
+		
+		
+		outputPinComboModel = new DefaultComboBoxModel(avaiablePins);
+		outputCombo.setModel(outputPinComboModel);
+
+		
+		roomComboModel = new DefaultComboBoxModel(view.getController().getRooms().toArray());
+		roomComboBox.setModel(roomComboModel);
+
+		String[] possibleTypes = {"Motion Sensor", "Sound Alarm", "LED Light"};
+		typeComboModel = new DefaultComboBoxModel(possibleTypes);
+		typeComboBox.setModel(typeComboModel);
+		
+//		SyncInputPinSelectionToOutput();
+		
+
 	}
 	
 	public void updateComponentList() {
@@ -278,6 +345,11 @@ public class ComponentManagePanel extends JPanel {
 		for (Component component : components) {
 			componentListModel.addElement(component);
 		}
+		
+	    if (componentListModel.getSize() == 0) 
+	    	btnRemoveCompontent.setEnabled(false);
+	    else
+	    	btnRemoveCompontent.setEnabled(true);
 	}
 
 }

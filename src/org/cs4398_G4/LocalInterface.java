@@ -137,9 +137,11 @@ public class LocalInterface {
 
 	public void doLogin() {
 		tabbedPane.remove(loginPanel);
-		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
-		tabbedPane.addTab("Status", null, statusPanel, null);
+		
+		
 		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
+		tabbedPane.addTab("Status", null, statusPanel, null);
+		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
 		
 	}
 }

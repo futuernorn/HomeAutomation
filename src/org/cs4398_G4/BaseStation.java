@@ -87,6 +87,14 @@ public class BaseStation {
 		return components;
 	}
 
+	public void removeComponent(Component removedComponent) {
+		// TODO Auto-generated method stub
+		for (Room room : house) {
+			room.removeComponent(removedComponent);
+		}
+		
+	}
+
 //	public List<? extends Component> GetComponents(Class<?> cls) {
 //		List<? extends Component> components = new ArrayList<Component>();
 //		for (Room room : house) {
