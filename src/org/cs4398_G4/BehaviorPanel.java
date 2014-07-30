@@ -95,7 +95,7 @@ public class BehaviorPanel extends JPanel {
 						JPanel behaviorListStatusPanel = new JPanel();
 						behaviorStatusPanel.add(behaviorListStatusPanel, BorderLayout.WEST);
 						GridBagLayout gbl_behaviorListStatusPanel = new GridBagLayout();
-						gbl_behaviorListStatusPanel.columnWidths = new int[]{0, 0, 250, 0, 0};
+						gbl_behaviorListStatusPanel.columnWidths = new int[]{218, 0, 170, 10, 0};
 						gbl_behaviorListStatusPanel.rowHeights = new int[]{0, 74, 0, 62, 0, 0, 0, 0};
 						gbl_behaviorListStatusPanel.columnWeights = new double[]{1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 						gbl_behaviorListStatusPanel.rowWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
@@ -115,8 +115,7 @@ public class BehaviorPanel extends JPanel {
 						
 						JPanel behaviorSensorPanel = new JPanel();
 						GridBagConstraints gbc_behaviorSensorPanel = new GridBagConstraints();
-						gbc_behaviorSensorPanel.anchor = GridBagConstraints.EAST;
-						gbc_behaviorSensorPanel.fill = GridBagConstraints.VERTICAL;
+						gbc_behaviorSensorPanel.fill = GridBagConstraints.BOTH;
 						gbc_behaviorSensorPanel.insets = new Insets(0, 0, 5, 5);
 						gbc_behaviorSensorPanel.gridx = 0;
 						gbc_behaviorSensorPanel.gridy = 1;
@@ -137,7 +136,7 @@ public class BehaviorPanel extends JPanel {
 								FormFactory.DEFAULT_ROWSPEC,}));
 						
 						JLabel lblConditions = new JLabel("Sensors");
-						behaviorSensorPanel.add(lblConditions, "4, 2");
+						behaviorSensorPanel.add(lblConditions, "4, 2, fill, default");
 						
 						JLabel lblSensor = new JLabel("Sensor");
 						behaviorSensorPanel.add(lblSensor, "2, 4, right, default");
@@ -215,8 +214,7 @@ public class BehaviorPanel extends JPanel {
 		
 						JPanel behaviorActuatorPanel = new JPanel();
 						GridBagConstraints gbc_behaviorActuatorPanel = new GridBagConstraints();
-						gbc_behaviorActuatorPanel.anchor = GridBagConstraints.EAST;
-						gbc_behaviorActuatorPanel.fill = GridBagConstraints.VERTICAL;
+						gbc_behaviorActuatorPanel.fill = GridBagConstraints.BOTH;
 						gbc_behaviorActuatorPanel.insets = new Insets(0, 0, 5, 5);
 						gbc_behaviorActuatorPanel.gridx = 0;
 						gbc_behaviorActuatorPanel.gridy = 3;
@@ -370,8 +368,8 @@ public class BehaviorPanel extends JPanel {
 						behaviorListPanel.add(behaviorButtonsPanel, gbc_behaviorButtonsPanel);
 						
 						btnBehaviorRemove = new JButton("Remove");
-
-						behaviorButtonsPanel.add(btnBehaviorRemove);
+						
+												behaviorButtonsPanel.add(btnBehaviorRemove);
 						
 						JLabel lblActuatorState = new JLabel("State");
 						

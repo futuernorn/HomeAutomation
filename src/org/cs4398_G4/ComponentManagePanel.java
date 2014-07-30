@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JCheckBox;
+import java.awt.Insets;
+import javax.swing.JSeparator;
 
 public class ComponentManagePanel extends JPanel {
 	
@@ -51,21 +53,28 @@ public class ComponentManagePanel extends JPanel {
 
 	public ComponentManagePanel(LocalInterface view) {
 		this.view = view;
-		this.setLayout(new BorderLayout(0, 0));
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{450, 0};
+		gridBagLayout.rowHeights = new int[]{0, 199, 0, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		setLayout(gridBagLayout);
 		
-		JPanel addRemoveBtnPanel = new JPanel();
-		this.add(addRemoveBtnPanel, BorderLayout.NORTH);
-		addRemoveBtnPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		JButton btnAddComponent = new JButton("Add Component");
-		addRemoveBtnPanel.add(btnAddComponent);
-		
-		btnRemoveCompontent = new JButton("Remove Compontent");
-
-		addRemoveBtnPanel.add(btnRemoveCompontent);
+		JLabel lblAddComponent = new JLabel("Add Component");
+		GridBagConstraints gbc_lblAddComponent = new GridBagConstraints();
+		gbc_lblAddComponent.insets = new Insets(0, 0, 5, 0);
+		gbc_lblAddComponent.gridx = 0;
+		gbc_lblAddComponent.gridy = 0;
+		add(lblAddComponent, gbc_lblAddComponent);
 		
 		JPanel addRemovePanel = new JPanel();
-		this.add(addRemovePanel, BorderLayout.SOUTH);
+		GridBagConstraints gbc_addRemovePanel = new GridBagConstraints();
+		gbc_addRemovePanel.insets = new Insets(0, 0, 5, 0);
+		gbc_addRemovePanel.anchor = GridBagConstraints.NORTH;
+		gbc_addRemovePanel.fill = GridBagConstraints.HORIZONTAL;
+		gbc_addRemovePanel.gridx = 0;
+		gbc_addRemovePanel.gridy = 1;
+		this.add(addRemovePanel, gbc_addRemovePanel);
 		addRemovePanel.setLayout(new BorderLayout(0, 0));
 		
 		JPanel addRemoveForm = new JPanel();
@@ -110,60 +119,77 @@ public class ComponentManagePanel extends JPanel {
 		addRemoveForm.add(inputCombo, "4, 6, fill, default");
 		
 		inputPinCheckBox = new JCheckBox("");
-
-		addRemoveForm.add(inputPinCheckBox, "6, 6");
 		
-		JLabel lblOutputPin = new JLabel("Output Pin");
-		addRemoveForm.add(lblOutputPin, "2, 8, right, default");
-		
-		outputCombo = new JComboBox();
-		outputCombo.setEnabled(false);
-		addRemoveForm.add(outputCombo, "4, 8, fill, default");
-		
-		outputPinCheckBox = new JCheckBox("");
-		addRemoveForm.add(outputPinCheckBox, "6, 8");
-		
-		JLabel lblRoom = new JLabel("Room");
-		addRemoveForm.add(lblRoom, "2, 10, right, default");
-		
-		roomComboBox = new JComboBox();
-		addRemoveForm.add(roomComboBox, "4, 10, fill, default");
-		
-		JLabel lblType = new JLabel("Type");
-		addRemoveForm.add(lblType, "2, 12, right, default");
-		
-		typeComboBox = new JComboBox();
-		addRemoveForm.add(typeComboBox, "4, 12, fill, default");
-		
-		JPanel addRemoveFormBtnPanel = new JPanel();
-		addRemovePanel.add(addRemoveFormBtnPanel, BorderLayout.SOUTH);
-		addRemoveFormBtnPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		btnSubmit = new JButton("Submit");
-
-		addRemoveFormBtnPanel.add(btnSubmit);
-		
-		JButton btnCancel = new JButton("Cancel");
-		addRemoveFormBtnPanel.add(btnCancel);
-		
-		JLabel lblAddComponent = new JLabel("Add Component");
-		addRemovePanel.add(lblAddComponent, BorderLayout.NORTH);
-		
-		JPanel addComponentListPanel = new JPanel();
-		this.add(addComponentListPanel, BorderLayout.CENTER);
-		GridBagLayout gbl_addComponentListPanel = new GridBagLayout();
-		gbl_addComponentListPanel.columnWidths = new int[]{225, 0};
-		gbl_addComponentListPanel.rowHeights = new int[]{1, 0};
-		gbl_addComponentListPanel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
-		gbl_addComponentListPanel.rowWeights = new double[]{1.0, Double.MIN_VALUE};
-		addComponentListPanel.setLayout(gbl_addComponentListPanel);
-		
-		componentList = new JList();
-		GridBagConstraints gbc_componentList = new GridBagConstraints();
-		gbc_componentList.fill = GridBagConstraints.BOTH;
-		gbc_componentList.gridx = 0;
-		gbc_componentList.gridy = 0;
-		addComponentListPanel.add(componentList, gbc_componentList);
+				addRemoveForm.add(inputPinCheckBox, "6, 6");
+				
+				JLabel lblOutputPin = new JLabel("Output Pin");
+				addRemoveForm.add(lblOutputPin, "2, 8, right, default");
+				
+				outputCombo = new JComboBox();
+				outputCombo.setEnabled(false);
+				addRemoveForm.add(outputCombo, "4, 8, fill, default");
+				
+				outputPinCheckBox = new JCheckBox("");
+				addRemoveForm.add(outputPinCheckBox, "6, 8");
+				
+				JLabel lblRoom = new JLabel("Room");
+				addRemoveForm.add(lblRoom, "2, 10, right, default");
+				
+				roomComboBox = new JComboBox();
+				addRemoveForm.add(roomComboBox, "4, 10, fill, default");
+				
+				JLabel lblType = new JLabel("Type");
+				addRemoveForm.add(lblType, "2, 12, right, default");
+				
+				typeComboBox = new JComboBox();
+				addRemoveForm.add(typeComboBox, "4, 12, fill, default");
+				
+				JPanel addRemoveFormBtnPanel = new JPanel();
+				addRemovePanel.add(addRemoveFormBtnPanel, BorderLayout.SOUTH);
+				addRemoveFormBtnPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+				
+				btnSubmit = new JButton("Add Component");
+				
+						addRemoveFormBtnPanel.add(btnSubmit);
+						
+						JSeparator separator = new JSeparator();
+						GridBagConstraints gbc_separator = new GridBagConstraints();
+						gbc_separator.insets = new Insets(0, 0, 5, 0);
+						gbc_separator.gridx = 0;
+						gbc_separator.gridy = 2;
+						add(separator, gbc_separator);
+						
+						JLabel lblComponentList = new JLabel("Component List");
+						GridBagConstraints gbc_lblComponentList = new GridBagConstraints();
+						gbc_lblComponentList.insets = new Insets(0, 0, 5, 0);
+						gbc_lblComponentList.gridx = 0;
+						gbc_lblComponentList.gridy = 3;
+						add(lblComponentList, gbc_lblComponentList);
+						
+						JPanel compontnetListPanel = new JPanel();
+						GridBagConstraints gbc_compontnetListPanel = new GridBagConstraints();
+						gbc_compontnetListPanel.insets = new Insets(0, 0, 5, 0);
+						gbc_compontnetListPanel.fill = GridBagConstraints.BOTH;
+						gbc_compontnetListPanel.gridx = 0;
+						gbc_compontnetListPanel.gridy = 4;
+						add(compontnetListPanel, gbc_compontnetListPanel);
+						compontnetListPanel.setLayout(new BorderLayout(0, 0));
+						
+						componentList = new JList();
+						compontnetListPanel.add(componentList);
+						
+						JPanel addRemoveBtnPanel = new JPanel();
+						GridBagConstraints gbc_addRemoveBtnPanel = new GridBagConstraints();
+						gbc_addRemoveBtnPanel.anchor = GridBagConstraints.NORTH;
+						gbc_addRemoveBtnPanel.fill = GridBagConstraints.HORIZONTAL;
+						gbc_addRemoveBtnPanel.gridx = 0;
+						gbc_addRemoveBtnPanel.gridy = 5;
+						this.add(addRemoveBtnPanel, gbc_addRemoveBtnPanel);
+						addRemoveBtnPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+						
+						btnRemoveCompontent = new JButton("Remove Compontent");
+						
+								addRemoveBtnPanel.add(btnRemoveCompontent);
 		
 		
 		SetupComponentList();
@@ -261,7 +287,7 @@ public class ComponentManagePanel extends JPanel {
 	public void SyncInputPinSelectionToOutput() {
 		int outputIndex = outputCombo.getSelectedIndex();
 	    int inputIndex = outputCombo.getSelectedIndex();
-	    Object currentOutputSelection =  inputPinComboModel.getElementAt(outputIndex);
+//	    Object currentOutputSelection =  inputPinComboModel.getElementAt(outputIndex);
 	    Object removedPin =  inputPinComboModel.getElementAt(inputIndex);
 	    
 		if (!inputCombo.isEnabled())
@@ -274,10 +300,11 @@ public class ComponentManagePanel extends JPanel {
 	    
 
 //	    outputPinComboModel.removeAllElements();
-//	    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
-//	    for (Object avaiablePin : avaiablePins) {
-//	    	outputPinComboModel.addElement(avaiablePin);
-//	    }
+	    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
+	    for (Object avaiablePin : avaiablePins) {
+	    	if (outputPinComboModel.getIndexOf(avaiablePin) < 0)
+	    		outputPinComboModel.addElement(avaiablePin);
+	    }
 	    outputPinComboModel.removeElement(removedPin);
 //	    outputCombo.setSelectedIndex(outputIndex);
 //	    outputCombo.setSelectedItem(currentOutputSelection);
@@ -288,8 +315,8 @@ public class ComponentManagePanel extends JPanel {
 	public void SyncOutputPinSelectionToInput() {
 	    int outputIndex = outputCombo.getSelectedIndex();
 	    int inputIndex = outputCombo.getSelectedIndex();
-	    Object currentOutputSelection =  inputPinComboModel.getElementAt(outputIndex);
-	    Object removedPin =  inputPinComboModel.getElementAt(inputIndex);
+//	    Object currentOutputSelection =  outputPinComboModel.getElementAt(outputIndex);
+	    Object removedPin =  outputPinComboModel.getElementAt(inputIndex);
 	    
 		if (!outputCombo.isEnabled())
 			inputPinComboModel.addElement(removedPin);
@@ -299,12 +326,13 @@ public class ComponentManagePanel extends JPanel {
 	    
 
 //	    inputPinComboModel.removeAllElements();
-	    inputPinComboModel.removeElement(removedPin);
-//	    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
-//	    for (Object avaiablePin : avaiablePins) {
-//	    	inputPinComboModel.addElement(avaiablePin);
-//	    }
 //	    inputPinComboModel.removeElement(removedPin);
+	    Object[] avaiablePins = view.getController().getAvailablePins().toArray();
+	    for (Object avaiablePin : avaiablePins) {
+	    	if (inputPinComboModel.getIndexOf(avaiablePin) < 0)
+	    		inputPinComboModel.addElement(avaiablePin);
+	    }
+	    inputPinComboModel.removeElement(removedPin);
 //	    inputCombo.setSelectedItem(currentInputSelection);
 
     }
