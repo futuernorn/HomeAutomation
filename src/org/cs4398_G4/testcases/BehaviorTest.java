@@ -8,8 +8,11 @@ import java.util.List;
 
 import org.cs4398_G4.Action;
 import org.cs4398_G4.Actuator;
+import org.cs4398_G4.BaseStation;
 import org.cs4398_G4.Behavior;
 import org.cs4398_G4.Condition;
+import org.cs4398_G4.Controller;
+import org.cs4398_G4.Room;
 import org.cs4398_G4.Sensor;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -68,24 +71,21 @@ public class BehaviorTest {
 		
 		Behavior EmptyBehaviorTester = new Behavior("TestBehavior", testConditions, testActions);
 		
-//		testConditions.add(testCondition);
-//		testActions.add(testAction);
-//				
-//		Behavior tester = new Behavior("TestBehavior", testConditions, testActions);
-		
-		//----Havent set up any tests yet----
-		
 		assertEquals("Conditions should be empty", 0, EmptyBehaviorTester.getConditions().size());
 		assertEquals("Actions should be empty", 0, EmptyBehaviorTester.getActions().size());
-//		
-//		assertEquals("Conditions should be size 1", 1, tester.getConditions().size());
-//		assertEquals("Actions should be size 1", 1, tester.getActions().size());
+		
 	}
 	
 	@Test
 	public void BehaviorTest() {
 		
 		//-----Setup Behavior------
+		
+		BaseStation testBase = new BaseStation();
+		Controller testController = new Controller(testBase);
+		
+		Room testRoom = new Room("Test Room");
+		testBase.AddRoom(testRoom);
 		
 		List<Condition> testConditions = new ArrayList<Condition>();
 		List<Action> testActions = new ArrayList<Action>();
@@ -104,18 +104,22 @@ public class BehaviorTest {
 		//create sensor and light
 		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
 		Sensor testSensor = new Sensor("testSensor", inputPinNumbers, outputPinNumbers);
-				
+		
+		testController.AddComponent(testSensor, testRoom);
+		//testController.AddComponent(testLight, testRoom);
+		
 		//create test actions and conditions for basestation behavior test
 		Action testAction = new Action(testLight, PinState.HIGH, 5);
 		Condition testCondition = new Condition(testSensor, PinState.HIGH, 10);
 		
-		//testConditions.add(testCondition);
+		testConditions.add(testCondition);
 		testActions.add(testAction);
 				
 		Behavior tester = new Behavior("TestBehavior", testConditions, testActions);
 		
-		assertEquals("Conditions should be size 1", 0, tester.getConditions().size());
+		assertEquals("Conditions should be size 1", 1, tester.getConditions().size());
 		assertEquals("Actions should be size 1", 1, tester.getActions().size());
+		
 	}
 
 }

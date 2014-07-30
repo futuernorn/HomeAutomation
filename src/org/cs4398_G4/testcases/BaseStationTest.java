@@ -27,31 +27,38 @@ import com.pi4j.io.gpio.RaspiPin;
 
 public class BaseStationTest {
 
-	@Ignore
+	@Test
 	public void test() {
 		
 		//----create objects for tests----
 		BaseStation BaseTester = new BaseStation();
-		Controller testControler = new Controller(BaseTester);
-		Room testRoom = new Room("testRoom");
+		Controller testController = new Controller(BaseTester);
+		
+		assertEquals("Number of rooms should be zero", 0 ,BaseTester.getRooms().size());
+		
+		Room testRoom = new Room("Test Room");
+		BaseTester.AddRoom(testRoom);
 		
 		List<Condition> testConditions = new ArrayList<Condition>();
 		List<Action> testActions = new ArrayList<Action>();
-		
+				
 		//Create Hashmap for pins
 		HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
 		HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
-		
+				
 		//put pins for sensor and light
-		inputPinNumbers.put("SensorInput", RaspiPin.GPIO_00);
-		outputPinNumbers.put("SensorOutput", RaspiPin.GPIO_01);
-		
-		inputPinNumbers.put("LightInput", RaspiPin.GPIO_03);
-		outputPinNumbers.put("LightOutput", RaspiPin.GPIO_04);
-		
+		inputPinNumbers.put("SensorInput", RaspiPin.GPIO_05);
+		outputPinNumbers.put("SensorOutput", RaspiPin.GPIO_06);
+				
+		inputPinNumbers.put("LightInput", RaspiPin.GPIO_07);
+		outputPinNumbers.put("LightOutput", RaspiPin.GPIO_08);
+				
 		//create sensor and light
 		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
 		Sensor testSensor = new Sensor("testSensor", inputPinNumbers, outputPinNumbers);
+		
+		testController.AddComponent(testSensor, testRoom);
+		//testController.AddComponent(testLight, testRoom);
 		
 		//create test actions and conditions for basestation behavior test
 		Action testAction = new Action(testLight, PinState.HIGH, 5);
@@ -59,22 +66,24 @@ public class BaseStationTest {
 		
 		testConditions.add(testCondition);
 		testActions.add(testAction);
+				
+		Behavior testBehavior = new Behavior("TestBehavior", testConditions, testActions);
 		
-		//create behavior
-		Behavior testBehavior = new Behavior("testBehavior", testConditions, testActions);
+		assertEquals("Conditions should be size 1", 1, testBehavior.getConditions().size());
+		assertEquals("Actions should be size 1", 1, testBehavior.getActions().size());
 		
 		//----end object creation----
 		
 		
 		//-------Tests-------
-		//test to make sure base initially has zero rooms
-		assertEquals("Number of rooms should be zero", 0 ,BaseTester.getRooms().size());
+		
+		assertEquals("Number of rooms should be one", 1 ,BaseTester.getRooms().size());
 		
 		//add room
 		BaseTester.AddRoom(testRoom);
 		
 		//test to determine if one room has been added
-		assertEquals("Number of rooms should be one", 1, BaseTester.getRooms().size());
+		assertEquals("Number of rooms should be one", 2, BaseTester.getRooms().size());
 		
 		//test behavior list is zero
 		assertEquals("Number of behaviors should be zero", 0, BaseTester.getBehvaiors().size());

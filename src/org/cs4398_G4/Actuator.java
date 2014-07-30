@@ -48,6 +48,10 @@ public class Actuator extends Component implements ActionListener   {
         }
         
 	}
+	
+	public boolean GetIsOn() {
+		return isOn;
+	}
 
 	public void run() {
 		
