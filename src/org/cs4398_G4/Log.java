@@ -24,11 +24,16 @@ public class Log {
 	
 	public ArrayList<LogEntry> searchLog(User user)
 	{
+<<<<<<< HEAD
 		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
+=======
+		ArrayList<LogEntry> tempEntries = null;
+		
+>>>>>>> origin/Rhino762
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
-			if (temp.viewUser() == user)
+			if (temp.viewUserString().equals(user.toString()))
 			{
 				tempEntries.add(logEntries.get(i));
 			}
@@ -38,11 +43,21 @@ public class Log {
 	
 	public ArrayList<LogEntry> searchLog(Date date)
 	{
+<<<<<<< HEAD
 		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
 			if (temp.viewDate().getYear() == date.getYear())
+=======
+		ArrayList<LogEntry> tempEntries = null;
+		
+		for (int i = 0; i < logEntries.size(); i++)
+		{
+			LogEntry temp = logEntries.get(i);
+			
+			if (temp.viewDateString().equals(date.toString()))
+>>>>>>> origin/Rhino762
 			{
 				if(temp.viewDate().getMonth() == date.getMonth())
 				{
@@ -62,7 +77,8 @@ public class Log {
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
-			if (temp.viewAction() == action)
+			
+			if (temp.viewAction().equals(action.toString()))
 			{
 				tempEntries.add(logEntries.get(i));
 			}

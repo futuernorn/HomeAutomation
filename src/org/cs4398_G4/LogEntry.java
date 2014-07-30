@@ -20,9 +20,19 @@ public class LogEntry {
 		return date;
 	}
 	
+	String viewDateString()
+	{
+		return date.toString();
+	}
+	
 	User viewUser()
 	{
 		return user;
+	}
+	
+	String viewUserString()
+	{
+		return user.toString();
 	}
 	
 	String viewAction()
