@@ -5,16 +5,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import javax.swing.JPanel;
+
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
 public abstract class Component {
 	HashMap<String, Pin> inputPinNumbers;
+	/**
+	 * @return: Raspberry Pi pins used for input
+	 */
 	public HashMap<String, Pin> getInputPinNumbers() {
 		return inputPinNumbers;
 	}
 
+	/**
+	 * Sets the Raspberry Pi input pins numbers for a component.
+	 * @param inputPinNumbers: Raspberry Pi pins used for component input
+	 */
 	public void setInputPinNumbers(HashMap<String, Pin> inputPinNumbers) {
 		this.inputPinNumbers = inputPinNumbers;
 	}
@@ -25,7 +35,22 @@ public abstract class Component {
 	String name;
 	Boolean enabled;
 	Room room;
+	ComponentPanel componentUI;
 	
+	public ComponentPanel getComponentUI() {
+		return componentUI;
+	}
+
+	public void setComponentUI(ComponentPanel componentUI) {
+		this.componentUI = componentUI;
+	}
+
+	/**
+	 * Component constructor
+	 * @param name: Name of component
+	 * @param inputPinNumbers: Raspberry Pi pins used for input
+	 * @param outputPinNumbers: Raspberry Pi pins used for output
+	 */
 	public Component (String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
 		this.name = name;
 		this.inputPinNumbers = inputPinNumbers;
@@ -65,6 +90,7 @@ public abstract class Component {
 
 	public void setInputPins(GpioPinDigitalInput inputPins) {
 		this.inputPins = inputPins;
+		inputPins.addListener(this.componentUI);
 	}
 
 	public GpioPinDigitalOutput getOutputPins() {

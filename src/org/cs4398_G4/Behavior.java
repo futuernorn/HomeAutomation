@@ -19,6 +19,11 @@ public class Behavior implements GpioPinListenerDigital{
 	List<Action> actions;
 	String name;
 	
+	/**
+	 * @param name: the name of the behavior, from user input
+	 * @param conditions: the list of conditions that must be met for the behavior to occur
+	 * @param actions: List of actions to be perfomed when the list of conditions is met
+	 */
 	public Behavior(String name, List<Condition> conditions, List<Action> actions) {
 		this.name = name;
 		this.actions = actions;
@@ -28,6 +33,7 @@ public class Behavior implements GpioPinListenerDigital{
 		}
 	}
 	
+
 	public List<Condition> getConditions() {
 		return conditions;
 	}
@@ -36,6 +42,11 @@ public class Behavior implements GpioPinListenerDigital{
 		return actions;
 	}
 	
+
+	/**
+	 * Runs the list of actions
+	 */
+
 	private void Run() {
 		for (final Action action : actions) {
 			action.getActuator().getOutputPins().setState(action.getPinState());
@@ -50,6 +61,9 @@ public class Behavior implements GpioPinListenerDigital{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see com.pi4j.io.gpio.event.GpioPinListenerDigital#handleGpioPinDigitalStateChangeEvent(com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent)
+	 */
 	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
 		for (Condition condition: conditions) {
@@ -77,6 +91,9 @@ public class Behavior implements GpioPinListenerDigital{
 		return name;
 	}
 
+	/**
+	 * Checks if conditions are met and calls the Run function if they are
+	 */
 	public void conditionMet() {
 		boolean runActions = true;
 		for (Condition condition: conditions) {

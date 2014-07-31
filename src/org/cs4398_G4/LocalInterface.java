@@ -30,10 +30,13 @@ import javax.swing.JSeparator;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JList;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.util.List;
 
 public class LocalInterface {
 
@@ -45,7 +48,7 @@ public class LocalInterface {
 	private JTabbedPane tabbedPane;
 	private BehaviorPanel behaviorPanel;
 	private JPanel addRemoveTab;
-	private JPanel statusPanel;
+	private ComponentStatusPanel statusPanel;
 	private LoginPanel loginPanel;
 
 
@@ -78,45 +81,12 @@ public class LocalInterface {
 		
 		behaviorPanel = new BehaviorPanel(this);
 
-		statusPanel = new JPanel();
+		statusPanel = new ComponentStatusPanel();
 		
 		tabbedPane.addTab("Login", null, loginPanel, null);
 		
 		
-		statusPanel.setLayout(new BorderLayout(0, 0));
 		
-		JPanel statusForm = new JPanel();
-		statusPanel.add(statusForm, BorderLayout.CENTER);
-		statusForm.setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,}));
-		
-		JLabel lblLedLight = new JLabel("LED Light");
-		statusForm.add(lblLedLight, "2, 2, right, default");
-		
-		btnToggleLed = new JButton("Toggle LED");
-
-		statusForm.add(btnToggleLed, "4, 2");
-		
-		JSeparator separator = new JSeparator();
-		statusForm.add(separator, "4, 4");
-		
-		JLabel lblMotionSensor = new JLabel("Motion Sensor");
-		statusForm.add(lblMotionSensor, "2, 6, right, default");
-		
-		motionTxt = new JTextField();
-		motionTxt.setEditable(false);
-		statusForm.add(motionTxt, "4, 6, fill, center");
-		motionTxt.setColumns(10);
 		
 		addRemoveTab = new ComponentManagePanel(this);
 
@@ -142,6 +112,11 @@ public class LocalInterface {
 		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
 		tabbedPane.addTab("Status", null, statusPanel, null);
 		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		
+	}
+
+	public void refreshComponents(List<Component> components) {
+		statusPanel.refreshComponents(components);
 		
 	}
 }
