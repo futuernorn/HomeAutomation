@@ -49,9 +49,9 @@ public class Driver {
 						baseStation.AddRoom(diningRoom);
 						
 						HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
-						inputPinNumbers.put("Motion Detector (PIR)", RaspiPin.GPIO_02);
+						inputPinNumbers.put("Reed Switch Demo", RaspiPin.GPIO_06);
 						HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
-						Sensor newMotionSensor = new Sensor("Motion Sensor", inputPinNumbers, outputPinNumbers);
+						Sensor newMotionSensor = new Sensor("Reed Switch", inputPinNumbers, outputPinNumbers);
 						controller.AddComponent(newMotionSensor, defaultRoom);
 //						
 						HashMap<String, Pin> inputPinNumbers1 = new HashMap<String, Pin>();
@@ -76,6 +76,10 @@ public class Driver {
 				}
 			});
 
+	}
+	
+	public void LoadDemoData() {
+		
 	}
 
 }
