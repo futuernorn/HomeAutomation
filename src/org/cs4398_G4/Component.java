@@ -3,6 +3,7 @@ package org.cs4398_G4;
 import java.awt.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -40,7 +41,21 @@ public abstract class Component {
 	}
 	
 	public String toString() {
-		return name;
+		String pinNames = "";
+		for (Entry<String, Pin> entry : outputPinNumbers.entrySet()) {
+			if (pinNames != "")
+				pinNames += " - ";
+					
+			pinNames += entry.getKey();
+		}
+		
+		for (Entry<String, Pin> entry : inputPinNumbers.entrySet()) {
+			if (pinNames != "")
+				pinNames += " - ";
+					
+			pinNames += entry.getKey();
+		}
+		return name + " :: " + pinNames;
 	}
 
 	public GpioPinDigitalInput getInputPins() {

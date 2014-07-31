@@ -74,4 +74,11 @@ public class Room {
 	public String toString() {
 		return name;
 	}
+
+	public void removeComponent(Component removedComponent) {
+		
+		components.remove(removedComponent);
+		
+		
+	}
 }

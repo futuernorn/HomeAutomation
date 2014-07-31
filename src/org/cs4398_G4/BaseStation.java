@@ -21,6 +21,11 @@ public class BaseStation {
 		house = new ArrayList<Room>();
 		users = new ArrayList<User>();
 		behaviors = new ArrayList<Behavior>();
+		securitySystem = new Security();
+	}
+	
+	public ArrayList<Behavior> getBehvaiors() {
+		return behaviors;
 	}
 	
 	public ArrayList<Room> getRooms() {
@@ -80,6 +85,14 @@ public class BaseStation {
 		components.addAll(GetSensors());
 		components.addAll(GetActuators());
 		return components;
+	}
+
+	public void removeComponent(Component removedComponent) {
+		// TODO Auto-generated method stub
+		for (Room room : house) {
+			room.removeComponent(removedComponent);
+		}
+		
 	}
 
 //	public List<? extends Component> GetComponents(Class<?> cls) {
