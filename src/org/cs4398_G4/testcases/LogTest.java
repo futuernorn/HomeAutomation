@@ -2,7 +2,9 @@ package org.cs4398_G4.testcases;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.cs4398_G4.Log;
@@ -25,7 +27,7 @@ public class LogTest {
 		assertEquals("Number of Logs in array should be empty", 0, testLog.getLogEntries().size());
 		
 		testLog.addLog(testUser, "test string");
-		Date testDate = new Date();
+		String testDate =  new SimpleDateFormat("MM/dd/yy").format(Calendar.getInstance().getTime());
 		
 		//test both num variable and size of array after adding log
 		assertEquals("Number of Logs should be empty", 1, testLog.getNumLogs());
@@ -34,8 +36,8 @@ public class LogTest {
 		ArrayList<LogEntry> testUserSearch = new ArrayList<LogEntry>();
 		ArrayList<LogEntry> testDateSearch = new ArrayList<LogEntry>();
 		
-		testUserSearch = testLog.searchLog(testUser);
-		testDateSearch = testLog.searchLog(testDate);
+		testUserSearch = testLog.searchLogUser(testUser);
+		testDateSearch = testLog.searchLogDate(testDate);
 		
 		assertEquals("Number of Logs found should be 1", 1, testUserSearch.size());
 		assertEquals("Number of Logs found should be 1", 1, testDateSearch.size());
