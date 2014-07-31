@@ -19,6 +19,10 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
+/**
+ * @author Jeffrey Hogan
+ *Creates the User Interface tab for adding and removing a component to the system
+ */
 public class ComponentManagePanel extends JPanel {
 	
 	private JTextField nameTxt;

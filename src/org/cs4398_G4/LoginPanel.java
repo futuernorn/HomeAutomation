@@ -21,6 +21,10 @@ import javax.swing.SwingConstants;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+/**
+ * This class creates the initial log in page that the user is greeted with at initialization
+ *
+ */
 public class LoginPanel extends JPanel {
 
 	private JPanel contentPane;

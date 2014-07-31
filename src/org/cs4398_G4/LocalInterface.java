@@ -35,6 +35,9 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ *This class creates the login page and all additional tabs that are required for the system to run. Creates the main local user interface. 
+ */
 public class LocalInterface {
 
 	JFrame frmHomeAutomationSystem;
@@ -135,6 +138,10 @@ public class LocalInterface {
 		    JOptionPane.ERROR_MESSAGE);
 	}
 
+	
+	/**
+	 *Creates log in tab 
+	 */
 	public void doLogin() {
 		tabbedPane.remove(loginPanel);
 		tabbedPane.addTab("Behavior", null, behaviorPanel, null);

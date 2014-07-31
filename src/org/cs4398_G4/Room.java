@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * This class creates a room of components, Ex. "Living Room". Can add/remove components to the room. Can control all components that  
+ * have been added to the room. Also allows the ability to turn on/off everything in the room with a single command.
+ */
 public class Room {
 	ArrayList<Component> components;
 	ArrayList<RFID> cardReaders;

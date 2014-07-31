@@ -3,6 +3,11 @@ package org.cs4398_G4;
 import java.util.ArrayList;
 import java.util.Date;
 
+
+/**
+ * This class creates a log entry to be logged in the log
+ *
+ */
 public class LogEntry {
 	private Date date;
 	private User user;

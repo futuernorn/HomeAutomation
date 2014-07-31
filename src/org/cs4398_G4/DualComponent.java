@@ -4,6 +4,10 @@ import java.util.HashMap;
 
 import com.pi4j.io.gpio.Pin;
 
+/**
+ * @author Jeffrey Hogan
+ *This class handles components the require both input and output pins for functionality
+ */
 public class DualComponent extends Actuator {
 
 	Sensor sensor;

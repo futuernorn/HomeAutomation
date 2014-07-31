@@ -10,6 +10,10 @@ import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
+/**
+ * This class is for storing components that require only sensors. Read only components. 
+ *
+ */
 public class Sensor extends Component  {
 	int pinNum;
 	Method action;

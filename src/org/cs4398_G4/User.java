@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 
 
+/**
+ * This class hold user information for users that are created. 
+ *
+ */
 public class User {
 		public User()
 		{

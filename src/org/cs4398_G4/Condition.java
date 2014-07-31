@@ -5,6 +5,10 @@ import java.util.TimerTask;
 
 import com.pi4j.io.gpio.PinState;
 
+/**
+ * @author Jeffrey Hogan
+ *
+ */
 public class Condition {
 	Sensor sensor;
 	PinState pinState;
@@ -28,6 +32,7 @@ public class Condition {
 		this.conditionMet = conditionMet;
 	}
 
+	
 	public Condition (Sensor sensor, PinState pinState, Integer duration) {
 		this.sensor = sensor;
 		this.pinState = pinState;

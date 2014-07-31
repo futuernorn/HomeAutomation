@@ -29,6 +29,9 @@ public class Controller {
 		
 	}
 	
+	/**
+	 * @return list of possible pins that can be used on the Raspberry Pi 
+	 */
 	public Collection<Pin> getAllPossiblePins() {
 		Collection<Pin> possiblePins = new ArrayList<Pin>();
 		possiblePins.add( RaspiPin.GPIO_00);
@@ -43,6 +46,9 @@ public class Controller {
 		
 	}
 	
+	/**
+	 * @return All non used and available pins
+	 */
 	public Collection<Pin> getAvailablePins() {
 		Collection<GpioPin> provisionedPins = gpio.getProvisionedPins();
 		Collection<Pin> possiblePins =  getAllPossiblePins();
@@ -63,6 +69,12 @@ public class Controller {
 		
 	}
 	
+	/**
+	 * Adds a new component to the system
+	 * @param newComp: the component that is to be added to the system
+	 * @param newRoom: The room for which the component being added will be applied to
+	 * @return
+	 */
 	public boolean AddComponent(Component newComp, Room newRoom) {
 		
 		for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {

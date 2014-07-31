@@ -12,10 +12,7 @@ import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 
-/**
- * @author Kevin
- *
- */
+
 public class Actuator extends Component implements ActionListener   {
 	int pinNum;
 	Method action;
