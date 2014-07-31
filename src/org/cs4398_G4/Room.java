@@ -70,4 +70,8 @@ public class Room {
 //		}
 //		return componentList;
 //	}
+	
+	public String toString() {
+		return name;
+	}
 }

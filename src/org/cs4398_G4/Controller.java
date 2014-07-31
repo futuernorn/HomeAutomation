@@ -1,11 +1,16 @@
 package org.cs4398_G4;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.swing.DefaultListModel;
+
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
+import com.pi4j.io.gpio.GpioPin;
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
@@ -21,6 +26,34 @@ public class Controller {
 	public Controller(BaseStation baseStation) {
 		this.baseStation = baseStation;
 		
+		
+	}
+	
+	public Collection<Pin> getAllPossiblePins() {
+		Collection<Pin> possiblePins = new ArrayList<Pin>();
+		possiblePins.add( RaspiPin.GPIO_00);
+		possiblePins.add( RaspiPin.GPIO_02);
+		possiblePins.add( RaspiPin.GPIO_01);
+		possiblePins.add( RaspiPin.GPIO_03);
+		possiblePins.add( RaspiPin.GPIO_04);
+		possiblePins.add( RaspiPin.GPIO_05);
+		possiblePins.add(RaspiPin.GPIO_06);
+		possiblePins.add( RaspiPin.GPIO_07);
+		return possiblePins;
+		
+	}
+	
+	public Collection<Pin> getAvailablePins() {
+		Collection<GpioPin> provisionedPins = gpio.getProvisionedPins();
+		Collection<Pin> possiblePins =  getAllPossiblePins();
+		for (GpioPin provisionedPin : provisionedPins) {
+			provisionedPin.getPin().getAddress();
+//			System.out.println("comaparing provisioned pin number (" + provisionedPin.getPin() +") to possiblePins (" + possiblePins + ") => " + (possiblePins.contains(provisionedPin.getPin())));
+//			if (possiblePins.contains(provisionedPin.getPin())) {
+				possiblePins.remove(provisionedPin.getPin());
+//			}
+		}
+		return possiblePins;
 	}
 	
 	public void Shutdown() {
@@ -90,6 +123,11 @@ public class Controller {
 		// TODO Auto-generated method stub
 		baseStation.removeBehavior(removedBehavior);
 		
+	}
+
+	public List<Room> getRooms() {
+		// TODO Auto-generated method stub
+		return baseStation.getRooms();
 	}
 
 

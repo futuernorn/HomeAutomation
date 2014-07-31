@@ -5,8 +5,7 @@ import java.util.ArrayList;
 
 
 public class User {
-	public
-		void User()
+		public User()
 		{
 			name = "Admin";
 			password = "default";
@@ -14,19 +13,19 @@ public class User {
 			loggedIn = false;
 		}
 
-		void User(String id, String pw, String level)
+		public User(String id, String pw, String level)
 		{
 			name = id;
 			pw = password;
 			tier = level;
 		}
 
-		boolean isLoggedOn()
+		public boolean isLoggedOn()
 		{
 			return loggedIn;
 		}
 
-		boolean logOn(String pw)
+		public boolean logOn(String pw)
 		{
 			if (password.equals(pw))
 			{
@@ -37,7 +36,7 @@ public class User {
 				return false;
 		}
 
-		boolean hasAccess(String room)
+		public boolean hasAccess(String room)
 		{
 			for (int i = 0; i < limitAccess.length; i++)
 			{
@@ -48,31 +47,25 @@ public class User {
 			return true;
 		}
 
-		void logOut()
+		public void logOut()
 		{
 			loggedIn = false;
 		}
 
-		void changePassword(String newPw)
+		public void changePassword(String newPw)
 		{
 			password = newPw;
 		}
 
-		String name()
+		public String name()
 		{
 			return name;
 		}
-		
-		String viewPassword()
-		{
-			return password;
-		}
 
-	private
-		String name;
-		String password;
-		String tier;
-		String []limitAccess;
-		boolean loggedIn;
-		ArrayList<Behavior> behaviors;
+		private String name;
+		private String password;
+		private String tier;
+		private String []limitAccess;
+		private boolean loggedIn;
+		private ArrayList<Behavior> behaviors;
 }
