@@ -25,9 +25,9 @@ public class LogEntry {
 		return date.toString();
 	}
 	
-	User viewUser()
+	String viewUser()
 	{
-		return user;
+		return user.name();
 	}
 	
 	String viewUserString()

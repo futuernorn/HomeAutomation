@@ -18,6 +18,7 @@ import com.jgoodies.forms.factories.FormFactory;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -30,10 +31,13 @@ import javax.swing.JSeparator;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JList;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 public class LocalInterface {
 
@@ -46,7 +50,10 @@ public class LocalInterface {
 	private BehaviorPanel behaviorPanel;
 	private JPanel addRemoveTab;
 	private JPanel statusPanel;
+	private JPanel logPanel;
 	private LoginPanel loginPanel;
+	
+	public BaseStation basestation = new BaseStation();
 
 
 	/**
@@ -80,6 +87,22 @@ public class LocalInterface {
 
 		statusPanel = new JPanel();
 		
+		logPanel = new JPanel();
+		Log testLog = new Log();
+		
+		logPanel.setLayout(new BoxLayout(logPanel,BoxLayout.Y_AXIS));
+		
+		for (int i = 1; i < 100; i++)
+		{
+			testLog.addLog(basestation.getUser(), "Added Light in Living Room" + i);
+		}
+		
+		for (int i = 0;i < testLog.logEntries.size(); i++)
+		{
+			JLabel temp = new JLabel("*" + testLog.logEntries.get(i).viewDate() + " - " + testLog.logEntries.get(i).viewUser() + " - " + testLog.logEntries.get(i).viewAction());
+			logPanel.add(temp);
+		}
+	
 		tabbedPane.addTab("Login", null, loginPanel, null);
 		
 		
@@ -142,6 +165,7 @@ public class LocalInterface {
 		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
 		tabbedPane.addTab("Status", null, statusPanel, null);
 		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		tabbedPane.addTab("Log", null, logPanel, null);
 		
 	}
 }

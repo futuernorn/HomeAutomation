@@ -17,11 +17,21 @@ public class BaseStation {
 	private Security securitySystem;
 	private ArrayList<Behavior> behaviors;
 	
+	private User user;
+	
 	public BaseStation() {
 		house = new ArrayList<Room>();
 		users = new ArrayList<User>();
 		behaviors = new ArrayList<Behavior>();
 		securitySystem = new Security();
+		
+		user = new User();
+		users.add(user);
+	}
+	
+	public User getUser()
+	{
+		return user;
 	}
 	
 	public ArrayList<Behavior> getBehvaiors() {

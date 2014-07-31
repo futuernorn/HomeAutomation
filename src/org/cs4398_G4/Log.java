@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Log {
-	private ArrayList<LogEntry> logEntries;
+	public ArrayList<LogEntry> logEntries;
 	private int numLogs;
 	
 	public Log() {

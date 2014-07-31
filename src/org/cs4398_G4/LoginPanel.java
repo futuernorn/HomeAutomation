@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+
 public class LoginPanel extends JPanel {
 
 	private JPanel contentPane;
@@ -31,6 +32,8 @@ public class LoginPanel extends JPanel {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private LocalInterface view;
+	
+	public BaseStation basestation = new BaseStation();
 
 
 	/**
@@ -64,12 +67,12 @@ public class LoginPanel extends JPanel {
 		textField_1.setBounds(176, 82, 138, 20);
 		this.add(textField_1);
 		
-		final User user = new User();
+		
 		
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (user.logOn(password.getText()))
+				if (basestation.getUser().logOn(password.getText()))
 					{
 						view.doLogin();
 					}
