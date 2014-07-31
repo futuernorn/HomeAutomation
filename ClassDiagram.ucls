@@ -1,63 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="org.txstate.cs4398_sum14.group4.BaseStation" project="HomeAutomation" 
-    file="/HomeAutomation/src/org/txstate/cs4398_sum14/group4/BaseStation.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="152" x="262" y="93"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="org.txstate.cs4398_sum14.group4.Sensor" project="HomeAutomation" 
-    file="/HomeAutomation/src/org/txstate/cs4398_sum14/group4/Sensor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="393" y="404"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="org.txstate.cs4398_sum14.group4.ReedSwitch" project="HomeAutomation" 
-    file="/HomeAutomation/src/org/txstate/cs4398_sum14/group4/ReedSwitch.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="203" x="316" y="524"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="org.txstate.cs4398_sum14.group4.UserInterface" project="HomeAutomation" 
-    file="/HomeAutomation/src/org/txstate/cs4398_sum14/group4/UserInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="195" x="514" y="118"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="org.txstate.cs4398_sum14.group4.Driver" project="HomeAutomation" 
-    file="/HomeAutomation/src/org/txstate/cs4398_sum14/group4/Driver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="154" x="58" y="62"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <generalization id="6">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <association id="7">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="8" name="baseStation"/>      
-      <multiplicity id="9" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
