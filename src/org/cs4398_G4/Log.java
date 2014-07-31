@@ -3,6 +3,7 @@ package org.cs4398_G4;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Log {
@@ -16,22 +17,20 @@ public class Log {
 	
 	public void addLog(User user, String action)
 	{
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
+		String date =  new SimpleDateFormat("MM/dd/yy").format(Calendar.getInstance().getTime());
+		
 		logEntries.add(new LogEntry(date, user, action));
 		++ numLogs;
 	}
 	
-	public ArrayList<LogEntry> searchLog(User user)
+	public ArrayList<LogEntry> searchLogUser(User user)
 	{
-
 		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
-
-//		ArrayList<LogEntry> tempEntries = null;
 
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
+			
 			if (temp.viewUserString().equals(user.toString()))
 			{
 				tempEntries.add(logEntries.get(i));
@@ -40,38 +39,31 @@ public class Log {
 		return tempEntries;
 	}
 	
-	public ArrayList<LogEntry> searchLog(Date date)
+	public ArrayList<LogEntry> searchLogDate(String date)
 	{
 
-		ArrayList<LogEntry> tempEntries = null;
+		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
 		
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
 			
-			if (temp.viewDateString().equals(date.toString()))
-
+			if (date.equals(temp.viewDate()))
 			{
-				if(temp.viewDate().getMonth() == date.getMonth())
-				{
-					if(temp.viewDate().getDay() == date.getDay())
-					{
-						tempEntries.add(logEntries.get(i));
-					}
-				}
+				tempEntries.add(logEntries.get(i));
 			}
 		}
 		return tempEntries;
 	}
 	
-	public ArrayList<LogEntry> searchLog(String action)
+	public ArrayList<LogEntry> searchLogAction(String action)
 	{
-		ArrayList<LogEntry> tempEntries = null;
+		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
 		for (int i = 0; i < logEntries.size(); i++)
 		{
 			LogEntry temp = logEntries.get(i);
 			
-			if (temp.viewAction().equals(action.toString()))
+			if (action.equals(temp.viewAction()))
 			{
 				tempEntries.add(logEntries.get(i));
 			}
