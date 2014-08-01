@@ -3,6 +3,8 @@ package org.cs4398_G4.testcases;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,23 +13,46 @@ import org.cs4398_G4.Actuator;
 import org.cs4398_G4.Sensor;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
+@RunWith(Parameterized.class)
 public class ActionTest {
-
+	
+	//Create Hashmap for tests
+	private HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
+	private HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
+	
+	public ActionTest(HashMap<String, Pin> input, HashMap<String, Pin> output) {
+		this.inputPinNumbers = input;
+		this.outputPinNumbers = output;
+	}
+	
+	// creates the test data
+	@Parameters
+	public static Collection<Object[]> generateTestData() {
+		
+		HashMap<String, Pin> input = new HashMap<String, Pin>();
+		HashMap<String, Pin> output = new HashMap<String, Pin>();
+		
+		input.put("SensorInput", RaspiPin.GPIO_00);
+		output.put("SensorOutput", RaspiPin.GPIO_01);
+		
+		input.put("LightInput", RaspiPin.GPIO_03);
+		output.put("LightOutput", RaspiPin.GPIO_04);
+		
+		Object[][] data = new Object[][] { { input, output } };
+		
+		return Arrays.asList(data);
+	}
+	
 	@Test
-	public void ActionTest() {
-		
-		//Create Hashmap for pins
-		HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
-		HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
-		
-		//put pins for sensor and light
-		inputPinNumbers.put("LightInput", RaspiPin.GPIO_03);
-		outputPinNumbers.put("LightOutput", RaspiPin.GPIO_04);
+	public void CreateActionTest() {
 		
 		//create light
 		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);

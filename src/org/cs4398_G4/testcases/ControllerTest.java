@@ -34,18 +34,18 @@ public class ControllerTest {
 		HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
 								
 		//put pins for sensor and light
-		inputPinNumbers.put("SensorInput", RaspiPin.GPIO_08);
+		inputPinNumbers.put("SensorInput", RaspiPin.GPIO_00);
 		outputPinNumbers.put("SensorOutput", RaspiPin.GPIO_01);
 								
 		inputPinNumbers.put("LightInput", RaspiPin.GPIO_02);
 		outputPinNumbers.put("LightOutput", RaspiPin.GPIO_03);
 								
 		//create sensor and light
-		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
-		Sensor testSensor = new Sensor("testSensor", inputPinNumbers, outputPinNumbers);
+		//Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
+		//Sensor testSensor = new Sensor("testSensor", inputPinNumbers, outputPinNumbers);
 		
-		tester.AddComponent(testSensor, testRoom);
-		tester.AddComponent(testLight, testRoom);
+		//tester.AddComponent(testSensor, testRoom);
+		//tester.AddComponent(testLight, testRoom);
 		
 	}
 	
