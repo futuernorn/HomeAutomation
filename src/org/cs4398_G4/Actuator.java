@@ -30,7 +30,8 @@ public class Actuator extends Component implements ActionListener   {
 	 */
 	public Actuator(String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
 		super(name, inputPinNumbers, outputPinNumbers);
-		this.componentUI = new ActuatorPanel();
+//		this.componentUI = new ActuatorPanel();
+		this.setComponentUI(new ActuatorPanel(this));
 
 		
 	}
@@ -95,6 +96,29 @@ public class Actuator extends Component implements ActionListener   {
 //		}
 		getOutputPins().high();
 		
+	}
+
+	public void toggle() {
+		// TODO Auto-generated method stub
+//		getOutputPins().toggle();
+        numClicks++;
+        
+        if (isOn) {
+        	getOutputPins().setState(PinState.LOW);
+        	getOutputPins().low();
+        	System.out.println("Setting " + getOutputPins().getName() + " to " + PinState.LOW);
+        	isOn = false;
+        } else {
+        	getOutputPins().setState(PinState.HIGH);
+        	System.out.println("Setting " + getOutputPins().getName() + " to " + PinState.HIGH);
+        	isOn = true;
+        }
+		
+	}
+
+	public boolean isOn() {
+		// TODO Auto-generated method stub
+		return isOn;
 	}
 
 }

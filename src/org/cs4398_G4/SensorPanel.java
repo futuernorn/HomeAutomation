@@ -19,25 +19,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class SensorPanel extends ComponentPanel  implements GpioPinListenerDigital  {
-	private JTextField txtCurrentState;
-	public SensorPanel() {
-		setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.DEFAULT_COLSPEC,
-				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("450px"),},
-			new RowSpec[] {
-				RowSpec.decode("fill:default"),}));
-		
-		JLabel lblCurrentState = new JLabel("Current State");
-		add(lblCurrentState, "1, 1, right, default");
-		
-		txtCurrentState = new JTextField();
-		txtCurrentState.setText("Current State");
-		add(txtCurrentState, "3, 1, fill, default");
-		txtCurrentState.setColumns(10);
+
+	public SensorPanel(Component component) {
+		super(component);
 	}
 
-	private void setStateText(String newText) {
+	public void setStateText(String newText) {
 		txtCurrentState.setText(newText);
 	}
 

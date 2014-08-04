@@ -421,6 +421,23 @@ public class BehaviorPanel extends JPanel {
 		});
 	}
 	
+	public void fillOptions() {
+		List<Sensor> sensorOptions = view.getController().GetSensors();
+		sensorListModel = new DefaultComboBoxModel(sensorOptions.toArray()); 
+		sensorComboBox.setModel(sensorListModel);
+		sensorStateComboBox.setModel(sensorStateListModel);
+		conditionListModel = new DefaultListModel();
+		conditionList.setModel(conditionListModel);
+		
+		List<Actuator> actuatorOptions = view.getController().GetActuators();
+		actuatorListModel = new DefaultComboBoxModel(actuatorOptions.toArray()); 
+		actuatorComboBox.setModel(actuatorListModel);
+		actuatorStateComboBox.setModel(actionStateListModel);
+		actionListModel = new DefaultListModel();
+		actionList.setModel(actionListModel);
+		
+	}
+	
 	private void SetupActionUI() {
 		List<Actuator> actuatorOptions = view.getController().GetActuators();
 		actuatorListModel = new DefaultComboBoxModel(actuatorOptions.toArray()); 

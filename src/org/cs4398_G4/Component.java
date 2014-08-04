@@ -43,6 +43,9 @@ public abstract class Component {
 
 	public void setComponentUI(ComponentPanel componentUI) {
 		this.componentUI = componentUI;
+//		if (inputPins != null)
+//			componentUI.setStateText(inputPins.getState().toString());
+		
 	}
 
 	/**
@@ -55,6 +58,7 @@ public abstract class Component {
 		this.name = name;
 		this.inputPinNumbers = inputPinNumbers;
 		this.outputPinNumbers = outputPinNumbers;
+		inputPins = null;
 //		inputPins = new ArrayList<GpioPinDigitalInput>();
 //		outputPins = new ArrayList<GpioPinDigitalOutput>();
 		
