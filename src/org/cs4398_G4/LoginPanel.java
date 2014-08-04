@@ -34,7 +34,7 @@ public class LoginPanel extends JPanel {
 
 
 	/**
-	 * Create the frame.
+	 * Create the frame with text fields for log in information
 	 */
 	public LoginPanel(final LocalInterface view) {
 		this.view = view;

@@ -16,18 +16,35 @@ public class BaseStation {
 	ArrayList<User> users;
 	private Security securitySystem;
 	private ArrayList<Behavior> behaviors;
+	User mainUser;
 	
+	public User getMainUser() {
+		return mainUser;
+	}
+
+	public void setMainUser(User mainUser) {
+		this.mainUser = mainUser;
+	}
+
+	/**
+	 * BaseStation constructor
+	 */
 	public BaseStation() {
 		house = new ArrayList<Room>();
 		users = new ArrayList<User>();
 		behaviors = new ArrayList<Behavior>();
 		securitySystem = new Security();
+		
+		mainUser = new User();
 	}
 	
 	public ArrayList<Behavior> getBehvaiors() {
 		return behaviors;
 	}
 	
+	/**
+	 * @returns the house ArrayList
+	 */
 	public ArrayList<Room> getRooms() {
 		return house;
 	}
@@ -51,6 +68,9 @@ public class BaseStation {
 	
 
 	
+	/**
+	 * @returns sensors being used in house
+	 */
 	public List<Sensor> GetSensors() {
 		List<Sensor> sensors = new ArrayList<Sensor>();
 		for (Room room : house) {
@@ -59,6 +79,9 @@ public class BaseStation {
 		return sensors;
 	}
 	
+	/**
+	 * @returns actuators being used in house
+	 */
 	public List<Actuator> GetActuators() {
 	List<Actuator> actuator = new ArrayList<Actuator>();
 		for (Room room : house) {

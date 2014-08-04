@@ -1,10 +1,12 @@
 package org.cs4398_G4;
 
 
+
 import org.cs4398_G4.examples.*;
 
 
 import org.cs4398_G4.examples.*;
+
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -28,6 +30,7 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
 
 
 public class UI extends JFrame {
@@ -70,7 +73,7 @@ public class UI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		
+
 		final JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(5, 5, 424, 252);
 		contentPane.add(tabbedPane);
@@ -102,13 +105,17 @@ public class UI extends JFrame {
 		textField_1.setBounds(176, 82, 138, 20);
 		panel.add(textField_1);
 
-
 		final User user = new User();
 	
 
 
+
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
+			
+			/**
+			 * creates additional tabs when pressing "OK" button if login information is correct.
+			 */
 			public void actionPerformed(ActionEvent e) {
 				if (user.logOn(password.getText()))
 				{
@@ -156,6 +163,7 @@ public class UI extends JFrame {
 					tabbedPane.addTab("Add/Remove", null, panel_4, null);
 					panel_4.setLayout(null);
 
+
 					JLabel lblName = new JLabel("Name:");
 					lblName.setBounds(50, 73, 46, 14);
 					panel_4.add(lblName);
@@ -173,14 +181,14 @@ public class UI extends JFrame {
 					panel_4.add(lblRoom);
 					
 
-
-
+			
+					
 
 					textField = new JTextField();
 					textField.setBounds(114, 67, 204, 20);
 					panel_4.add(textField);
 					textField.setColumns(10);
-					
+
 					textField_2 = new JTextField();
 					textField_2.setColumns(10);
 					textField_2.setBounds(114, 92, 204, 20);
@@ -209,6 +217,7 @@ public class UI extends JFrame {
 
 
 
+
 //					JButton btnNewButton = new JButton("Add");
 					btnNewButton.setBounds(229, 173, 89, 23);
 					panel_4.add(btnNewButton);
@@ -216,8 +225,6 @@ public class UI extends JFrame {
 //					JButton btnRemove = new JButton("Remove");
 					btnRemove.setBounds(114, 173, 89, 23);
 					panel_4.add(btnRemove);
-
-
 
 					JLabel lblNewLabel = new JLabel("ADD/REMOVE COMPONENTS");
 					lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -233,19 +240,10 @@ public class UI extends JFrame {
 
 		JButton btnClear = new JButton("Clear");
 		btnClear.setBounds(176, 141, 64, 20);
-		panel.add(btnClear);	
+		panel.add(btnClear);		
 		
 		//new tabs
 		
-
-
-//		JButton btnClear = new JButton("Clear");
-		btnClear.setBounds(176, 141, 64, 20);
-		panel.add(btnClear);	
-
-		//new tabs
-
-
 
 	}
 }

@@ -24,9 +24,11 @@ public class Driver {
 
 	public static void main(String[] args) {
 		final BaseStation baseStation = new BaseStation();
-		final Controller controller = new Controller(baseStation);
+		
+		final Controller controller = new Controller(baseStation );
 		
 		
+//		baseStation.getUser().
 		// This is all simulation-type stuff
 		// TODO: replace with actual interfaces
 		
@@ -37,7 +39,8 @@ public class Driver {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						
+						LocalInterface window = new LocalInterface(controller);
+						controller.setView(window);
 						// for instance, this assumes someone has added a compomnent and supplied the needed information
 						Room defaultRoom = new Room("Living Room");
 						Room bedroom = new Room("Bedroom");
@@ -62,8 +65,8 @@ public class Driver {
 						
 						controller.AddComponent(newLedActuator, defaultRoom);
 						
-						LocalInterface window = new LocalInterface(controller);
-						window.btnToggleLed.addActionListener(newLedActuator);
+						
+//						window.btnToggleLed.addActionListener(newLedActuator);
 						
 						window.ShowInterface();
 						

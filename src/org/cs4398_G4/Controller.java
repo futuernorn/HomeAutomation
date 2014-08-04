@@ -20,13 +20,22 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
 public class Controller {
 	BaseStation baseStation;
+	LocalInterface view;
+	public LocalInterface getView() {
+		return view;
+	}
+
+	public void setView(LocalInterface view) {
+		this.view = view;
+	}
+
 	// create gpio controller instance
 //	final HardwareAbstractionLayer hal = new HardwareAbstractionLayer();
 	final GpioController gpio = GpioFactory.getInstance();
 	
 	public Controller(BaseStation baseStation) {
 		this.baseStation = baseStation;
-		
+
 		
 	}
 	
@@ -70,26 +79,29 @@ public class Controller {
 		    String key = entry.getKey();
 		    Pin pinNumber = entry.getValue();
 		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,  PinPullResistance.PULL_DOWN);
-//		    inputPin.addListener((GpioPinListenerDigital) newComp);
+		    
 		    newComp.setInputPins(inputPin);
 		    
 		}
 		for (Entry<String, Pin> entry : newComp.outputPinNumbers.entrySet()) {
 		    String key = entry.getKey();
 		    Pin pinNumber = entry.getValue();
+		    
 		    GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinNumber, key);
+//		    outputPin.addListener((GpioPinListenerDigital) newComp);
 		    newComp.setOutputPins(outputPin);
 		    
 		}
 		
 		if (newComp.getClass().equals(Sensor.class)) {
+			
 			newRoom.AddComponent((Sensor) newComp);
 		} else if (newComp.getClass().equals(Actuator.class)) {
 			((Actuator) newComp).Initalize();
 			newRoom.AddComponent((Actuator) newComp);
 		}
 
-		
+		view.refreshComponents(getComponents());
 		return false;
 		
 	}
