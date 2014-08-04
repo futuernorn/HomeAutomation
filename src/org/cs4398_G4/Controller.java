@@ -14,6 +14,7 @@ import com.pi4j.io.gpio.GpioPin;
 import com.pi4j.io.gpio.GpioPinDigitalInput;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.PinPullResistance;
 import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
@@ -68,7 +69,7 @@ public class Controller {
 		for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {
 		    String key = entry.getKey();
 		    Pin pinNumber = entry.getValue();
-		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key);
+		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,  PinPullResistance.PULL_DOWN);
 //		    inputPin.addListener((GpioPinListenerDigital) newComp);
 		    newComp.setInputPins(inputPin);
 		    
