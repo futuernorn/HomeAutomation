@@ -38,6 +38,7 @@ public class ActuatorPanel extends ComponentPanel {
 	protected void updateToggleBtnText(GpioPinDigitalOutput outputPins) {
 		// TODO Auto-generated method stub
 		btnToggle.setText("Toggle ["+((Actuator) component).isOn()+"]");
+		refreshStateText();
 		
 	}
 

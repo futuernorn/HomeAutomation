@@ -48,10 +48,7 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 	        {
 	            // Component added somewhere
 	        	System.out.println(component+" added.");
-	        	if (component.getInputPins() != null)
-	        		setStateText(component.getInputPins().getState().toString());
-	        	else if (component.getOutputPins() != null)
-	        		setStateText(component.getOutputPins().getState().toString());
+	        	refreshStateText();
 	        }
 
 	        public void ancestorRemoved ( AncestorEvent event )
@@ -67,7 +64,12 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 	}
 	
 
-
+	public void refreshStateText() {
+    	if (component.getInputPins() != null)
+    		setStateText(component.getInputPins().getState().toString());
+    	else if (component.getOutputPins() != null)
+    		setStateText(component.getOutputPins().getState().toString());
+	}
 	public void setStateText(String newText) {
 		txtCurrentState.setText(newText);
 	}
