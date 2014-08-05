@@ -94,9 +94,10 @@ public class Controller {
 		}
 		
 		if (newComp.getClass().equals(Sensor.class)) {
-			
+			newComp.setComponentUI(new ComponentPanel(newComp, baseStation));
 			newRoom.AddComponent((Sensor) newComp);
 		} else if (newComp.getClass().equals(Actuator.class)) {
+			newComp.setComponentUI(new ActuatorPanel(newComp, baseStation));
 			((Actuator) newComp).Initalize();
 			newRoom.AddComponent((Actuator) newComp);
 		}

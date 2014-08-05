@@ -458,6 +458,7 @@ public class BehaviorPanel extends JPanel {
 		actionListModel = new DefaultListModel();
 		actionList.setModel(actionListModel);
 		
+		// TODO check remove button state
 		List<Behavior> behaviorOptions = view.getController().GetBehaviors();
 //		behaviorListModel = new DefaultListModel();
 		behaviorListModel.removeAllElements();
@@ -519,6 +520,7 @@ public class BehaviorPanel extends JPanel {
 					conditions.add((Condition) conditionListModel.getElementAt(i));
 				}
 				Behavior behavior = new Behavior(txtNewBehavior.getText(),conditions, actions, view.getBaseStation());
+				view.getBaseStation().getLog().addLog(behavior + " added.");
 				view.getController().addBehavior(behavior);
 				behaviorListModel.addElement(behavior);
 				btnBehaviorRemove.setEnabled(true);

@@ -16,22 +16,38 @@ public class BaseStation {
 	ArrayList<User> users;
 	private Security securitySystem;
 	private ArrayList<Behavior> behaviors;
-	User mainUser;
+//	User mainUser;
 	BehaviorGraph graph;
-//	Log log;
+	User currentUser;
+	LocalInterface view;
+	
+	public void setView(LocalInterface view) {
+		this.view = view;
+	}
+
+	public User getCurrentUser() {
+		return currentUser;
+	}
+
+	Log log;
 	
 
+
+	public Log getLog() {
+		return log;
+	}
 
 	/**
 	 * BaseStation constructor
 	 */
 	public BaseStation() {
+		log = new Log(this);
 		house = new ArrayList<Room>();
 		users = new ArrayList<User>();
 		behaviors = new ArrayList<Behavior>();
 		securitySystem = new Security();
 		graph = new BehaviorGraph();
-		mainUser = new User();
+		currentUser = new User();
 	}
 	
 	public ArrayList<Behavior> getBehvaiors() {
@@ -129,13 +145,7 @@ public class BaseStation {
 		this.graph = graph;
 	}
 
-	public User getMainUser() {
-		return mainUser;
-	}
 
-	public void setMainUser(User mainUser) {
-		this.mainUser = mainUser;
-	}
 //	public List<? extends Component> GetComponents(Class<?> cls) {
 //		List<? extends Component> components = new ArrayList<Component>();
 //		for (Room room : house) {
@@ -163,6 +173,12 @@ public class BaseStation {
 				behavior.Run();
 		}
 		
+	}
+
+	public void refreshLogDisplay() {
+		// TODO Auto-generated method stub
+		if (view != null)
+			view.refreshLogText();
 	}
 
 

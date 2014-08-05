@@ -18,6 +18,7 @@ import com.jgoodies.forms.factories.FormFactory;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -38,7 +39,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.util.List;
 
-public class LocalInterface {
+import javax.swing.JScrollPane;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
+
+public class LocalInterface implements ActionListener {
 
 	JFrame frmHomeAutomationSystem;
 	public JFrame getFrmHomeAutomationSystem() {
@@ -56,14 +61,20 @@ public class LocalInterface {
 	private LoginPanel loginPanel;
 	private BehaviorFlowViewer behaviorFlowPanel;
 	BaseStation baseStation;
+	private JPanel logPanel;
+	private JScrollPane logScrollPane;
+    private JTextArea textArea;
+    private JLabel lblSystemLog;
 
 
 	/**
 	 * Create the application.
 	 */
-	public LocalInterface(Controller controller, BaseStation baseStation) {
+	public LocalInterface(Controller controller, BaseStation baseStation)  {
 		this.controller = controller;
 		this.baseStation = baseStation;
+		textArea = new JTextArea(5, 60);
+//		textArea.setPreferredSize(new Dimension());
 		initialize();
 	}
 	
@@ -94,6 +105,41 @@ public class LocalInterface {
 		behaviorFlowPanel = new BehaviorFlowViewer(this, baseStation.getGraph());
 		
 		tabbedPane.addTab("Login", null, loginPanel, null);
+		
+		logPanel = new JPanel();
+		logPanel.addAncestorListener ( new AncestorListener () {
+	        public void ancestorAdded ( AncestorEvent event )
+	        {
+	            // Component added somewhere
+//	        	System.out.println(component+" added.");
+	        	refreshLogText();
+//	        	textArea.getColumnWidth()
+//	        	textArea.setColumns(frmHomeAutomationSystem.getContentPane().getSize().width / textArea.getColumnWidth());
+//	        	textArea.getCol
+	        }
+	        
+
+
+			public void ancestorRemoved ( AncestorEvent event )
+	        {
+	            // Component removed from container
+	        }
+
+	        public void ancestorMoved ( AncestorEvent event )
+	        {
+	            // Component container moved
+	        }
+	        
+	    } );
+		frmHomeAutomationSystem.getContentPane().add(logPanel, BorderLayout.SOUTH);
+		logPanel.setLayout(new BorderLayout(0, 0));
+		
+		
+		logScrollPane = new JScrollPane(textArea);
+		logPanel.add(logScrollPane);
+		
+		lblSystemLog = new JLabel("System Log");
+		logPanel.add(lblSystemLog, BorderLayout.NORTH);
 		
 		
 		
@@ -145,4 +191,23 @@ public class LocalInterface {
 		// TODO Auto-generated method stub
 		return baseStation;
 	}
+	
+
+	
+    public void refreshLogText() {
+		// TODO Auto-generated method stub
+    	textArea.setText("");
+    	for (LogEntry logEntry : baseStation.getLog().getLogEntries()) {
+    		textArea.append(logEntry.toString() + "\n");
+    	}
+		
+	}
+
+	public void actionPerformed(ActionEvent event) {
+		// TODO Auto-generated method stub
+		if (event.getActionCommand() == "log") 
+			refreshLogText();
+		
+	}
+	
 }

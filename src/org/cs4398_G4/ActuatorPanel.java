@@ -23,8 +23,8 @@ import java.awt.event.ActionEvent;
 public class ActuatorPanel extends ComponentPanel {
 	private JTextField txtCurrentState;
 	private JButton btnToggle;
-	public ActuatorPanel(final Component component) {
-		super(component);
+	public ActuatorPanel(final Component component, BaseStation baseStation) {
+		super(component, baseStation);
 		
 		btnToggle = new JButton("Toggle State");
 		btnToggle.addActionListener(new ActionListener() {
@@ -38,6 +38,7 @@ public class ActuatorPanel extends ComponentPanel {
 	protected void updateToggleBtnText(GpioPinDigitalOutput outputPins) {
 		// TODO Auto-generated method stub
 		btnToggle.setText("Toggle ["+((Actuator) component).isOn()+"]");
+		baseStation.getLog().addLog(component + " toggled state to: " + ((Actuator) component).isOn());
 		refreshStateText();
 		
 	}

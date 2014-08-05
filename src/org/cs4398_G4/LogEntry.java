@@ -39,4 +39,8 @@ public class LogEntry {
 	{
 		return action;
 	}
+	
+	public String toString() {
+		return user + " on " + date + " => " + action;
+	}
 }

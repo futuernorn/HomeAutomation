@@ -4,14 +4,21 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Log {
 	private ArrayList<LogEntry> logEntries;
 	private int numLogs;
-	
-	public Log() {
+	BaseStation baseStation;
+	public Log(BaseStation baseStation) {
+		this.baseStation = baseStation; 
 		numLogs = 0;
 		logEntries = new ArrayList<LogEntry>();
+	}
+	
+	public void addLog( String action)
+	{
+		addLog(baseStation.getCurrentUser(), action);
 	}
 	
 	public void addLog(User user, String action)
@@ -20,6 +27,7 @@ public class Log {
 		Date date = new Date();
 		logEntries.add(new LogEntry(date, user, action));
 		++ numLogs;
+		baseStation.refreshLogDisplay();
 	}
 	
 	public ArrayList<LogEntry> searchLog(User user)
@@ -83,7 +91,7 @@ public class Log {
 		return numLogs;
 	}
 	
-	public ArrayList<LogEntry> getLogEntries() {
+	public List<LogEntry> getLogEntries() {
 		return logEntries;
 	}
 }

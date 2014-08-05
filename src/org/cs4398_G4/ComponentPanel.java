@@ -20,7 +20,9 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 	protected JTextField txtCurrentState;
 	final protected Component component;
-	public ComponentPanel(final Component component) {
+	BaseStation baseStation;
+	public ComponentPanel(final Component component, BaseStation baseStation) {
+		this.baseStation = baseStation;
 		this.component = component;
 		if (component.getInputPins() != null)
 			component.getInputPins().addListener(this);
@@ -81,7 +83,8 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 
 	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 		// make log entry here
-		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
+//		System.out.println();
+		baseStation.getLog().addLog("--> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
 		refreshStateText();
 		
 	}

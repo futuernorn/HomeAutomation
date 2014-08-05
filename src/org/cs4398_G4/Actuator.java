@@ -31,7 +31,7 @@ public class Actuator extends Component implements ActionListener   {
 	public Actuator(String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
 		super(name, inputPinNumbers, outputPinNumbers);
 //		this.componentUI = new ActuatorPanel();
-		this.setComponentUI(new ActuatorPanel(this));
+		
 
 		
 	}

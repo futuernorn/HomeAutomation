@@ -104,9 +104,11 @@ public class Driver {
 						
 						
 						LocalInterface window = new LocalInterface(controller, baseStation);
-						
+						baseStation.setView(window);
 //						window.btnToggleLed.addActionListener(newLedActuator);
 //						window.refresh();
+//						window.addActionListener(baseStation);
+//						baseStation.addActionListener(window);
 						window.ShowInterface();
 //						window.refreshComponents(controller.getComponents());
 						
@@ -118,7 +120,7 @@ public class Driver {
 					}
 				}
 			});
-
+			
 	}
 	
 	public void LoadDemoData() {
