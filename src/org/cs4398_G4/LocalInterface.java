@@ -50,6 +50,7 @@ public class LocalInterface {
 	private ComponentManagePanel addRemoveTab;
 	private ComponentStatusPanel statusPanel;
 	private LoginPanel loginPanel;
+	private BehaviorFlowViewer behaviorFlowPanel;
 
 
 	/**
@@ -83,6 +84,8 @@ public class LocalInterface {
 
 		statusPanel = new ComponentStatusPanel();
 		
+		behaviorFlowPanel = new BehaviorFlowViewer();
+		
 		tabbedPane.addTab("Login", null, loginPanel, null);
 		
 		
@@ -112,6 +115,7 @@ public class LocalInterface {
 		tabbedPane.addTab("Add/Remove", null, addRemoveTab, null);
 		tabbedPane.addTab("Status", null, statusPanel, null);
 		tabbedPane.addTab("Behavior", null, behaviorPanel, null);
+		tabbedPane.addTab("Flow", null, behaviorFlowPanel, null);
 		
 	}
 
