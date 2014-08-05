@@ -80,8 +80,8 @@ public abstract class Component {
 					
 			pinNames += entry.getKey();
 		}
-//		return name + " :: " + pinNames;
-		return pinNames;
+		return name + " :: " + pinNames;
+//		return pinNames;
 	}
 
 	public GpioPinDigitalInput getInputPins() {

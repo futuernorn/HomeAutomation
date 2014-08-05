@@ -39,8 +39,8 @@ public class Driver {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						LocalInterface window = new LocalInterface(controller);
-						controller.setView(window);
+						
+//						controller.setView(window);
 						// for instance, this assumes someone has added a compomnent and supplied the needed information
 						Room defaultRoom = new Room("Living Room");
 						Room bedroom = new Room("Bedroom");
@@ -65,9 +65,9 @@ public class Driver {
 						
 						controller.AddComponent(newLedActuator, defaultRoom);
 						
-						
+						LocalInterface window = new LocalInterface(controller);
 //						window.btnToggleLed.addActionListener(newLedActuator);
-						
+//						window.refresh();
 						window.ShowInterface();
 						
 						

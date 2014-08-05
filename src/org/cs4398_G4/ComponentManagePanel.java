@@ -29,7 +29,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JCheckBox;
+
 import java.awt.Insets;
+
 import javax.swing.JSeparator;
 
 public class ComponentManagePanel extends JPanel {
@@ -370,6 +372,7 @@ public class ComponentManagePanel extends JPanel {
 	public void updateComponentList() {
 		List<Component> components = view.getController().getComponents();
 		componentListModel.removeAllElements();
+		System.out.println(components);
 		for (Component component : components) {
 			componentListModel.addElement(component);
 		}

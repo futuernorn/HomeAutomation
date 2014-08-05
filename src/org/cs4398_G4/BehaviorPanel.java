@@ -379,7 +379,7 @@ public class BehaviorPanel extends JPanel {
 						Initialize();
 	}
 	
-	private void Initialize() {
+	void Initialize() {
 		
 		PinState[] stateOptions = PinState.allStates(); // sensorStateComboBox
 		
@@ -453,7 +453,7 @@ public class BehaviorPanel extends JPanel {
 		});
 	}
 	
-	private void SetupBehaviorUI() {
+	void SetupBehaviorUI() {
 		behaviorListModel = new DefaultListModel();
 		behaviorList.setModel(behaviorListModel);
 		btnBehaviorRemove.setEnabled(false);

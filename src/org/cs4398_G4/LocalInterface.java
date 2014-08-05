@@ -47,7 +47,7 @@ public class LocalInterface {
 	private Controller controller;
 	private JTabbedPane tabbedPane;
 	private BehaviorPanel behaviorPanel;
-	private JPanel addRemoveTab;
+	private ComponentManagePanel addRemoveTab;
 	private ComponentStatusPanel statusPanel;
 	private LoginPanel loginPanel;
 
@@ -117,6 +117,13 @@ public class LocalInterface {
 
 	public void refreshComponents(List<Component> components) {
 		statusPanel.refreshComponents(components);
+		
+	}
+
+	public void refresh() {
+		// TODO Auto-generated method stub
+		addRemoveTab.updateComponentList();
+		behaviorPanel.Initialize();
 		
 	}
 }

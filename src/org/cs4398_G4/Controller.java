@@ -100,8 +100,10 @@ public class Controller {
 			((Actuator) newComp).Initalize();
 			newRoom.AddComponent((Actuator) newComp);
 		}
+		
+//		System.out.println(getComponents());
 
-		view.refreshComponents(getComponents());
+//		view.refreshComponents(getComponents());
 		return false;
 		
 	}
