@@ -37,16 +37,21 @@ public class ActionTest {
 	@Parameters
 	public static Collection<Object[]> generateTestData() {
 		
-		HashMap<String, Pin> input = new HashMap<String, Pin>();
-		HashMap<String, Pin> output = new HashMap<String, Pin>();
+		HashMap<String, Pin> inputEmpty = new HashMap<String, Pin>();
+		HashMap<String, Pin> outputEmpty = new HashMap<String, Pin>();
 		
-		input.put("SensorInput", RaspiPin.GPIO_00);
-		output.put("SensorOutput", RaspiPin.GPIO_01);
+		HashMap<String, Pin> input1 = new HashMap<String, Pin>();
+		HashMap<String, Pin> output1 = new HashMap<String, Pin>();
 		
-		input.put("LightInput", RaspiPin.GPIO_03);
-		output.put("LightOutput", RaspiPin.GPIO_04);
+		input1.put("SensorInput", RaspiPin.GPIO_00);
+		output1.put("SensorOutput", RaspiPin.GPIO_01);
 		
-		Object[][] data = new Object[][] { { input, output } };
+		input1.put("LightInput", RaspiPin.GPIO_03);
+		output1.put("LightOutput", RaspiPin.GPIO_04);
+		
+		Object[][] data = new Object[][] { { inputEmpty, outputEmpty },
+											{ input1, output1 }
+										 };
 		
 		return Arrays.asList(data);
 	}
