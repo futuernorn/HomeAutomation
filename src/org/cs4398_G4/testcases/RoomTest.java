@@ -37,6 +37,9 @@ public class RoomTest {
 	@Parameters
 	public static Collection<Object[]> generateTestData() {
 		
+		HashMap<String, Pin> inputEmpty = new HashMap<String, Pin>();
+		HashMap<String, Pin> outputEmpty = new HashMap<String, Pin>();
+		
 		HashMap<String, Pin> input = new HashMap<String, Pin>();
 		HashMap<String, Pin> output = new HashMap<String, Pin>();
 		
@@ -46,7 +49,9 @@ public class RoomTest {
 		input.put("LightInput", RaspiPin.GPIO_03);
 		output.put("LightOutput", RaspiPin.GPIO_04);
 		
-		Object[][] data = new Object[][] { { input, output } };
+		Object[][] data = new Object[][] { { input, output },
+		{ inputEmpty, outputEmpty }
+		};
 		
 		return Arrays.asList(data);
 	}
@@ -61,10 +66,10 @@ public class RoomTest {
 		assertEquals("Room should have no sensors when created", 0, RoomTester.GetSensors().size());
 		
 		//create a sensor
-		Sensor testSensor = new Sensor("test Sensor", inputPinNumbers, outputPinNumbers);
+		Sensor testSensor = new Sensor("Test Sensor", inputPinNumbers, outputPinNumbers);
 		
 		//create light
-		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
+		Actuator testLight = new Actuator("Test Light", inputPinNumbers, outputPinNumbers);
 		
 		//Add sensor and light to room
 		RoomTester.AddComponent(testLight);

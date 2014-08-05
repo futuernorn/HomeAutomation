@@ -42,7 +42,7 @@ public class BehaviorTest {
 //		an action possible? Dont think theres time for figuring that out unless
 //		you have a good idea of how to do it (I dont :( )
 	
-	@Test
+	@Ignore
 	public void EmptyBehaviorTest() {
 		
 		//-----Setup Behavior------
@@ -76,7 +76,7 @@ public class BehaviorTest {
 		
 	}
 	
-	@Test
+	@Ignore
 	public void BehaviorTest() {
 		
 		//-----Setup Behavior------

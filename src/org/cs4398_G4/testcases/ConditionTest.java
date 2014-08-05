@@ -24,7 +24,7 @@ import com.pi4j.io.gpio.RaspiPin;
 
 public class ConditionTest {
 
-	@Test
+	@Ignore
 	public void Test() {
 		
 		//-----Setup Behavior and Condition for testing------

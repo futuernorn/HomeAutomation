@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ActionTest.class, BaseStationTest.class, BehaviorTest.class, ConditionTest.class, ConditionTest.class, ControllerTest.class,
+@SuiteClasses({ ActionTest.class, BaseStationTest.class, BehaviorTest.class, ConditionTest.class, ControllerTest.class,
 					LogTest.class, RoomTest.class})
 public class _HomeAutomationTestSuite {
 	
