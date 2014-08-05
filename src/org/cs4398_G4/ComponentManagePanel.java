@@ -357,8 +357,8 @@ public class ComponentManagePanel extends JPanel {
 		outputCombo.setModel(outputPinComboModel);
 
 		
-		roomComboModel = new DefaultComboBoxModel(view.getController().getRooms().toArray());
-		roomComboBox.setModel(roomComboModel);
+//		roomComboModel = new DefaultComboBoxModel(view.getController().getRooms().toArray());
+//		roomComboBox.setModel(roomComboModel);
 
 		String[] possibleTypes = {"Motion Sensor", "Sound Alarm", "LED Light"};
 		typeComboModel = new DefaultComboBoxModel(possibleTypes);
@@ -381,6 +381,9 @@ public class ComponentManagePanel extends JPanel {
 	    	btnRemoveCompontent.setEnabled(false);
 	    else
 	    	btnRemoveCompontent.setEnabled(true);
+	    
+	    roomComboModel = new DefaultComboBoxModel(view.getController().getRooms().toArray());
+		roomComboBox.setModel(roomComboModel);
 	}
 
 }

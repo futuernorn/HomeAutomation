@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -16,8 +18,10 @@ import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
 public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
-	private JTextField txtCurrentState;
-	public ComponentPanel() {
+	protected JTextField txtCurrentState;
+	final protected Component component;
+	public ComponentPanel(final Component component) {
+		this.component = component;
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -37,9 +41,36 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 		
 		Border  blackline = BorderFactory.createLineBorder(Color.black);
 		this.setBorder(blackline);
-	}
+		
+		this.addAncestorListener ( new AncestorListener ()
+	    {
+	        public void ancestorAdded ( AncestorEvent event )
+	        {
+	            // Component added somewhere
+	        	System.out.println(component+" added.");
+	        	refreshStateText();
+	        }
 
-	private void setStateText(String newText) {
+	        public void ancestorRemoved ( AncestorEvent event )
+	        {
+	            // Component removed from container
+	        }
+
+	        public void ancestorMoved ( AncestorEvent event )
+	        {
+	            // Component container moved
+	        }
+	    } );
+	}
+	
+
+	public void refreshStateText() {
+    	if (component.getInputPins() != null)
+    		setStateText(component.getInputPins().getState().toString());
+    	else if (component.getOutputPins() != null)
+    		setStateText(component.getOutputPins().getState().toString());
+	}
+	public void setStateText(String newText) {
 		txtCurrentState.setText(newText);
 	}
 

@@ -17,7 +17,7 @@ public class Sensor extends Component {
 	
 	public Sensor(String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
 		super(name, inputPinNumbers, outputPinNumbers);
-		this.componentUI = new SensorPanel();
+		this.setComponentUI(new SensorPanel(this));
 		
 //		this.display = display;
 		
