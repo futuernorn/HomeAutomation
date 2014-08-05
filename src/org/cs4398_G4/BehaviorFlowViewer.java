@@ -121,7 +121,7 @@ public class BehaviorFlowViewer extends JPanel {
 		        public void ancestorAdded ( AncestorEvent event )
 		        {
 		            // Component added somewhere
-		        	System.out.println("BehaviorFlowViewer added.");
+//		        	System.out.println("BehaviorFlowViewer added.");
 		        	updateBehaviors();
 		        }
 		        

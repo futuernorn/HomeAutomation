@@ -9,6 +9,7 @@ import java.util.Timer;
 
 import org.cs4398_G4.Action;
 import org.cs4398_G4.Actuator;
+import org.cs4398_G4.BaseStation;
 import org.cs4398_G4.Behavior;
 import org.cs4398_G4.Condition;
 import org.cs4398_G4.Sensor;
@@ -35,7 +36,7 @@ public class ConditionTest {
 		//seems strange. I might not be understanding your implementation fully though.
 		//Going to ignore this test for now.
 		//***********************
-		
+		BaseStation baseStation = new BaseStation();
 		//------setup test condition------
 		//Create Hashmap for pins
 		HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
@@ -76,7 +77,7 @@ public class ConditionTest {
 		testConditions.add(behaviorCondition);
 		testActions.add(testAction);
 				
-		Behavior testBehavior = new Behavior("TestBehavior", testConditions, testActions);
+		Behavior testBehavior = new Behavior("TestBehavior", testConditions, testActions, baseStation);
 		
 		
 		//---startTimer Test

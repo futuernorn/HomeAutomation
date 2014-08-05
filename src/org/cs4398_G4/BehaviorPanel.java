@@ -396,7 +396,7 @@ public class BehaviorPanel extends JPanel {
 	        public void ancestorAdded ( AncestorEvent event )
 	        {
 	            // Component added somewhere
-	        	System.out.println(this+" added.");
+//	        	System.out.println(this+" added.");
 	        	fillOptions();
 	        }
 	        

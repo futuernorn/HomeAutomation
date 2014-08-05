@@ -19,7 +19,7 @@ import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 
 public class BehaviorTest {
 	
-//	------------Read this------------
+//	TODO: ------------Read this------------
 //	I think part of the issue with the behavior
 //	test right now has to do with behavior containing
 //	multiple actions and conditions. For simplicity,
@@ -40,7 +40,7 @@ public class BehaviorTest {
 	public void EmptyBehaviorTest() {
 		
 		//-----Setup Behavior------
-		
+		BaseStation BaseTester = new BaseStation();
 		List<Condition> testConditions = new ArrayList<Condition>();
 		List<Action> testActions = new ArrayList<Action>();
 				
@@ -63,7 +63,7 @@ public class BehaviorTest {
 		Action testAction = new Action(testLight, PinState.HIGH, 5);
 		Condition testCondition = new Condition(testSensor, PinState.HIGH, 10);
 		
-		Behavior EmptyBehaviorTester = new Behavior("TestBehavior", testConditions, testActions);
+		Behavior EmptyBehaviorTester = new Behavior("TestBehavior", testConditions, testActions, BaseTester);
 		
 //		testConditions.add(testCondition);
 //		testActions.add(testAction);
@@ -117,7 +117,7 @@ public class BehaviorTest {
 		testConditions.add(testCondition);
 		testActions.add(testAction);
 				
-		Behavior tester = new Behavior("TestBehavior", testConditions, testActions);
+		Behavior tester = new Behavior("TestBehavior", testConditions, testActions, baseStation);
 		
 		assertEquals("Conditions should be size 1", 1, tester.getConditions().size());
 		assertEquals("Actions should be size 1", 1, tester.getActions().size());

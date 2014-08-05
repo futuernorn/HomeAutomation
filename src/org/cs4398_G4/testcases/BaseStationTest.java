@@ -61,7 +61,7 @@ public class BaseStationTest {
 		testActions.add(testAction);
 		
 		//create behavior
-		Behavior testBehavior = new Behavior("testBehavior", testConditions, testActions);
+		Behavior testBehavior = new Behavior("testBehavior", testConditions, testActions, BaseTester);
 		
 		//----end object creation----
 		

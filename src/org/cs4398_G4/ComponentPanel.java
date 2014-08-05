@@ -51,7 +51,7 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 	        public void ancestorAdded ( AncestorEvent event )
 	        {
 	            // Component added somewhere
-	        	System.out.println(component+" added.");
+//	        	System.out.println(component+" added.");
 	        	refreshStateText();
 	        }
 	        
