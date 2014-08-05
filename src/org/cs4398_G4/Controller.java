@@ -78,7 +78,7 @@ public class Controller {
 		for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {
 		    String key = entry.getKey();
 		    Pin pinNumber = entry.getValue();
-		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,  PinPullResistance.PULL_UP);
+		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,  PinPullResistance.PULL_DOWN);
 		    
 		    newComp.setInputPins(inputPin);
 		    
@@ -101,9 +101,10 @@ public class Controller {
 			newRoom.AddComponent((Actuator) newComp);
 		}
 		
-//		System.out.println(getComponents());
-
+//		System.out.println(view + " " + getComponents());
+//
 //		view.refreshComponents(getComponents());
+		
 		return false;
 		
 	}
@@ -167,6 +168,10 @@ public class Controller {
 	public List<Component> getComponents() {
 		// TODO Auto-generated method stub
 		return baseStation.getComponents();
+	}
+
+	public List<Behavior> GetBehaviors() {
+		return baseStation.getBehvaiors();
 	}
 
 

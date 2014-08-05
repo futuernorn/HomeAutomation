@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.border.LineBorder;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 
 import java.awt.Color;
 
@@ -377,6 +379,7 @@ public class BehaviorPanel extends JPanel {
 						
 		
 						Initialize();
+						
 	}
 	
 	void Initialize() {
@@ -389,6 +392,25 @@ public class BehaviorPanel extends JPanel {
 		SetupBehaviorUI();
 		SetupConditionUI();
 		SetupActionUI();
+		this.addAncestorListener ( new AncestorListener () {
+	        public void ancestorAdded ( AncestorEvent event )
+	        {
+	            // Component added somewhere
+	        	System.out.println(this+" added.");
+	        	fillOptions();
+	        }
+	        
+	        public void ancestorRemoved ( AncestorEvent event )
+	        {
+	            // Component removed from container
+	        }
+
+	        public void ancestorMoved ( AncestorEvent event )
+	        {
+	            // Component container moved
+	        }
+	        
+	    } );
 		
 	}
 	
@@ -435,6 +457,13 @@ public class BehaviorPanel extends JPanel {
 		actuatorStateComboBox.setModel(actionStateListModel);
 		actionListModel = new DefaultListModel();
 		actionList.setModel(actionListModel);
+		
+		List<Behavior> behaviorOptions = view.getController().GetBehaviors();
+//		behaviorListModel = new DefaultListModel();
+		behaviorListModel.removeAllElements();
+		for (Behavior behavior : behaviorOptions) {
+			behaviorListModel.addElement(behavior);
+		}
 		
 	}
 	
@@ -489,7 +518,7 @@ public class BehaviorPanel extends JPanel {
 				for (int i = 0; i < conditionListModel.getSize(); i++) {
 					conditions.add((Condition) conditionListModel.getElementAt(i));
 				}
-				Behavior behavior = new Behavior(txtNewBehavior.getText(),conditions, actions);
+				Behavior behavior = new Behavior(txtNewBehavior.getText(),conditions, actions, view.getBaseStation());
 				view.getController().addBehavior(behavior);
 				behaviorListModel.addElement(behavior);
 				btnBehaviorRemove.setEnabled(true);

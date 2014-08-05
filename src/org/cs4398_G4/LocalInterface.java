@@ -41,6 +41,10 @@ import java.util.List;
 public class LocalInterface {
 
 	JFrame frmHomeAutomationSystem;
+	public JFrame getFrmHomeAutomationSystem() {
+		return frmHomeAutomationSystem;
+	}
+
 	private JTextField nameTxt;
 	public JTextField motionTxt;
 	public JButton btnToggleLed;
@@ -51,13 +55,15 @@ public class LocalInterface {
 	private ComponentStatusPanel statusPanel;
 	private LoginPanel loginPanel;
 	private BehaviorFlowViewer behaviorFlowPanel;
+	BaseStation baseStation;
 
 
 	/**
 	 * Create the application.
 	 */
-	public LocalInterface(Controller controller) {
+	public LocalInterface(Controller controller, BaseStation baseStation) {
 		this.controller = controller;
+		this.baseStation = baseStation;
 		initialize();
 	}
 	
@@ -73,6 +79,7 @@ public class LocalInterface {
 		frmHomeAutomationSystem = new JFrame();
 		frmHomeAutomationSystem.setTitle("Home Automation System");
 		frmHomeAutomationSystem.setBounds(100, 100, 711, 481);
+//		frmHomeAutomationSystem.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		frmHomeAutomationSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -82,9 +89,9 @@ public class LocalInterface {
 		
 		behaviorPanel = new BehaviorPanel(this);
 
-		statusPanel = new ComponentStatusPanel();
+		statusPanel = new ComponentStatusPanel(this);
 		
-		behaviorFlowPanel = new BehaviorFlowViewer();
+		behaviorFlowPanel = new BehaviorFlowViewer(this, baseStation.getGraph());
 		
 		tabbedPane.addTab("Login", null, loginPanel, null);
 		
@@ -119,10 +126,10 @@ public class LocalInterface {
 		
 	}
 
-	public void refreshComponents(List<Component> components) {
-		statusPanel.refreshComponents(components);
+	public void refreshComponents() {
+		statusPanel.refreshComponents();
 		addRemoveTab.updateComponentList();
-		behaviorPanel.fillOptions();
+		behaviorPanel.Initialize();
 		
 		
 	}
@@ -132,5 +139,10 @@ public class LocalInterface {
 		addRemoveTab.updateComponentList();
 		behaviorPanel.Initialize();
 		
+	}
+
+	public BaseStation getBaseStation() {
+		// TODO Auto-generated method stub
+		return baseStation;
 	}
 }

@@ -17,14 +17,10 @@ public class BaseStation {
 	private Security securitySystem;
 	private ArrayList<Behavior> behaviors;
 	User mainUser;
+	BehaviorGraph graph;
+//	Log log;
 	
-	public User getMainUser() {
-		return mainUser;
-	}
 
-	public void setMainUser(User mainUser) {
-		this.mainUser = mainUser;
-	}
 
 	/**
 	 * BaseStation constructor
@@ -34,7 +30,7 @@ public class BaseStation {
 		users = new ArrayList<User>();
 		behaviors = new ArrayList<Behavior>();
 		securitySystem = new Security();
-		
+		graph = new BehaviorGraph();
 		mainUser = new User();
 	}
 	
@@ -118,6 +114,28 @@ public class BaseStation {
 		
 	}
 
+	public String getBehvaiorName(Integer v) {
+		for (Behavior behavior: getBehvaiors()) {
+			if (v == behavior.getId())
+				return behavior.toString();
+		}
+		return "Unknown";
+	}
+	public BehaviorGraph getGraph() {
+		return graph;
+	}
+
+	public void setGraph(BehaviorGraph graph) {
+		this.graph = graph;
+	}
+
+	public User getMainUser() {
+		return mainUser;
+	}
+
+	public void setMainUser(User mainUser) {
+		this.mainUser = mainUser;
+	}
 //	public List<? extends Component> GetComponents(Class<?> cls) {
 //		List<? extends Component> components = new ArrayList<Component>();
 //		for (Room room : house) {
@@ -125,6 +143,27 @@ public class BaseStation {
 //		}
 //		return components;
 //	}
+
+	public void runConnectedBehaviors(int id) {
+		System.out.println(graph.g.getIncidentEdges(id));
+		for (String edge : graph.g.getIncidentEdges(id)) {
+			for (Integer endpoint : graph.g.getEndpoints(edge)) {
+				System.out.println("id("+id+"): edge("+edge+") => endpoint("+endpoint+")");
+				if (endpoint != id)
+					runBehaviorID(endpoint);
+				
+			}
+		}
+		
+	}
+
+	private void runBehaviorID(Integer endpoint) {
+		for (Behavior behavior: getBehvaiors()) {
+			if (endpoint == behavior.getId())
+				behavior.Run();
+		}
+		
+	}
 
 
 //	public List<? extends Component> GetSensors() {

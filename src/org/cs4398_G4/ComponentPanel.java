@@ -33,8 +33,11 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
+		JLabel lblComponentName = new JLabel(component.toString());
+		add(lblComponentName, "1, 1, right, default");
+		
 		JLabel lblCurrentState = new JLabel("Current State");
-		add(lblCurrentState, "1, 1, right, default");
+		add(lblCurrentState, "1, 2, right, default");
 		
 		txtCurrentState = new JTextField();
 		txtCurrentState.setText("Current State");
@@ -44,15 +47,14 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 		Border  blackline = BorderFactory.createLineBorder(Color.black);
 		this.setBorder(blackline);
 		
-		this.addAncestorListener ( new AncestorListener ()
-	    {
+		this.addAncestorListener ( new AncestorListener () {
 	        public void ancestorAdded ( AncestorEvent event )
 	        {
 	            // Component added somewhere
 	        	System.out.println(component+" added.");
 	        	refreshStateText();
 	        }
-
+	        
 	        public void ancestorRemoved ( AncestorEvent event )
 	        {
 	            // Component removed from container
@@ -62,6 +64,7 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 	        {
 	            // Component container moved
 	        }
+	        
 	    } );
 	}
 	
@@ -77,7 +80,9 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 	}
 
 	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-		setStateText(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
+		// make log entry here
+		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
+		refreshStateText();
 		
 	}
 }

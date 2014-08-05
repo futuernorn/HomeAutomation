@@ -28,8 +28,5 @@ public class SensorPanel extends ComponentPanel  implements GpioPinListenerDigit
 		txtCurrentState.setText(newText);
 	}
 
-	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-		setStateText(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
-		
-	}
+
 }

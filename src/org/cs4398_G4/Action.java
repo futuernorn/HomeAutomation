@@ -36,7 +36,6 @@ public class Action {
 	}
 
 	public Actuator getActuator() {
-		// TODO Auto-generated method stub
 		return actuator;
 	}
 }

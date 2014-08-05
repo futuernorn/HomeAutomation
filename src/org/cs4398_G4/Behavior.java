@@ -18,13 +18,26 @@ public class Behavior implements GpioPinListenerDigital{
 	List<Condition> conditions;
 	List<Action> actions;
 	String name;
+	static int currentCount = 1;
+	final int id;
+	BaseStation baseStation;
+//	int isRunning;
 	
+	public int getId() {
+		return id;
+	}
+
+
 	/**
 	 * @param name: the name of the behavior, from user input
 	 * @param conditions: the list of conditions that must be met for the behavior to occur
 	 * @param actions: List of actions to be perfomed when the list of conditions is met
 	 */
-	public Behavior(String name, List<Condition> conditions, List<Action> actions) {
+	public Behavior(String name, List<Condition> conditions, List<Action> actions, BaseStation baseStation) {
+		this.baseStation = baseStation;
+		this.id = currentCount;
+		currentCount++;
+//		isRunning = 0;
 		this.name = name;
 		this.actions = actions;
 		this.conditions = conditions;
@@ -42,13 +55,21 @@ public class Behavior implements GpioPinListenerDigital{
 		return actions;
 	}
 	
+	@Override
+    public int hashCode() {
+		return id;
+	}
 
 	/**
 	 * Runs the list of actions
 	 */
 
-	private void Run() {
+	public void Run() {
+//		if (isRunning > 0)
+//			return;
+		
 		for (final Action action : actions) {
+//			isRunning++;
 			action.getActuator().getOutputPins().setState(action.getPinState());
 			System.out.println("running action:" + action);
 			new Timer().schedule(new TimerTask() {
@@ -56,6 +77,7 @@ public class Behavior implements GpioPinListenerDigital{
 				  public void run() {
 					  action.getActuator().getOutputPins().toggle();
 					  System.out.println("stopping action:" + action);
+//					  isRunning--;
 				  }
 				}, (long) action.getDuration() * 1000);
 		}
@@ -101,8 +123,10 @@ public class Behavior implements GpioPinListenerDigital{
 				runActions = false;
 		}
 		System.out.println(" --> conditionMet / runActions => " + runActions);
-		if (runActions)
+		if (runActions) {
 			Run();
+			baseStation.runConnectedBehaviors(id);
+		}
 		
 	}
 

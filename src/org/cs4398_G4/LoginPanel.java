@@ -20,6 +20,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.GridBagLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.factories.FormFactory;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
 public class LoginPanel extends JPanel {
 
@@ -38,35 +45,54 @@ public class LoginPanel extends JPanel {
 	 */
 	public LoginPanel(final LocalInterface view) {
 		this.view = view;
+		setLayout(new BorderLayout(0, 0));
 		
-
-		
-
-		this.setLayout(null);
+		JPanel panel = new JPanel();
+		add(panel);
+		panel.setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				RowSpec.decode("fill:default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("fill:default:grow"),}));
 		
 		JLabel lblUserId = new JLabel("User ID:");
-		lblUserId.setBounds(91, 85, 46, 14);
-		this.add(lblUserId);
-		
-		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(91, 113, 64, 14);
-		this.add(lblPassword);
-		
-		//password text field
-		password = new JPasswordField();
-		password.setBounds(176, 110, 138, 20);
-		this.add(password);
-		password.setColumns(10);
+		panel.add(lblUserId, "3, 3");
 		
 		//user ID text field
 		textField_1 = new JTextField();
+		panel.add(textField_1, "5, 3");
 		textField_1.setColumns(10);
-		textField_1.setBounds(176, 82, 138, 20);
-		this.add(textField_1);
 		
-		final User user = new User();
+		JLabel lblPassword = new JLabel("Password:");
+		panel.add(lblPassword, "3, 5");
+		
+		//password text field
+		password = new JPasswordField();
+		panel.add(password, "5, 5");
+		password.setColumns(10);
+		
+		JPanel loginButtonPanel = new JPanel();
+		panel.add(loginButtonPanel, "5, 7, fill, fill");
+		loginButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton btnOk = new JButton("OK");
+		loginButtonPanel.add(btnOk);
+		
+		JButton btnClear = new JButton("Clear");
+		loginButtonPanel.add(btnClear);
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				if (user.logOn(password.getText()))
@@ -76,12 +102,8 @@ public class LoginPanel extends JPanel {
 //				}
 			}
 		});
-		btnOk.setBounds(250, 141, 64, 20);
-		this.add(btnOk);
 		
-		JButton btnClear = new JButton("Clear");
-		btnClear.setBounds(176, 141, 64, 20);
-		this.add(btnClear);	
+		final User user = new User();
 		
 		//new tabs
 		
