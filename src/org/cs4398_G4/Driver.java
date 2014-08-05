@@ -69,6 +69,7 @@ public class Driver {
 //						window.btnToggleLed.addActionListener(newLedActuator);
 //						window.refresh();
 						window.ShowInterface();
+						window.refreshComponents(controller.getComponents());
 						
 						
 						

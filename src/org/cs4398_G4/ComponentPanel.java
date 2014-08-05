@@ -22,6 +22,8 @@ public class ComponentPanel extends JPanel  implements GpioPinListenerDigital  {
 	final protected Component component;
 	public ComponentPanel(final Component component) {
 		this.component = component;
+		if (component.getInputPins() != null)
+			component.getInputPins().addListener(this);
 		setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,

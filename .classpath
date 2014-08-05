@@ -2,8 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
-	<classpathentry kind="lib" path="lib/testpicore-1.0/testpicore.jar"/>
-	<classpathentry kind="lib" path="lib/testpicore-1.0/testpiprotocol.jar"/>
 	<classpathentry kind="lib" path="lib/pi4j-1.0/junit.jar"/>
 	<classpathentry kind="lib" path="lib/pi4j-1.0/pi4j-core-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/pi4j-1.0/pi4j-core-sources.jar"/>
@@ -22,22 +20,23 @@
 	<classpathentry kind="lib" path="lib/comm-2.0.jar"/>
 	<classpathentry kind="lib" path="forms-1.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/hamcrest-all-1.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/collections-generic-4.01.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/colt-1.2.0.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/concurrent-1.3.4.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/j3d-core-1.3.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-3d-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-3d-demos-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-algorithms-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-api-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-graph-impl-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-io-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-jai-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-jai-samples-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-samples-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/jung-visualization-2.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/stax-api-1.0.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/vecmath-1.3.1.jar"/>
-	<classpathentry kind="lib" path="U:/cs4398/HomeAutomation/lib/jung2-2_0_1/wstx-asl-3.2.6.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/collections-generic-4.01.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/colt-1.2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/concurrent-1.3.4.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/j3d-core-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-3d-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-3d-demos-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-algorithms-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-graph-impl-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-jai-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-jai-samples-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-samples-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/jung-visualization-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/vecmath-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jung2-2_0_1/wstx-asl-3.2.6.jar"/>
+	<classpathentry kind="lib" path="lib/pi4j-1.0/pi4j-core.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

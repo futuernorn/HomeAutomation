@@ -78,7 +78,7 @@ public class Controller {
 		for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {
 		    String key = entry.getKey();
 		    Pin pinNumber = entry.getValue();
-		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,  PinPullResistance.PULL_DOWN);
+		    GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,  PinPullResistance.PULL_UP);
 		    
 		    newComp.setInputPins(inputPin);
 		    
