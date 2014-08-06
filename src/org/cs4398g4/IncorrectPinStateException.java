@@ -1,4 +1,4 @@
-package org.cs4398_G4;
+package org.cs4398g4;
 
 import com.pi4j.io.gpio.PinState;
 

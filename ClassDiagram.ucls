@@ -1,6 +1,817 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="org.cs4398g4.Sensor" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Sensor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="307" x="2980" y="2267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="org.cs4398g4.Actuator" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Actuator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="314" x="2638" y="1089"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="org.cs4398g4.DriverDemoData" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Driver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="168" x="2198" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="org.cs4398g4.Component" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Component.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="326" x="3348" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="org.cs4398g4.DualComponent" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/DualComponent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="347" x="2605" y="1714"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="org.cs4398g4.Behavior" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Behavior.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="395" x="2406" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="org.cs4398g4.Controller" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="231" x="2051" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="org.cs4398g4.Room" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Room.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="201" x="3327" y="2267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="org.cs4398g4.User" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="206" x="2305" y="2833"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="org.cs4398g4.Action" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Action.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="184" x="2406" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="org.cs4398g4.IncorrectPinStateException" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/IncorrectPinStateException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="202" x="911" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="org.cs4398g4.BaseStation" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/BaseStation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="513" width="262" x="2303" y="1714"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="org.cs4398g4.Condition" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Condition.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="190" x="2630" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="14" language="java" name="org.cs4398g4.User.AccessLevel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="165" x="2305" y="3098"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="15" language="java" name="org.cs4398g4.LogEntry" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/LogEntry.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="155" x="2108" y="2586"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="org.cs4398g4.BehaviorGraph" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/BehaviorGraph.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="211" x="1795" y="2267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="org.cs4398g4.Lock" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Lock.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="264" x="2366" y="2267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="org.cs4398g4.RFID" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/RFID.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="220" x="3327" y="2586"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="org.cs4398g4.Log" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Log.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="217" x="2046" y="2267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="org.cs4398g4.DoorNotClosedException" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/DoorNotClosedException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="181" x="1153" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="org.cs4398g4.HVAC" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/HVAC.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="270" x="2670" y="2267"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="org.cs4398g4.Driver" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/Driver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="414" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="org.cs4398g4.testcases.ActionTest" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/ActionTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="306" x="1852" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="org.cs4398g4.testcases.RoomTest" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/RoomTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="288" x="1524" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="org.cs4398g4.testcases.HomeAutomationTestSuite" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/HomeAutomationTestSuite.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="175" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="org.cs4398g4.testcases.BaseStationTest" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/BaseStationTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="418" x="2841" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="org.cs4398g4.testcases.ConditionTest" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/ConditionTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="305" x="1956" y="1089"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="org.cs4398g4.testcases.LogTest" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/LogTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="118" x="256" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="org.cs4398g4.testcases.BehaviorTest" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/BehaviorTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="304" x="567" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="org.cs4398g4.testcases.ControllerTest" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/testcases/ControllerTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="110" x="1374" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="org.cs4398g4.ui.LogPanel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/LogPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="153" x="1655" y="1714"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="org.cs4398g4.ui.ActuatorPanel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/ActuatorPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="253" x="3055" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="org.cs4398g4.ui.BehaviorPanel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/BehaviorPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="675" width="301" x="1224" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="org.cs4398g4.ui.BehaviorFlowViewer" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/BehaviorFlowViewer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="282" x="1333" y="1714"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="org.cs4398g4.ui.LoginPanel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/LoginPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="155" x="1565" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="org.cs4398g4.ui.ComponentStatusPanel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/ComponentStatusPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="298" x="1848" y="1714"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="org.cs4398g4.ui.ComponentPanel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/ComponentPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="395" x="3299" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="org.cs4398g4.ui.LocalInterface" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/LocalInterface.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="585" width="261" x="1655" y="1089"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="org.cs4398g4.ui.ComponentManagePanel" project="HomeAutomation" 
+    file="/HomeAutomation/src/org/cs4398g4/ui/ComponentManagePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="459" width="251" x="1760" y="374"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="40">    
+    <bendpoint x="2333" y="374"/>    
+    <bendpoint x="2333" y="1089"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="41" name="baseStation"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="44" name="house"/>      
+      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <bendpoint x="2375" y="374"/>    
+    <bendpoint x="2375" y="1089"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="47" name="testBaseStation"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="50" name="behaviorPanel"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="53" name="controller"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="56" name="baseStation"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="58">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="37"/>  
+  </generalization>  
+  <association id="59">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="60" name="cardReaders"/>      
+      <multiplicity id="61" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="63" name="behaviorFlowPanel"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="66" name="graph"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="68">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="69">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="70" name="logPanel"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <bendpoint x="3003" y="374"/>    
+    <bendpoint x="3003" y="1089"/>    
+    <bendpoint x="3003" y="1714"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="73" name="testSensors"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="76" name="conditions"/>      
+      <multiplicity id="77" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="79" name="logEntries"/>      
+      <multiplicity id="80" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="82" name="testBase"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="85" name="view"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <bendpoint x="2314" y="2267"/>    
+    <bendpoint x="2314" y="2586"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="88" name="loggedOut"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="90">    
+    <bendpoint x="2291" y="1089"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="91" name="baseStation"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="93">    
+    <bendpoint x="2871" y="374"/>    
+    <bendpoint x="2607" y="1089"/>    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="94" name="baseStation"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="96">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="97">    
+    <bendpoint x="3336" y="1089"/>    
+    <bendpoint x="3336" y="1714"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="98" name="room"/>      
+      <multiplicity id="99" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="100">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="14"/>  
+  </nesting>  
+  <association id="101">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="102" name="sensor"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="105" name="component"/>      
+      <multiplicity id="106" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="108" name="baseStation"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="111" name="graph"/>      
+      <multiplicity id="112" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="113">    
+    <bendpoint x="2850" y="374"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="114" name="testLights"/>      
+      <multiplicity id="115" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="116">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="117" name="statusPanel"/>      
+      <multiplicity id="118" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="119">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="120" name="controller"/>      
+      <multiplicity id="121" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="122">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="123" name="actions"/>      
+      <multiplicity id="124" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="126" name="view"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="129" name="view"/>      
+      <multiplicity id="130" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="131">    
+    <bendpoint x="2335" y="2267"/>    
+    <bendpoint x="2335" y="2586"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="132" name="currentUser"/>      
+      <multiplicity id="133" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="134">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="135" name="loginPanel"/>      
+      <multiplicity id="136" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="137">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="138" name="view"/>      
+      <multiplicity id="139" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="140">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="141" name="user"/>      
+      <multiplicity id="142" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="143">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="144" name="view"/>      
+      <multiplicity id="145" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="147" name="actuator"/>      
+      <multiplicity id="148" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <bendpoint x="2293" y="2267"/>    
+    <bendpoint x="2293" y="2586"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="150" name="users"/>      
+      <multiplicity id="151" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="152">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="153" name="componentUI"/>      
+      <multiplicity id="154" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="155">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="156">    
+    <bendpoint x="3173" y="1714"/>    
+    <bendpoint x="3173" y="1089"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="157">    
+    <end type="SOURCE" refId="31" navigable="false">      
+      <attribute id="158" name="view"/>      
+      <multiplicity id="159" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="160">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="161" name="log"/>      
+      <multiplicity id="162" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="163">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="164" name="view"/>      
+      <multiplicity id="165" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="166">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="167" name="testController"/>      
+      <multiplicity id="168" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="169">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="170">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="171" name="baseStation"/>      
+      <multiplicity id="172" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="173">    
+    <bendpoint x="3357" y="1714"/>    
+    <bendpoint x="3357" y="1089"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="174" name="components"/>      
+      <multiplicity id="175" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="176">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="177" name="accessLevel"/>      
+      <multiplicity id="178" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="179">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="180" name="addRemoveTab"/>      
+      <multiplicity id="181" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="182">    
+    <bendpoint x="2982" y="1089"/>    
+    <bendpoint x="2982" y="1714"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="183" name="sensor"/>      
+      <multiplicity id="184" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="185">    
+    <bendpoint x="2354" y="1089"/>    
+    <bendpoint x="2354" y="374"/>    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="186" name="behaviors"/>      
+      <multiplicity id="187" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="188">    
+    <bendpoint x="3024" y="374"/>    
+    <bendpoint x="3024" y="1089"/>    
+    <bendpoint x="3024" y="1714"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="189" name="testHouse"/>      
+      <multiplicity id="190" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="191">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="192" name="view"/>      
+      <multiplicity id="193" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="194">    
+    <bendpoint x="2312" y="374"/>    
+    <bendpoint x="2312" y="1089"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="195" name="baseStation"/>      
+      <multiplicity id="196" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
