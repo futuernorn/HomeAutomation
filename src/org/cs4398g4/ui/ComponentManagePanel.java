@@ -216,8 +216,10 @@ public class ComponentManagePanel extends JPanel {
 					newComp = new Sensor("Motion Sensor", inputPinNumbers, outputPinNumbers);
 				} else if (type == "LED Light") {
 					newComp = new Actuator("LED", inputPinNumbers, outputPinNumbers);
-				} else {
-//					newComp = new Component(nameTxt.getText(), inputPinNumbers, outputPinNumbers);
+				} else if (type == "Reed Switch") {
+					newComp = new Sensor("Reed Switch", inputPinNumbers, outputPinNumbers);
+				} else if (type == "Buzzer") {
+					newComp = new Actuator("Buzzer", inputPinNumbers, outputPinNumbers);
 				}
 				
 				view.getController().addComponent(newComp, newRoom);
@@ -362,7 +364,7 @@ public class ComponentManagePanel extends JPanel {
 //		roomComboModel = new DefaultComboBoxModel(view.getController().getRooms().toArray());
 //		roomComboBox.setModel(roomComboModel);
 
-		String[] possibleTypes = {"Motion Sensor", "Sound Alarm", "LED Light"};
+		String[] possibleTypes = {"Motion Sensor", "Reed Switch", "Buzzer", "LED Light"};
 		typeComboModel = new DefaultComboBoxModel(possibleTypes);
 		typeComboBox.setModel(typeComboModel);
 		

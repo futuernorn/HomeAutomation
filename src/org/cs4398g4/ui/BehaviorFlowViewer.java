@@ -41,8 +41,7 @@ public class BehaviorFlowViewer extends JPanel {
 	final PickedState<Integer> pickedState;
 
 	/** Creates a new instance of SimpleGraphView */
-	public BehaviorFlowViewer(final LocalInterface view,
-			final BehaviorGraph graph) {
+	public BehaviorFlowViewer(final LocalInterface view, final BehaviorGraph graph) {
 		this.view = view;
 		this.graph = graph;
 
@@ -53,8 +52,6 @@ public class BehaviorFlowViewer extends JPanel {
 		layout.setSize(new Dimension(300, 300));
 		vv = new VisualizationViewer<Integer, String>(layout);
 		vv.setPreferredSize(new Dimension(350, 350));
-		System.out.println(view.getFrmHomeAutomationSystem().getContentPane()
-				.getSize());
 		vv.getRenderContext().setVertexLabelTransformer(new ToStringLabeller() {
 			@Override
 			public String transform(Object v) {
@@ -65,8 +62,7 @@ public class BehaviorFlowViewer extends JPanel {
 		// Create a graph mouse and add it to the visualization viewer
 		// Our Vertices are going to be Integer objects so we need an Integer
 		// factory
-		EditingModalGraphMouse gm = new EditingModalGraphMouse(
-				vv.getRenderContext(), graph.getVertexFactory(),
+		EditingModalGraphMouse gm = new EditingModalGraphMouse(vv.getRenderContext(), graph.getVertexFactory(),
 				graph.getEdgeFactory());
 
 		gm.getPopupEditingPlugin();
@@ -88,11 +84,9 @@ public class BehaviorFlowViewer extends JPanel {
 					Integer vertex = (Integer) subject;
 					graph.AddSelectedVertex(vertex);
 					if (pickedState.isPicked(vertex)) {
-						System.out.println("Vertex " + vertex
-								+ " is now selected");
+						System.out.println("Vertex " + vertex + " is now selected");
 					} else {
-						System.out.println("Vertex " + vertex
-								+ " no longer selected");
+						System.out.println("Vertex " + vertex + " no longer selected");
 					}
 				}
 			}
@@ -137,10 +131,8 @@ public class BehaviorFlowViewer extends JPanel {
 			// layout.
 			layout = new CircleLayout(graph.getG());
 			// System.out.println(view.getFrmHomeAutomationSystem().getContentPane().getSize());
-			layout.setSize(view.getFrmHomeAutomationSystem().getContentPane()
-					.getSize());
-			vv.setPreferredSize(view.getFrmHomeAutomationSystem()
-					.getContentPane().getSize());
+			layout.setSize(view.getFrmHomeAutomationSystem().getContentPane().getSize());
+			vv.setPreferredSize(view.getFrmHomeAutomationSystem().getContentPane().getSize());
 			vv.setGraphLayout(layout);
 			vv.repaint();
 			// layout = new CircleLayout(this.g);

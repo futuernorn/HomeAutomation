@@ -36,7 +36,6 @@ public class BehaviorGraph {
     
 
 		public String create() {
-//        	System.out.println(pickedState);
         	selectedBehaviors = new ArrayList<Integer>();
             return "E"+edgeCount++;
         }

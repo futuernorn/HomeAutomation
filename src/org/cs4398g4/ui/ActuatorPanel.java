@@ -36,7 +36,7 @@ public class ActuatorPanel extends ComponentPanel {
 	protected void updateToggleBtnText(GpioPinDigitalOutput outputPins) {
 		String currentState = component.getOutputPinState() ? "Off" : "On";
 		btnToggle.setText("Toggle " + currentState);
-		baseStation.getLog().addLog(component + " toggled state to: " + currentState);
+//		baseStation.getLog().addLog(component + " toggled state to: " + currentState);
 		refreshStateText();
 
 	}

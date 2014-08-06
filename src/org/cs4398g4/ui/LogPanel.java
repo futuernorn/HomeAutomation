@@ -1,6 +1,7 @@
 package org.cs4398g4.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,7 +12,7 @@ import javax.swing.event.AncestorListener;
 
 import org.cs4398g4.LogEntry;
 
-public class LogPanel extends JPanel{
+public class LogPanel extends JPanel {
 	/**
 	 * 
 	 */
@@ -20,46 +21,43 @@ public class LogPanel extends JPanel{
 	JScrollPane logScrollPane;
 	JLabel lblSystemLog;
 	JTextArea logTextArea;
+
 	public LogPanel(LocalInterface view) {
 		this.view = view;
-		addAncestorListener ( new AncestorListener () {
-	        public void ancestorAdded ( AncestorEvent event )  {
-	        	refreshLogText();
-	        }
-	        
+		addAncestorListener(new AncestorListener() {
+			public void ancestorAdded(AncestorEvent event) {
+				refreshLogText();
+			}
 
+			public void ancestorRemoved(AncestorEvent event) {
+			}
 
-			public void ancestorRemoved ( AncestorEvent event )
-	        {
-	            // Component removed from container
-	        }
+			public void ancestorMoved(AncestorEvent event) {
+			}
 
-	        public void ancestorMoved ( AncestorEvent event )
-	        {
-	            // Component container moved
-	        }
-	        
-	    } );
+		});
 		setLayout(new BorderLayout(0, 0));
+
+		 setPreferredSize(new Dimension(600, 125));
 		
-		
-		logScrollPane = new JScrollPane(logTextArea);
-		add(logScrollPane);
-		
+
 		lblSystemLog = new JLabel("System Log");
-		add(lblSystemLog, BorderLayout.NORTH);
-		
 		logTextArea = new JTextArea(5, 60);
-		add(logTextArea, BorderLayout.CENTER);
-//		textArea.setPreferredSize(new Dimension());
+//		 logTextArea.setPreferredSize(new Dimension(600,70));
+
+		logScrollPane = new JScrollPane(logTextArea);
+
+		add(lblSystemLog, BorderLayout.NORTH);
+		add(logScrollPane, BorderLayout.CENTER);
+
 	}
-	
-    public void refreshLogText() {
+
+	public void refreshLogText() {
 		// TODO Auto-generated method stub
-    	logTextArea.setText("");
-    	for (LogEntry logEntry : view.getBaseStation().getLog().getLogEntries()) {
-    		logTextArea.append(logEntry.toString() + "\n");
-    	}
-		
+		logTextArea.setText("");
+		for (LogEntry logEntry : view.getBaseStation().getLog().getLogEntries()) {
+			logTextArea.append(logEntry.toString() + "\n");
+		}
+
 	}
 }
