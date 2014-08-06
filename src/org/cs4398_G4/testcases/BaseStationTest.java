@@ -110,7 +110,7 @@ public class BaseStationTest {
 		testConditions.add(testCondition);
 		testActions.add(testAction);
 				
-		Behavior testBehavior = new Behavior("TestBehavior", testConditions, testActions);
+		Behavior testBehavior = new Behavior("TestBehavior", testConditions, testActions, BaseTester);
 		
 		assertEquals("Conditions should be size 1", 1, testBehavior.getConditions().size());
 		assertEquals("Actions should be size 1", 1, testBehavior.getActions().size());

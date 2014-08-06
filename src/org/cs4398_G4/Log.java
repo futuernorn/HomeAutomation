@@ -51,7 +51,7 @@ public class Log {
 	public ArrayList<LogEntry> searchLog(Date date)
 	{
 
-		ArrayList<LogEntry> tempEntries = null;
+		ArrayList<LogEntry> tempEntries = new ArrayList<LogEntry>();
 		
 		for (int i = 0; i < logEntries.size(); i++)
 		{

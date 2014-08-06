@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.cs4398_G4.BaseStation;
 import org.cs4398_G4.Log;
 import org.cs4398_G4.LogEntry;
 import org.cs4398_G4.User;
@@ -16,8 +17,10 @@ public class LogTest {
 	@Test
 	public void SearchTests() {
 		
+		BaseStation baseTest = new BaseStation();
+		
 		//-----set up testing variables-----
-		Log testLog = new Log();
+		Log testLog = new Log(baseTest);
 		User testUser = new User();
 		
 		//test both num variable and size of array

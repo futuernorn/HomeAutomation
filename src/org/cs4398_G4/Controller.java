@@ -68,7 +68,11 @@ public class Controller {
 	
 	public void Shutdown() {
 		for (Actuator a : baseStation.GetActuators()) {
-			a.TurnOff();
+			try {
+            	a.TurnOff();
+        	} catch(IncorrectPinStateException e) {
+        		System.out.println("Pin should be " + e.CorrectPinState());
+        	}
 		}
 		
 	}

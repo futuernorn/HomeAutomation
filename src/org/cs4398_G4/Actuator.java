@@ -44,6 +44,10 @@ public class Actuator extends Component implements ActionListener   {
 //		for (GpioPinDigitalOutput outputPin : getOutputPins()) {
 //			outputPin.low();
 //		}
+		
+		//Bug here: Component constructor doesnt set outputPins variable
+		//this results in trying to set an output pin low when it doesnt exist
+		
 		getOutputPins().low();
 		
 	}
@@ -57,12 +61,23 @@ public class Actuator extends Component implements ActionListener   {
         numClicks++;
         
         if (isOn) {
-        	getOutputPins().setState(PinState.LOW);
-        	getOutputPins().low();
+        	
+        	try {
+            	TurnOff();
+        	} catch(IncorrectPinStateException e1) {
+        		System.out.println("Pin should be " + e1.CorrectPinState());
+        	}
+        	
         	System.out.println("Setting " + getOutputPins().getName() + " to " + PinState.LOW);
         	isOn = false;
         } else {
-        	getOutputPins().setState(PinState.HIGH);
+        	
+        	try {
+            	TurnOn();
+        	} catch(IncorrectPinStateException e2) {
+        		System.out.println("Pin should be " + e2.CorrectPinState());
+        	}
+        	
         	System.out.println("Setting " + getOutputPins().getName() + " to " + PinState.HIGH);
         	isOn = true;
         }
@@ -79,22 +94,29 @@ public class Actuator extends Component implements ActionListener   {
 	/**
 	 * Turns off component by setting output pins to low or "off"
 	 */
-	public void TurnOff() {
+	public void TurnOff() throws IncorrectPinStateException {
 		// TODO Auto-generated method stub
 //		for (GpioPinDigitalOutput outputPin : getOutputPins()) {
 //			outputPin.low();
 //		}
+		
 		getOutputPins().low();
+		
+		//Exception if state isnt being set to low
+    	if(getOutputPins().getState() == PinState.HIGH)
+    		throw new IncorrectPinStateException(PinState.LOW);
 	}
 	
-	/**
-	 * Turns on component by setting output pins to high or "on"
-	 */
-	public void TurnOn() {
+	public void TurnOn() throws IncorrectPinStateException {
 //		for (GpioPinDigitalOutput outputPin : getOutputPins()) {
 //			outputPin.high();
 //		}
+		
 		getOutputPins().high();
+		
+		//Exception if state isn't being set to high
+    	if(getOutputPins().getState() == PinState.LOW)
+    		throw new IncorrectPinStateException(PinState.HIGH);
 		
 	}
 

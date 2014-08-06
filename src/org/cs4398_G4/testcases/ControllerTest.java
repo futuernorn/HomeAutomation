@@ -25,6 +25,9 @@ import org.junit.runners.Parameterized.Parameters;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.RaspiPin;
 
+//Bug has to do with outputPins not being initialized in Components
+//This results in an error in the actuator file when calling Initialize()
+
 @RunWith(Parameterized.class)
 public class ControllerTest {
 	
@@ -65,19 +68,31 @@ public class ControllerTest {
 	}
 	
 	@Test
-	public void test() {
+	public void TestSensorControl() {
 		
 		Room testRoom = new Room("Test Room");
 								
-		//create sensor and light
-		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
 		Sensor testSensor = new Sensor("testSensor", inputPinNumbers, outputPinNumbers);
 		
 		testController.AddComponent(testSensor, testRoom);
-		testController.AddComponent(testLight, testRoom);
+		
+		assertEquals("Incorrect Number of Sensors (GetComponents function)", 1, testController.getComponents().size());
+		assertEquals("Incorrect Number of Sensors (GetSensors function)", 1, testController.GetSensors().size());
 		
 	}
 	
-	
+	@Test
+	public void TestLightControl() {
+		
+		Room testRoom = new Room("Test Room");
+								
+		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
+		
+		testController.AddComponent(testLight, testRoom);
+		
+		assertEquals("Incorrect Number of Lights (GetComponents function)", 1, testController.getComponents().size());
+		assertEquals("Incorrect Number of Lights (GetActuators function)", 1, testController.GetActuators().size());
+		
+	}
 	
 }

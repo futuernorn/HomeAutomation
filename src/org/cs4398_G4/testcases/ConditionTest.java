@@ -3,6 +3,8 @@ package org.cs4398_G4.testcases;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
@@ -17,19 +19,55 @@ import org.cs4398_G4.Room;
 import org.cs4398_G4.Sensor;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
 
+@RunWith(Parameterized.class)
 public class ConditionTest {
+	
+	BaseStation testBase;
+	
+	private HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
+	private HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
+	
+	public ConditionTest(HashMap<String, Pin> input, HashMap<String, Pin> output) {
+		testBase = new BaseStation();
+		
+		this.inputPinNumbers = input;
+		this.outputPinNumbers = output;
+	}
+	
+	@Parameters
+	public static Collection<Object[]> generateTestData() {
+		
+		HashMap<String, Pin> inputEmpty = new HashMap<String, Pin>();
+		HashMap<String, Pin> outputEmpty = new HashMap<String, Pin>();
+		
+		HashMap<String, Pin> input1 = new HashMap<String, Pin>();
+		HashMap<String, Pin> output1 = new HashMap<String, Pin>();
+		
+		input1.put("SensorInput", RaspiPin.GPIO_00);
+		output1.put("SensorOutput", RaspiPin.GPIO_01);
+		
+		input1.put("LightInput", RaspiPin.GPIO_03);
+		output1.put("LightOutput", RaspiPin.GPIO_04);
+		
+		Object[][] data = new Object[][] { { inputEmpty, outputEmpty },
+				{ input1, output1 }
+		};
 
-	@Ignore
+		return Arrays.asList(data);
+		
+	}
+	
+	@Test
 	public void Test() {
 		
-		//-----Setup Behavior and Condition for testing------
-		
-		BaseStation testBase = new BaseStation();
 		Controller testController = new Controller(testBase);
 				
 		Room testRoom = new Room("Test Room");
@@ -37,17 +75,6 @@ public class ConditionTest {
 				
 		List<Condition> testConditions = new ArrayList<Condition>();
 		List<Action> testActions = new ArrayList<Action>();
-						
-		//Create Hashmap for pins
-		HashMap<String, Pin> inputPinNumbers = new HashMap<String, Pin>();
-		HashMap<String, Pin> outputPinNumbers = new HashMap<String, Pin>();
-						
-		//put pins for sensor and light
-		inputPinNumbers.put("SensorInput", RaspiPin.GPIO_00);
-		outputPinNumbers.put("SensorOutput", RaspiPin.GPIO_01);
-						
-		inputPinNumbers.put("LightInput", RaspiPin.GPIO_03);
-		outputPinNumbers.put("LightOutput", RaspiPin.GPIO_04);
 						
 		//create sensor and light
 		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
@@ -63,12 +90,12 @@ public class ConditionTest {
 		testConditions.add(testCondition);
 		testActions.add(testAction);
 						
-		Behavior testBehavior = new Behavior("TestBehavior", testConditions, testActions);
+		Behavior testBehavior = new Behavior("TestBehavior", testConditions, testActions, testBase);
 		
 		
 		//---Tests-----
 		
-		if(testAction.getActuator().GetIsOn()) {
+		if(testAction.getActuator().isOn()) {
 			fail("Light should be off");
 		}
 		
@@ -79,7 +106,7 @@ public class ConditionTest {
 			fail("PinState for light is LOW");
 		}
 		
-		if(!testAction.getActuator().GetIsOn()) {
+		if(!testAction.getActuator().isOn()) {
 			fail("Light should be on");
 		}
 		
