@@ -1,53 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project HomeAutomation with Jar-in-Jar Loader">
+<project default="create_run_jar" name="Create Runnable Jar for Project HomeAutomation with libraries in sub-folder">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <target name="create_run_jar">
         <jar destfile="//HOMEAUTOPI/pi/habin/ha.jar">
             <manifest>
-                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
-                <attribute name="Rsrc-Main-Class" value="Driver"/>
-                <attribute name="Class-Path" value="."/>
-                <attribute name="Rsrc-Class-Path" value="./ junit.jar pi4j-core-javadoc.jar pi4j-core-sources.jar pi4j-device-javadoc.jar pi4j-device-sources.jar pi4j-device.jar pi4j-example-javadoc.jar pi4j-example-sources.jar pi4j-example.jar pi4j-gpio-extension-javadoc.jar pi4j-gpio-extension-sources.jar pi4j-gpio-extension.jar pi4j-service-javadoc.jar pi4j-service-sources.jar pi4j-service.jar comm-2.0.jar forms-1.3.0.jar hamcrest-all-1.1.jar collections-generic-4.01.jar colt-1.2.0.jar concurrent-1.3.4.jar j3d-core-1.3.1.jar vecmath-1.3.1.jar jung-api-2.0.1.jar jung-algorithms-2.0.1.jar jung-visualization-2.0.1.jar jung-3d-2.0.1.jar jung-graph-impl-2.0.1.jar jung-3d-demos-2.0.1.jar wstx-asl-3.2.6.jar stax-api-1.0.1.jar jung-io-2.0.1.jar jung-jai-2.0.1.jar jung-samples-2.0.1.jar jung-jai-samples-2.0.1.jar testpicore.jar testpiprotocol.jar"/>
+                <attribute name="Main-Class" value="org.cs4398g4.Driver"/>
+                <attribute name="Class-Path" value=". ha_lib/junit.jar ha_lib/pi4j-core-javadoc.jar ha_lib/pi4j-core-sources.jar ha_lib/pi4j-device-javadoc.jar ha_lib/pi4j-device-sources.jar ha_lib/pi4j-device.jar ha_lib/pi4j-example-javadoc.jar ha_lib/pi4j-example-sources.jar ha_lib/pi4j-example.jar ha_lib/pi4j-gpio-extension-javadoc.jar ha_lib/pi4j-gpio-extension-sources.jar ha_lib/pi4j-gpio-extension.jar ha_lib/pi4j-service-javadoc.jar ha_lib/pi4j-service-sources.jar ha_lib/pi4j-service.jar ha_lib/comm-2.0.jar ha_lib/forms-1.3.0.jar ha_lib/hamcrest-all-1.1.jar ha_lib/collections-generic-4.01.jar ha_lib/colt-1.2.0.jar ha_lib/concurrent-1.3.4.jar ha_lib/j3d-core-1.3.1.jar ha_lib/vecmath-1.3.1.jar ha_lib/jung-api-2.0.1.jar ha_lib/jung-algorithms-2.0.1.jar ha_lib/jung-visualization-2.0.1.jar ha_lib/jung-3d-2.0.1.jar ha_lib/jung-graph-impl-2.0.1.jar ha_lib/jung-3d-demos-2.0.1.jar ha_lib/wstx-asl-3.2.6.jar ha_lib/stax-api-1.0.1.jar ha_lib/jung-io-2.0.1.jar ha_lib/jung-jai-2.0.1.jar ha_lib/jung-samples-2.0.1.jar ha_lib/jung-jai-samples-2.0.1.jar ha_lib/testpicore.jar ha_lib/testpiprotocol.jar ha_lib/miglayout15-swing.jar"/>
             </manifest>
-            <zipfileset src="jar-in-jar-loader.zip"/>
             <fileset dir="D:/workspace/HomeAutomation/bin"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="junit.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-core-javadoc.jar"/>
-        	<zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-core.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-core-sources.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-device-javadoc.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-device-sources.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-device.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-example-javadoc.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-example-sources.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-example.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-gpio-extension-javadoc.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-gpio-extension-sources.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-gpio-extension.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-service-javadoc.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-service-sources.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\pi4j-1.0" includes="pi4j-service.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib" includes="comm-2.0.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation" includes="forms-1.3.0.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib" includes="hamcrest-all-1.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="collections-generic-4.01.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="colt-1.2.0.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="concurrent-1.3.4.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="j3d-core-1.3.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="vecmath-1.3.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-api-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-algorithms-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-visualization-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-3d-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-graph-impl-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-3d-demos-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="wstx-asl-3.2.6.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="stax-api-1.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-io-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-jai-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-samples-2.0.1.jar"/>
-            <zipfileset dir="D:\workspace\HomeAutomation\lib\jung2-2_0_1" includes="jung-jai-samples-2.0.1.jar"/>
         </jar>
+    	<!--
+        <delete dir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <mkdir dir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/junit.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-core-javadoc.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-core-sources.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-device-javadoc.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-device-sources.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-device.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-example-javadoc.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-example-sources.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-example.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-gpio-extension-javadoc.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-gpio-extension-sources.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-gpio-extension.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-service-javadoc.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-service-sources.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/pi4j-1.0/pi4j-service.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/comm-2.0.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/forms-1.3.0.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/hamcrest-all-1.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/collections-generic-4.01.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/colt-1.2.0.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/concurrent-1.3.4.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/j3d-core-1.3.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/vecmath-1.3.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-api-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-algorithms-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-visualization-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-3d-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-graph-impl-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-3d-demos-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/wstx-asl-3.2.6.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/stax-api-1.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-io-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-jai-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-samples-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/jung2-2_0_1/jung-jai-samples-2.0.1.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/testpicore-1.0/testpicore.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/lib/testpicore-1.0/testpiprotocol.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        <copy file="D:/workspace/HomeAutomation/miglayout15-swing.jar" todir="//HOMEAUTOPI/pi/habin/ha_lib"/>
+        -->
     </target>
 </project>

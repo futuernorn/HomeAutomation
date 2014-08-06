@@ -103,7 +103,6 @@ public class Controller {
 				} catch (Exception ex) {
 					System.out.println(ex.getStackTrace());
 				}
-				// outputPin.addListener((GpioPinListenerDigital) newComp);
 				newComp.setOutputPin(outputPin);
 
 			}

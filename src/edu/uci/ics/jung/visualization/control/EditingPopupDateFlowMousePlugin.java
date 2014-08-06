@@ -6,7 +6,6 @@ import java.awt.geom.Point2D;
 import java.util.Set;
 
 import javax.swing.AbstractAction;
-import javax.swing.JMenu;
 import javax.swing.JPopupMenu;
 
 import org.apache.commons.collections15.Factory;
@@ -15,8 +14,6 @@ import edu.uci.ics.jung.algorithms.layout.GraphElementAccessor;
 import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.graph.DirectedGraph;
 import edu.uci.ics.jung.graph.Graph;
-import edu.uci.ics.jung.graph.UndirectedGraph;
-import edu.uci.ics.jung.graph.util.EdgeType;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.picking.PickedState;
 
