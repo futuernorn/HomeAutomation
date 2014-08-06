@@ -29,7 +29,8 @@ public class LogTest {
 		assertEquals("Number of Logs in array should be empty", 0, testLog.getLogEntries().size());
 		
 		testLog.addLog(testUser, "test string");
-		String testDate =  new SimpleDateFormat("MM/dd/yy").format(Calendar.getInstance().getTime());
+//		String testDate =  new SimpleDateFormat("MM/dd/yy").format(Calendar.getInstance().getTime());
+		Date testDate = new Date();
 		
 		//test both num variable and size of array after adding log
 		assertEquals("Number of Logs should be empty", 1, testLog.getNumLogEntries());
@@ -38,8 +39,8 @@ public class LogTest {
 		ArrayList<LogEntry> testUserSearch = new ArrayList<LogEntry>();
 		ArrayList<LogEntry> testDateSearch = new ArrayList<LogEntry>();
 		
-		testUserSearch = testLog.searchLogUser(testUser);
-		testDateSearch = testLog.searchLogDate(testDate);
+		testUserSearch = testLog.searchLog(testUser);
+		testDateSearch = testLog.searchLog(testDate);
 		
 		assertEquals("Number of Logs found should be 1", 1, testUserSearch.size());
 		assertEquals("Number of Logs found should be 1", 1, testDateSearch.size());

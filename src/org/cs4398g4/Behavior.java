@@ -70,9 +70,19 @@ public class Behavior implements GpioPinListenerDigital {
 		for (final Action action : actions) {
 			// isRunning++;
 			if (action.getPinState() == PinState.HIGH)
-				action.getActuator().turnOn();
+				try {
+					action.getActuator().turnOn();
+				} catch (IncorrectPinStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			else
-				action.getActuator().turnOff();
+				try {
+					action.getActuator().turnOff();
+				} catch (IncorrectPinStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			baseStation.getLog().addLog("running action:" + action);
 			new Timer().schedule(new TimerTask() {
 				@Override

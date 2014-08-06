@@ -66,7 +66,12 @@ public class Controller {
 
 	public void Shutdown() {
 		for (Actuator a : baseStation.getComponents(Actuator.class)) {
-			a.turnOff();
+			try {
+				a.turnOff();
+			} catch (IncorrectPinStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}
