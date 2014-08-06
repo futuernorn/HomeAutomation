@@ -51,12 +51,17 @@ public class Actuator extends Component implements ActionListener   {
 	/**
 	 * Turns off component by setting output pins to low or "off"
 	 */
-	public boolean turnOff() {
+	public boolean turnOff() throws IncorrectPinStateException {
 		if (baseStation == null)
 			return false;
 		if (baseStation.checkUserAccess(AccessLevel.USER)) {
 			baseStation.getLog().addLog(this + " turned off.");
-			getOutputPin().low();		
+			
+			getOutputPin().low();
+			
+			if(getOutputPin().getState() == PinState.HIGH)
+	    		throw new IncorrectPinStateException(PinState.LOW);
+			
 			return true;
 		}
 		baseStation.getLog().addLog(this + " unable to be turned off.");
@@ -66,12 +71,17 @@ public class Actuator extends Component implements ActionListener   {
 	/**
 	 * Turns on component by setting output pins to high or "on"
 	 */
-	public boolean turnOn() {
+	public boolean turnOn() throws IncorrectPinStateException {
 		if (baseStation == null)
 			return false;
 		if (baseStation.checkUserAccess(AccessLevel.USER)) {
 			baseStation.getLog().addLog(this + " turned on.");
+			
 			getOutputPin().high();		
+			
+			if(getOutputPin().getState() == PinState.LOW)
+	    		throw new IncorrectPinStateException(PinState.HIGH);
+			
 			return true;
 		}
 		baseStation.getLog().addLog(this + " unable to be turned on.");

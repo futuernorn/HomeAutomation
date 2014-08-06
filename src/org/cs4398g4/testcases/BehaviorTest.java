@@ -79,7 +79,7 @@ return Arrays.asList(data);
 	}
 	
 	@Test
-	public void BehaviorTest() {
+	public void BehaviorTestFunction() {
 		
 		BaseStation testBase = new BaseStation();
 		
