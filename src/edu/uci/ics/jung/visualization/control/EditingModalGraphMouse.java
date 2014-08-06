@@ -28,7 +28,7 @@ public class EditingModalGraphMouse<V,E> extends AbstractModalGraphMouse
 
 	protected Factory<V> vertexFactory;
 	protected Factory<E> edgeFactory;
-	protected EditingGraphMousePlugin<V,E> editingPlugin;
+	protected EditingPopupDateFlowMousePlugin<V, E> editingPlugin;
 	protected LabelEditingGraphMousePlugin<V,E> labelEditingPlugin;
 	protected EditingPopupGraphMousePlugin<V,E> popupEditingPlugin;
 	protected AnnotatingGraphMousePlugin<V,E> annotatingPlugin;
@@ -72,7 +72,7 @@ public class EditingModalGraphMouse<V,E> extends AbstractModalGraphMouse
 		scalingPlugin = new ScalingGraphMousePlugin(new CrossoverScalingControl(), 0, in, out);
 		rotatingPlugin = new RotatingGraphMousePlugin();
 		shearingPlugin = new ShearingGraphMousePlugin();
-		editingPlugin = new EditingGraphMousePlugin<V,E>(vertexFactory, edgeFactory);
+		editingPlugin = new EditingPopupDateFlowMousePlugin<V,E>(vertexFactory, edgeFactory);
 		labelEditingPlugin = new LabelEditingGraphMousePlugin<V,E>();
 		annotatingPlugin = new AnnotatingGraphMousePlugin<V,E>(rc);
 		popupEditingPlugin = new EditingPopupGraphMousePlugin<V,E>(vertexFactory, edgeFactory);
@@ -283,7 +283,7 @@ public class EditingModalGraphMouse<V,E> extends AbstractModalGraphMouse
 	/**
 	 * @return the editingPlugin
 	 */
-	public EditingGraphMousePlugin<V, E> getEditingPlugin() {
+	public EditingPopupDateFlowMousePlugin<V, E> getEditingPlugin() {
 		return editingPlugin;
 	}
 
