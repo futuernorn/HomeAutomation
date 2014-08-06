@@ -115,6 +115,8 @@ public class BaseStation {
 
 	public void runConnectedBehaviors(int id) {
 		System.out.println(graph.g.getIncidentEdges(id));
+		if (graph.g.getIncidentEdges(id) == null)
+			return;
 		for (String edge : graph.g.getIncidentEdges(id)) {
 			for (Integer endpoint : graph.g.getEndpoints(edge)) {
 				System.out.println("id(" + id + "): edge(" + edge

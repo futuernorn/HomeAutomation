@@ -6,6 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.pi4j.io.gpio.Pin;
+import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 
@@ -40,7 +41,8 @@ public class Behavior implements GpioPinListenerDigital {
 		this.actions = actions;
 		this.conditions = conditions;
 		for (Condition condition : conditions) {
-			condition.getSensor().getInputPin().addListener(this);
+			if (condition.getSensor().getInputPin() != null)
+				condition.getSensor().getInputPin().addListener(this);
 		}
 	}
 
@@ -67,7 +69,10 @@ public class Behavior implements GpioPinListenerDigital {
 
 		for (final Action action : actions) {
 			// isRunning++;
-			action.getActuator().getOutputPin().setState(action.getPinState());
+			if (action.getPinState() == PinState.HIGH)
+				action.getActuator().turnOn();
+			else
+				action.getActuator().turnOff();
 			baseStation.getLog().addLog("running action:" + action);
 			new Timer().schedule(new TimerTask() {
 				@Override

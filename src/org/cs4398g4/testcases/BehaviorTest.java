@@ -1,6 +1,6 @@
-package org.cs4398_G4.testcases;
+package org.cs4398g4.testcases;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,25 +8,20 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.cs4398_G4.Action;
-import org.cs4398_G4.Actuator;
-import org.cs4398_G4.BaseStation;
-import org.cs4398_G4.Behavior;
-import org.cs4398_G4.Condition;
-import org.cs4398_G4.Controller;
-import org.cs4398_G4.Room;
-import org.cs4398_G4.Sensor;
-import org.junit.Ignore;
+import org.cs4398g4.Action;
+import org.cs4398g4.Actuator;
+import org.cs4398g4.BaseStation;
+import org.cs4398g4.Behavior;
+import org.cs4398g4.Condition;
+import org.cs4398g4.Sensor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.pi4j.io.gpio.GpioPin;
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
 import com.pi4j.io.gpio.RaspiPin;
-import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 
 @RunWith(Parameterized.class)
 public class BehaviorTest {

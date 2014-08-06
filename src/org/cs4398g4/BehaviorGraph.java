@@ -9,12 +9,7 @@ import edu.uci.ics.jung.graph.SparseMultigraph;
 
 public class BehaviorGraph {
     Graph<Integer, String> g;
-    public Graph<Integer, String> getG() {
-		return g;
-	}
-	public void setG(Graph<Integer, String> g) {
-		this.g = g;
-	}
+
 	int nodeCount, edgeCount;
     Factory <Integer> vertexFactory;
 
@@ -51,6 +46,13 @@ public class BehaviorGraph {
 	}
 	public Factory<String> getEdgeFactory() {
 		return edgeFactory;
+	}
+	
+    public Graph<Integer, String> getG() {
+		return g;
+	}
+	public void setG(Graph<Integer, String> g) {
+		this.g = g;
 	}
 
 }

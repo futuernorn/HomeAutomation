@@ -81,7 +81,8 @@ public abstract class Component {
 
 	public void setInputPins(GpioPinDigitalInput inputPins) {
 		this.inputPin = inputPins;
-		inputPins.addListener(this.componentUI);
+		if (inputPins != null)
+			inputPins.addListener(this.componentUI);
 	}
 
 	public GpioPinDigitalOutput getOutputPin() {
@@ -93,6 +94,8 @@ public abstract class Component {
 	}
 
 	public boolean getOutputPinState() {
+		if (outputPin == null)
+			return false;
 		return (outputPin.getState() == PinState.HIGH) ? true : false;
 	}
 

@@ -78,8 +78,12 @@ public class Controller {
 			for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {
 				String key = entry.getKey();
 				Pin pinNumber = entry.getValue();
-				GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,
-						PinPullResistance.PULL_DOWN);
+				GpioPinDigitalInput inputPin = null;
+				try {
+					inputPin = gpio.provisionDigitalInputPin(pinNumber, key, PinPullResistance.PULL_DOWN);
+				} catch (Exception ex) {
+					System.out.println(ex.getStackTrace());
+				}
 
 				newComp.setInputPins(inputPin);
 
@@ -88,7 +92,12 @@ public class Controller {
 				String key = entry.getKey();
 				Pin pinNumber = entry.getValue();
 
-				GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinNumber, key);
+				GpioPinDigitalOutput outputPin = null;
+				try {
+					outputPin = gpio.provisionDigitalOutputPin(pinNumber, key);
+				} catch (Exception ex) {
+					System.out.println(ex.getStackTrace());
+				}
 				// outputPin.addListener((GpioPinListenerDigital) newComp);
 				newComp.setOutputPin(outputPin);
 

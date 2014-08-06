@@ -1,27 +1,34 @@
 package org.cs4398g4.testcases;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
+<<<<<<< HEAD:src/org/cs4398_G4/testcases/ConditionTest.java
+import org.cs4398_G4.Action;
+import org.cs4398_G4.Actuator;
+import org.cs4398_G4.BaseStation;
+import org.cs4398_G4.Behavior;
+import org.cs4398_G4.Condition;
+import org.cs4398_G4.Controller;
+import org.cs4398_G4.Room;
+import org.cs4398_G4.Sensor;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+=======
 import org.cs4398g4.Action;
 import org.cs4398g4.Actuator;
 import org.cs4398g4.BaseStation;
 import org.cs4398g4.Behavior;
 import org.cs4398g4.Condition;
-import org.cs4398g4.Controller;
-import org.cs4398g4.Room;
 import org.cs4398g4.Sensor;
-import org.cs4398g4.ui.BehaviorFlowViewer;
-import org.cs4398g4.ui.LocalInterface;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.Ignore;
+>>>>>>> master:src/org/cs4398g4/testcases/ConditionTest.java
 
 import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
@@ -69,10 +76,9 @@ public class ConditionTest {
 	public void Test() {
 		
 		Controller testController = new Controller(testBase);
-		BehaviorFlowViewer behaviorFlow = new BehaviorFlowViewer(new LocalInterface(testController, testBase), testBase.getGraph());
 				
 		Room testRoom = new Room("Test Room");
-		testBase.addRoom(testRoom);
+		testBase.AddRoom(testRoom);
 				
 		List<Condition> testConditions = new ArrayList<Condition>();
 		List<Action> testActions = new ArrayList<Action>();
@@ -81,8 +87,8 @@ public class ConditionTest {
 		Actuator testLight = new Actuator("test light", inputPinNumbers, outputPinNumbers);
 		Sensor testSensor = new Sensor("testSensor", inputPinNumbers, outputPinNumbers);
 				
-		testController.addComponent(testSensor, testRoom);
-		testController.addComponent(testLight, testRoom);
+		testController.AddComponent(testSensor, testRoom);
+		testController.AddComponent(testLight, testRoom);
 				
 		//create test actions and conditions for baseStation behavior test
 		Action testAction = new Action(testLight, PinState.HIGH, 5);
@@ -96,7 +102,7 @@ public class ConditionTest {
 		
 		//---Tests-----
 		
-		if(testAction.getActuator().getOutputPinState()) {
+		if(testAction.getActuator().isOn()) {
 			fail("Light should be off");
 		}
 		
@@ -107,7 +113,7 @@ public class ConditionTest {
 			fail("PinState for light is LOW");
 		}
 		
-		if(!testAction.getActuator().getOutputPinState()) {
+		if(!testAction.getActuator().isOn()) {
 			fail("Light should be on");
 		}
 		
