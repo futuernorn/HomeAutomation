@@ -73,14 +73,13 @@ public class Controller {
 
 	public boolean addComponent(Component newComp, Room newRoom) {
 		if (baseStation.checkUserAccess(AccessLevel.ADMIN)) {
-			baseStation.getLog().addLog(
-					"Component added to " + newRoom + ": " + newComp);
+			baseStation.getLog().addLog("Component added to " + newRoom + ": " + newComp);
 
 			for (Entry<String, Pin> entry : newComp.inputPinNumbers.entrySet()) {
 				String key = entry.getKey();
 				Pin pinNumber = entry.getValue();
-				GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(
-						pinNumber, key, PinPullResistance.PULL_DOWN);
+				GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(pinNumber, key,
+						PinPullResistance.PULL_DOWN);
 
 				newComp.setInputPins(inputPin);
 
@@ -89,8 +88,7 @@ public class Controller {
 				String key = entry.getKey();
 				Pin pinNumber = entry.getValue();
 
-				GpioPinDigitalOutput outputPin = gpio
-						.provisionDigitalOutputPin(pinNumber, key);
+				GpioPinDigitalOutput outputPin = gpio.provisionDigitalOutputPin(pinNumber, key);
 				// outputPin.addListener((GpioPinListenerDigital) newComp);
 				newComp.setOutputPin(outputPin);
 
@@ -100,7 +98,7 @@ public class Controller {
 				newComp.setComponentUI(new ComponentPanel(newComp, baseStation));
 				newRoom.AddComponent((Sensor) newComp);
 			} else if (newComp.getClass().equals(Actuator.class)) {
-				
+
 				newComp.setComponentUI(new ActuatorPanel(newComp, baseStation));
 				((Actuator) newComp).initalize(baseStation);
 				newRoom.AddComponent((Actuator) newComp);
@@ -108,8 +106,7 @@ public class Controller {
 			return true;
 		}
 		baseStation.getLog().addLog(
-				"Unable to add the following component to " + newRoom
-						+ " due to insufficent permissions: " + newComp);
+				"Unable to add the following component to " + newRoom + " due to insufficent permissions: " + newComp);
 
 		return false;
 
@@ -127,8 +124,7 @@ public class Controller {
 			return true;
 		}
 		baseStation.getLog().addLog(
-				"Unable to remove the following component due to insufficent permissions: "
-						+ removedComponent);
+				"Unable to remove the following component due to insufficent permissions: " + removedComponent);
 		return false;
 	}
 
@@ -145,9 +141,7 @@ public class Controller {
 			baseStation.addBehavior(behavior);
 			return true;
 		}
-		baseStation.getLog().addLog(
-				"Unable to add the following behavior due to insufficent permissions: "
-						+ behavior);
+		baseStation.getLog().addLog("Unable to add the following behavior due to insufficent permissions: " + behavior);
 		return false;
 
 	}
@@ -159,8 +153,7 @@ public class Controller {
 			return true;
 		}
 		baseStation.getLog().addLog(
-				"Unable to remove the following behavior due to insufficent permissions: "
-						+ removedBehavior);
+				"Unable to remove the following behavior due to insufficent permissions: " + removedBehavior);
 		return false;
 
 	}
@@ -183,9 +176,7 @@ public class Controller {
 			baseStation.removeRoom(room);
 			return true;
 		}
-		baseStation.getLog().addLog(
-				"Unable to remove the following room due to insufficent permissions: "
-						+ room);
+		baseStation.getLog().addLog("Unable to remove the following room due to insufficent permissions: " + room);
 		return false;
 
 	}
@@ -197,9 +188,7 @@ public class Controller {
 			baseStation.addRoom(newRoom);
 			return true;
 		}
-		baseStation.getLog().addLog(
-				"Unable to add the following room due to insufficent permissions: "
-						+ newRoomName);
+		baseStation.getLog().addLog("Unable to add the following room due to insufficent permissions: " + newRoomName);
 		return false;
 
 	}

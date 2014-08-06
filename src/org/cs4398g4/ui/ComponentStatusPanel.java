@@ -75,17 +75,16 @@ public class ComponentStatusPanel extends JPanel {
 
 
 	public void refreshComponents() {
-		System.out.println(new java.util.Date() + "refreshComponents() called");
 		componentDisplayPanel.removeAll();
 		List<Component> components;
-		Object currentRoomSelection = roomSelectionListModel.getSelectedItem();
+		Room currentRoomSelection = (Room)roomSelectionListModel.getSelectedItem();
 		
 		// If no room selected (i.e., "ALL" string), get all components		
 		if (currentRoomSelection.toString() == "ALL")
 			components = view.getBaseStation().getComponents(Component.class);
 		else
-			components = view.getBaseStation().getComponentsByRoom(Component.class, (Room)currentRoomSelection);
-		System.out.println(currentRoomSelection.getClass() + " => " + components );
+			components = view.getBaseStation().getComponentsByRoom(Component.class, currentRoomSelection);
+		System.out.println("Selected room: + " + currentRoomSelection + " => " + components );
 		for (Component component : components) {	
 			componentDisplayPanel.add(component.getComponentUI(), "span, wrap");
 		}		

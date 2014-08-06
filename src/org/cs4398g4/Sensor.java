@@ -14,19 +14,8 @@ public class Sensor extends Component {
 	public Sensor(String name, HashMap<String, Pin> inputPinNumbers,
 			HashMap<String, Pin> outputPinNumbers) {
 		super(name, inputPinNumbers, outputPinNumbers);
-		// this.setComponentUI(new SensorPanel(this));
-
-		// this.display = display;
 
 	}
 
-	// public void
-	// handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent
-	// event) {
-	// System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() +
-	// " = " + event.getState());
-	// // display.setText(" --> GPIO PIN STATE CHANGE: " + event.getPin() +
-	// " = " + event.getState());
-	// }
 
 }

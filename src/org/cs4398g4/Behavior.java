@@ -31,8 +31,7 @@ public class Behavior implements GpioPinListenerDigital {
 	 *            : List of actions to be perfomed when the list of conditions
 	 *            is met
 	 */
-	public Behavior(String name, List<Condition> conditions,
-			List<Action> actions, BaseStation baseStation) {
+	public Behavior(String name, List<Condition> conditions, List<Action> actions, BaseStation baseStation) {
 		this.baseStation = baseStation;
 		this.id = currentCount;
 		currentCount++;
@@ -69,12 +68,12 @@ public class Behavior implements GpioPinListenerDigital {
 		for (final Action action : actions) {
 			// isRunning++;
 			action.getActuator().getOutputPin().setState(action.getPinState());
-			System.out.println("running action:" + action);
+			baseStation.getLog().addLog("running action:" + action);
 			new Timer().schedule(new TimerTask() {
 				@Override
 				public void run() {
 					action.getActuator().getOutputPin().toggle();
-					System.out.println("stopping action:" + action);
+					baseStation.getLog().addLog("stopping action:" + action);
 					// isRunning--;
 				}
 			}, (long) action.getDuration() * 1000);
@@ -88,24 +87,12 @@ public class Behavior implements GpioPinListenerDigital {
 	 * handleGpioPinDigitalStateChangeEvent
 	 * (com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent)
 	 */
-	public void handleGpioPinDigitalStateChangeEvent(
-			GpioPinDigitalStateChangeEvent event) {
-		System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin()
-				+ " = " + event.getState());
+	public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 		for (Condition condition : conditions) {
-			for (Entry<String, Pin> entry : condition.getSensor()
-					.getInputPinNumbers().entrySet()) {
-				System.out.println("comaparing condition's pin number ("
-						+ entry.getValue() + ") to event's pin number ("
-						+ event.getPin().getPin() + ") => "
-						+ (entry.getValue() == event.getPin().getPin()));
+			for (Entry<String, Pin> entry : condition.getSensor().getInputPinNumbers().entrySet()) {
 
 				if (entry.getValue() == event.getPin().getPin()) {
-					System.out.println("comaparing condition's pin state ("
-							+ condition.getPinState()
-							+ ") to event's pin number (" + event.getState()
-							+ ") => "
-							+ (condition.getPinState() == event.getState()));
+
 					if (condition.getPinState() == event.getState())
 						if (condition.getElapsedTime() == null)
 							condition.startTimer(this);
@@ -131,7 +118,7 @@ public class Behavior implements GpioPinListenerDigital {
 			if (!condition.isConditionMet())
 				runActions = false;
 		}
-		System.out.println(" --> conditionMet / runActions => " + runActions);
+		baseStation.getLog().addLog(this + " --> conditionMet / runActions => " + runActions);
 		if (runActions) {
 			Run();
 			baseStation.runConnectedBehaviors(id);

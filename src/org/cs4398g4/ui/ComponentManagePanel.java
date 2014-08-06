@@ -345,8 +345,8 @@ public class ComponentManagePanel extends JPanel {
 	public void FillFields() {
 		Object[] avaiablePins = view.getController().getAvailablePins().toArray();
 		
-		System.out.println(view.getController().getAllPossiblePins());
-		System.out.println(view.getController().getAvailablePins());
+//		System.out.println(view.getController().getAllPossiblePins());
+		System.out.println("Free pins: " + view.getController().getAvailablePins());
 //		String[] rooms = view.getController().getRooms().toArray();
 		
 		
@@ -374,7 +374,7 @@ public class ComponentManagePanel extends JPanel {
 	public void updateComponentList() {
 		List<Component> components = view.getController().getComponents(Component.class);
 		componentListModel.removeAllElements();
-		System.out.println(components);
+		System.out.println("Current components: " + components);
 		for (Component component : components) {
 			componentListModel.addElement(component);
 		}
