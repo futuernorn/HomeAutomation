@@ -11,11 +11,9 @@ public class Sensor extends Component {
 
 	// String display;
 
-	public Sensor(String name, HashMap<String, Pin> inputPinNumbers,
-			HashMap<String, Pin> outputPinNumbers) {
+	public Sensor(String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
 		super(name, inputPinNumbers, outputPinNumbers);
 
 	}
-
 
 }

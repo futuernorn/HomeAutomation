@@ -13,8 +13,6 @@ import com.pi4j.io.gpio.PinState;
 public abstract class Component {
 	HashMap<String, Pin> inputPinNumbers;
 
-
-
 	HashMap<String, Pin> outputPinNumbers;
 	private GpioPinDigitalInput inputPin;
 	private GpioPinDigitalOutput outputPin;
@@ -41,8 +39,7 @@ public abstract class Component {
 	 * @param outputPinNumbers
 	 *            : Raspberry Pi pins used for output
 	 */
-	public Component(String name, HashMap<String, Pin> inputPinNumbers,
-			HashMap<String, Pin> outputPinNumbers) {
+	public Component(String name, HashMap<String, Pin> inputPinNumbers, HashMap<String, Pin> outputPinNumbers) {
 		this.name = name;
 		this.inputPinNumbers = inputPinNumbers;
 		this.outputPinNumbers = outputPinNumbers;

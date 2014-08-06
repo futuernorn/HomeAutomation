@@ -27,8 +27,7 @@ public class User {
 
 	public boolean checkLogin(String username, String password) {
 		boolean loggedIn = false;
-		if ((username.equalsIgnoreCase(name))
-				&& (BCrypt.checkpw(password, this.password)))
+		if ((username.equalsIgnoreCase(name)) && (BCrypt.checkpw(password, this.password)))
 			loggedIn = true;
 
 		return loggedIn;

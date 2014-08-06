@@ -118,8 +118,7 @@ public class Controller {
 			}
 			return true;
 		}
-		baseStation.getLog().addLog(
-				"Unable to add the following component to " + newRoom + " due to insufficent permissions: " + newComp);
+		baseStation.getLog().addLog("Unable to add the following component to " + newRoom + " due to insufficent permissions: " + newComp);
 
 		return false;
 
@@ -136,8 +135,7 @@ public class Controller {
 			baseStation.removeComponent(removedComponent);
 			return true;
 		}
-		baseStation.getLog().addLog(
-				"Unable to remove the following component due to insufficent permissions: " + removedComponent);
+		baseStation.getLog().addLog("Unable to remove the following component due to insufficent permissions: " + removedComponent);
 		return false;
 	}
 
@@ -165,8 +163,7 @@ public class Controller {
 			baseStation.removeBehavior(removedBehavior);
 			return true;
 		}
-		baseStation.getLog().addLog(
-				"Unable to remove the following behavior due to insufficent permissions: " + removedBehavior);
+		baseStation.getLog().addLog("Unable to remove the following behavior due to insufficent permissions: " + removedBehavior);
 		return false;
 
 	}

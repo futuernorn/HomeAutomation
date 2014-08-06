@@ -3,6 +3,10 @@ package org.cs4398g4;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author jh1921 Basic data structured used to separate groups of components
+ *         logically by location
+ */
 public class Room {
 	ArrayList<Component> components;
 	String name;
@@ -14,10 +18,6 @@ public class Room {
 
 	public void AddComponent(Component newComp) {
 		components.add(newComp);
-	}
-
-	public void ToggleAllComponents() {
-
 	}
 
 	@SuppressWarnings("unchecked")
@@ -32,11 +32,27 @@ public class Room {
 	}
 
 	public void TurnOn() {
-
+		List<Actuator> actuators = getComponents(Actuator.class);
+		for (Actuator actuator : actuators) {
+			try {
+				actuator.turnOn();
+			} catch (IncorrectPinStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void TurnOff() {
-
+		List<Actuator> actuators = getComponents(Actuator.class);
+		for (Actuator actuator : actuators) {
+			try {
+				actuator.turnOff();
+			} catch (IncorrectPinStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public String toString() {
