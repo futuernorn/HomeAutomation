@@ -1,3 +1,6 @@
-org.cs4398_G4
-org.cs4398_G4.examples
-org.cs4398_G4.testcases
+edu.uci.ics.jung.visualization.control
+org.cs4398g4
+org.cs4398g4.examples
+org.cs4398g4.testcases
+org.cs4398g4.ui
+org.cs4398g4.utilities
